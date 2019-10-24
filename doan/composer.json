@@ -60,6 +60,12 @@
         ],
         "dev":[
             "@php artisan serve"
+        ],
+        "create-tables":[
+            "@php artisan migrate --force"
+        ],
+        "create-tables-override":[
+            "@php artisan migrate:fresh"
         ]
     }
 }
