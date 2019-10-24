@@ -7,20 +7,20 @@
     <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
     <meta name="author" content="Coderthemes">
 
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
 
     <title>Adminto - Responsive Admin Dashboard Template</title>
 
     <!--Morris Chart CSS -->
-    <link rel="stylesheet" href="assets/plugins/morris/morris.css">
+    <link rel="stylesheet" href="{{asset('assets/plugins/morris/morris.css')}}">
 
     <!-- App css -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
-   
+    <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/css/icons.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/css/style.css') }}" rel="stylesheet" type="text/css" />
 
-    <script src="assets/js/modernizr.min.js"></script>
+
+    <script src="{{asset('assets/js/modernizr.min.js')}}"></script>
 
 </head>
 
@@ -122,7 +122,7 @@
 
                         <!-- quản lý người dùng -->
                         <li>
-                            <a href="/manageUser" class="waves-effect"><i class="mdi mdi-format-font"></i> <span>
+                            <a href="admin/manageUser" class="waves-effect"><i class="mdi mdi-format-font"></i> <span>
                                     User Management </span> </a>
                         </li>
 

@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 Route::get('/admin','AdminPageController@renderAdminPage');
 Route::get('/manageStaff','AdminPageController@renderStaff');
-Route::get('/manageUser','AdminPageController@renderUser');
+Route::get('admin/manageUser','AdminPageController@renderUser');
 Route::get('/manageProduct','AdminPageController@renderProduct');
 Route::get('/db',function(){
     $user=DB::table('users')->get();
