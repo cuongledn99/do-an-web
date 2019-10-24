@@ -15,3 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/admin','AdminPageController@renderAdminPage');
+Route::get('/manageStaff','AdminPageController@renderStaff');
+Route::get('/db',function(){
+    $user=DB::table('users')->get();
+    $user2=DB::select('select*from users');
+    info($user2);
+    //info($user);
+});

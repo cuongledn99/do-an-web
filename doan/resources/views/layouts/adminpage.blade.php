@@ -112,7 +112,7 @@
                     <ul>
 
                         <li>
-                            <a href="#" class="waves-effect"><i class="mdi mdi-format-font"></i> <span>
+                            <a href="/manageStaff" class="waves-effect"><i class="mdi mdi-format-font"></i> <span>
                                     Quản lý nhân viên </span> </a>
                         </li>
 
@@ -183,6 +183,7 @@
     <script src="assets/js/jquery.nicescroll.js"></script>
     <script src="assets/js/jquery.slimscroll.js"></script>
     <script src="assets/js/jquery.scrollTo.min.js"></script>
+    
 
 
 
@@ -192,6 +193,13 @@
     <!-- App js -->
     <script src="assets/js/jquery.core.js"></script>
     <script src="assets/js/jquery.app.js"></script>
+    <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="assets/plugins/datatables/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+                        $('#tableStaffs').DataTable()
+                    });
+    </script>
 
 </body>
 
