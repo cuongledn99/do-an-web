@@ -9,9 +9,9 @@
             <table id="tableStaffs" class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Staff_ID</th>
-                        <th>Staff_Name</th>
-                        <th>position</th>
+                        <th>Staff ID</th>
+                        <th>Username</th>
+                        <th>Position</th>
                         <th>Email</th>
                         <th>Action</th>
                     </tr>
@@ -19,11 +19,15 @@
 
 
                 <tbody>
+                    @foreach ($users as $user)
+                        
+                    
+                        
                     <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
+                        <td>{{$user->id}}</td>
+                        <td>{{$user->username}}</td>
+                        <td>{{$user->role}}</td>
+                        <td>{{$user->email}}</td>
                         <td>
                                <button class="btn btn-icon waves-effect waves-light btn-danger m-b-5">
                                     <i class="fa fa-trash"></i>
@@ -33,6 +37,7 @@
                                 </button>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

@@ -35,7 +35,7 @@
 
             <!-- LOGO -->
             <div class="topbar-left">
-                <a href="index.html" class="logo"><span>C-H-D<span></span></span><i class="mdi mdi-layers"></i></a>
+                <a href="/admin" class="logo"><span>C-H-D<span></span></span><i class="mdi mdi-layers"></i></a>
             </div>
 
             <!-- Button mobile view to collapse sidebar menu -->
