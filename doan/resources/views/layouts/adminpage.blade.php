@@ -18,6 +18,7 @@
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+   
 
     <script src="assets/js/modernizr.min.js"></script>
 
@@ -34,7 +35,7 @@
 
             <!-- LOGO -->
             <div class="topbar-left">
-                <a href="index.html" class="logo"><span>Admin<span>to</span></span><i class="mdi mdi-layers"></i></a>
+                <a href="index.html" class="logo"><span>C-H-D<span></span></span><i class="mdi mdi-layers"></i></a>
             </div>
 
             <!-- Button mobile view to collapse sidebar menu -->
@@ -49,7 +50,7 @@
                             </button>
                         </li>
                         <li class="list-inline-item">
-                            <h4 class="page-title">Dashboard</h4>
+                            <h4 class="page-title">AdminPage</h4>
                         </li>
                     </ul>
 
@@ -57,23 +58,11 @@
 
                         <ul class="list-unstyled topbar-right-menu float-right mb-0">
 
-                            <li>
+                            
                                 <!-- Notification -->
-                                <div class="notification-box">
-                                    <ul class="list-inline mb-0">
-                                        <li>
-                                            <a href="javascript:void(0);" class="right-bar-toggle">
-                                                <i class="mdi mdi-bell-outline noti-icon"></i>
-                                            </a>
-                                            <div class="noti-dot">
-                                                <span class="dot"></span>
-                                                <span class="pulse"></span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
+                                
                                 <!-- End Notification bar -->
-                            </li>
+                            <
 
                             <li class="hide-phone">
                                 <form class="app-search">
@@ -110,14 +99,15 @@
                 <!--- Sidemenu -->
                 <div id="sidebar-menu">
                     <ul>
-
+                        <!-- Quản lý nhân viên -->
                         <li>
                             <a href="/manageStaff" class="waves-effect"><i class="mdi mdi-format-font"></i> <span>
-                                    Quản lý nhân viên </span> </a>
+                                    Staff Management </span> </a>
                         </li>
 
 
-                        <li class="has_sub">
+                        <!--
+                            <li class="has_sub">
                             <a href="javascript:void(0);" class="waves-effect"><i
                                     class="mdi mdi-chart-donut-variant"></i><span> Quản lý sản phẩm </span> <span
                                     class="menu-arrow"></span></a>
@@ -126,6 +116,21 @@
                                 <li><a href="#">Sản phẩm 2</a></li>
                                 <li><a href="#">Sản phẩm 3</a></li>
                             </ul>
+                       
+                        </li>
+                         -->
+
+                        <!-- quản lý người dùng -->
+                        <li>
+                            <a href="/manageUser" class="waves-effect"><i class="mdi mdi-format-font"></i> <span>
+                                    User Management </span> </a>
+                        </li>
+
+
+                        <!--quản lý sản phẩm -->
+                        <li>
+                            <a href="/manageProduct" class="waves-effect"><i class="mdi mdi-format-font"></i> <span>
+                                    Product Management </span> </a>
                         </li>
 
                     </ul>
