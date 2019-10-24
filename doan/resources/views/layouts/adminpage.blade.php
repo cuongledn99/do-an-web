@@ -101,7 +101,7 @@
                     <ul>
                         <!-- Quản lý nhân viên -->
                         <li>
-                            <a href="/manageStaff" class="waves-effect"><i class="mdi mdi-format-font"></i> <span>
+                            <a href="/admin/manageStaff" class="waves-effect"><i class="mdi mdi-format-font"></i> <span>
                                     Staff Management </span> </a>
                         </li>
 
@@ -122,14 +122,14 @@
 
                         <!-- quản lý người dùng -->
                         <li>
-                            <a href="admin/manageUser" class="waves-effect"><i class="mdi mdi-format-font"></i> <span>
+                            <a href="/admin/manageUser" class="waves-effect"><i class="mdi mdi-format-font"></i> <span>
                                     User Management </span> </a>
                         </li>
 
 
                         <!--quản lý sản phẩm -->
                         <li>
-                            <a href="/manageProduct" class="waves-effect"><i class="mdi mdi-format-font"></i> <span>
+                            <a href="/admin/manageProduct" class="waves-effect"><i class="mdi mdi-format-font"></i> <span>
                                     Product Management </span> </a>
                         </li>
 
