@@ -12,4 +12,10 @@ class AdminPageController extends Controller
     public function renderStaff(){
         return view('adminpage.staffManagement');
     }
+    public function renderUser(){
+        return view('adminpage.UserManagement');
+    }
+    public function renderProduct(){
+        return view('adminpage.ProductManagement');
+    }
 }

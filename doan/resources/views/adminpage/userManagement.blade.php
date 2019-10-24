@@ -3,15 +3,14 @@
 <div class="row">
     <div class="col-12">
         <div class="card-box table-responsive">
-            <h4 class="m-t-0 header-title">Staff Management</h4>
+            <h4 class="m-t-0 header-title">User Management</h4>
             
 
             <table id="tableStaffs" class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Staff_ID</th>
-                        <th>Staff_Name</th>
-                        <th>position</th>
+                        <th>User_ID</th>
+                        <th>Full_Name</th>
                         <th>Email</th>
                         <th>Action</th>
                     </tr>
@@ -23,7 +22,7 @@
                         <td>Tiger Nixon</td>
                         <td>System Architect</td>
                         <td>Edinburgh</td>
-                        <td>61</td>
+                        
                         <td>
                                <button class="btn btn-icon waves-effect waves-light btn-danger m-b-5">
                                     <i class="fa fa-trash"></i>
