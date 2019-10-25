@@ -15,8 +15,6 @@ class CreateBillTable extends Migration
     {
         Schema::create('bill', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('billDetailID');
-            $table->foreign('billDetailID')->references('id')->on('bill_detail');
             $table->unsignedBigInteger('createdBy');
             $table->foreign('createdBy')->references('id')->on('users');
             $table->unsignedBigInteger('updatedBy');
