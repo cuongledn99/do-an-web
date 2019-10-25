@@ -12,40 +12,44 @@ class ShoesTableSeeder extends Seeder
     public function run()
     {
         DB::table('shoes')->insert([
-            'shoesID'=>'shoes00',
+            'id'=>1,
             'name'=>'Boot',
             'inPrice'=>'500000',
             'outPrice'=>'750000',
             'inStock'=>'50',
             'created_at'=>now(),
-            'updated_at'=>now()
+            'updated_at'=>now(),
+            'categoryID'=>1
         ]);
         DB::table('shoes')->insert([
-            'shoesID'=>'shoes01',
+            'id'=>2,
             'name'=>'Sneaker',
             'inPrice'=>'400000',
             'outPrice'=>'60000',
             'inStock'=>'50',
             'created_at'=>now(),
-            'updated_at'=>now()
+            'updated_at'=>now(),
+            'categoryID'=>2
         ]);
         DB::table('shoes')->insert([
-            'shoesID'=>'shoes02',
+            'id'=>3,
             'name'=>'Standar',
             'inPrice'=>'600000',
             'outPrice'=>'70000',
             'inStock'=>'20',
             'created_at'=>now(),
-            'updated_at'=>now()
+            'updated_at'=>now(),
+            'categoryID'=>3
         ]);
         DB::table('shoes')->insert([
-            'shoesID'=>'shoes03',
+            'id'=>4,
             'name'=>'Shoese',
             'inPrice'=>'600000',
             'outPrice'=>'70000',
             'inStock'=>'20',
             'created_at'=>now(),
-            'updated_at'=>now()
+            'updated_at'=>now(),
+            'categoryID'=>1
         ]);
     }
 }

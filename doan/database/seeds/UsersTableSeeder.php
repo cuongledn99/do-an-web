@@ -12,7 +12,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'customerID'=>'1',
+            'id'=>1,
             'username' => 'minhduc',
             'email' => Str::random(10).'@gmail.com',
             'password' => bcrypt('password'),
@@ -24,7 +24,7 @@ class UsersTableSeeder extends Seeder
         ]);
         
         DB::table('users')->insert([
-            'customerID'=>'2',
+            'id'=>2,
 
             'username' => 'huycuong',
             'email' => Str::random(10).'@gmail.com',
@@ -36,7 +36,7 @@ class UsersTableSeeder extends Seeder
             'updated_at'=>now()
         ]);
         DB::table('users')->insert([
-            'customerID'=>'3',
+            'id'=>3,
             'username' => 'vanhau',
             'email' => Str::random(10).'@gmail.com',
             'password' => bcrypt('password'),
@@ -47,7 +47,7 @@ class UsersTableSeeder extends Seeder
             'updated_at'=>now()
         ]);
         DB::table('users')->insert([
-            'customerID'=>'4',
+            'id'=>4,
             'username' => 'dinhtung',
             'email' => Str::random(10).'@gmail.com',
             'password' => bcrypt('password'),
@@ -58,7 +58,7 @@ class UsersTableSeeder extends Seeder
             'updated_at'=>now()
         ]);
         DB::table('users')->insert([
-            'customerID'=>'5',
+            'id'=>5,
             'username' => 'vanthanh',
             'email' => Str::random(10).'@gmail.com',
             'password' => bcrypt('password'),

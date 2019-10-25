@@ -6,22 +6,22 @@ class BillDetailTableSeeder extends Seeder
     public function run()
     {
         DB::table('bill_detail')->insert([
-            'billID'=>'00',
-            'shoesID'=>'shoes00',
+            'billID'=>1,
+            'shoesID'=>1,
             'amount'=>'2000000',
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
         DB::table('bill_detail')->insert([
-            'billID'=>'01',
-            'shoesID'=>'shoes01',
+            'billID'=>2,
+            'shoesID'=>2,
             'amount'=>'3000000',
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
         DB::table('bill_detail')->insert([
-            'billID'=>'02',
-            'shoesID'=>'shoes02',
+            'billID'=>3,
+            'shoesID'=>3,
             'amount'=>'4000000',
             'created_at'=>now(),
             'updated_at'=>now()

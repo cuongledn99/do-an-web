@@ -66,6 +66,10 @@
         ],
         "create-tables-override":[
             "@php artisan migrate:fresh"
+        ],
+        "drop-insert":[
+            "@php artisan migrate:fresh",
+            "@php artisan db:seed"
         ]
     }
 }

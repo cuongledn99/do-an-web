@@ -12,19 +12,19 @@ class CategoryTableSeeder extends Seeder
     public function run()
     {
         DB::table('category')->insert([
-            'categoryID'=>'1',
+            'id'=>1,
             'categoryName'=>'Boot',
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
         DB::table('category')->insert([
-            'categoryID'=>'2',
+            'id'=>2,
             'categoryName'=>'Sneaker',
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
         DB::table('category')->insert([
-            'categoryID'=>'3',
+            'id'=>3,
             'categoryName'=>'DepLao',
             'created_at'=>now(),
             'updated_at'=>now()
