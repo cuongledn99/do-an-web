@@ -30,7 +30,10 @@
                                <button class="btn btn-icon waves-effect waves-light btn-danger m-b-5">
                                     <i class="fa fa-trash"></i>
                                 </button>
-                                <a 
+                                <a
+                                id='btn-view-{{$user->id}}'
+                                onclick="setID({{$user->id}})"
+                                onclick="viewDetail({{$user->id}})" 
                                 href="#custom-modal"
                                 class="btn btn-icon waves-effect waves-light btn-success m-b-5 "
                                 data-animation="door" 
@@ -116,4 +119,12 @@
     </div>
 </div>
 
+
+<script>
+    const viewDetail=(userid)=>{
+        $.get(`/admin/user/${userid}`,(data,status)=>{
+            console.log(data)    
+        });
+    }
+</script>
 @endsection
