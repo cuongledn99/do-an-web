@@ -11,8 +11,8 @@
 
     <title>Adminto - Responsive Admin Dashboard Template</title>
 
-    <!--Morris Chart CSS -->
-    <link rel="stylesheet" href="{{asset('assets/plugins/morris/morris.css')}}">
+    <!-- Custom box css -->
+    <link href="{{asset('assets/plugins/custombox/dist/custombox.min.css')}}" rel="stylesheet">
 
     <!-- App css -->
     <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
@@ -202,9 +202,13 @@
     <script src="{{asset('assets/plugins/datatables/dataTables.bootstrap4.min.js')}}"></script>
     <script>
         $(document).ready(function () {
-                        $('#tableStaffs').DataTable()
-                    });
+        $('#tableStaffs').DataTable()
+        });
     </script>
+
+    <!-- Modal-Effect -->
+    <script src="{{asset('assets/plugins/custombox/dist/custombox.min.js')}}"></script>
+    <script src="{{asset('assets/plugins/custombox/dist/legacy.min.js')}}"></script>
 
 </body>
 
