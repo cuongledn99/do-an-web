@@ -20,4 +20,11 @@ class AdminPageController extends Controller
     public function renderProduct(){
         return view('adminpage.ProductManagement');
     }
+    public function deleteUser($id){
+        DB::table('users')
+            ->where('id', '=', $id)
+            ->delete();
+
+        return true;
+    }
 }

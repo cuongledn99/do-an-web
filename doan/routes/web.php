@@ -18,6 +18,9 @@ Route::get('/admin','AdminPageController@renderAdminPage');
 Route::get('/admin/manageStaff','AdminPageController@renderStaff');
 Route::get('admin/manageUser','AdminPageController@renderUser');
 Route::get('admin/manageProduct','AdminPageController@renderProduct');
+
+
+
 Route::get('/db',function(){
     $user=DB::table('users')->get();
     $user2=DB::select('select*from users');
