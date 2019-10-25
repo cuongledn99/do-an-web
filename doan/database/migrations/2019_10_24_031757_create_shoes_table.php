@@ -20,8 +20,8 @@ class CreateShoesTable extends Migration
             $table->unsignedBigInteger('categoryID');
             $table->foreign('categoryID')->references('id')->on('category');
             $table->string('image')->nullable();
-            $table->double('inPrice',10,10);
-            $table->double('outPrice',10,10);
+            $table->decimal('inPrice',13,5);
+            $table->decimal('outPrice',13,5);
             $table->integer('inStock');
             $table->timestamps();
         });
