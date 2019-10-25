@@ -38,5 +38,14 @@ class ShoesTableSeeder extends Seeder
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
+        DB::table('shoes')->insert([
+            'shoesID'=>'shoes03',
+            'name'=>'Shoese',
+            'inPrice'=>'600000',
+            'outPrice'=>'70000',
+            'inStock'=>'20',
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
     }
 }

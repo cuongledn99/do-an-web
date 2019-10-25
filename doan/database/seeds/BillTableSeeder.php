@@ -28,5 +28,21 @@ class BillTableSeeder extends Seeder
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
+        DB::table('bill')->insert([
+            'billID'=>'03',
+            'createdBy'=>'dinhtung',
+            'updatedBy'=>'dinhtung',
+            'customerID'=>'4',
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
+        DB::table('bill')->insert([
+            'billID'=>'04',
+            'createdBy'=>'vanthanh',
+            'updatedBy'=>'vanthanh',
+            'customerID'=>'5',
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
     }
 }
