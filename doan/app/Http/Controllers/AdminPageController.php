@@ -11,7 +11,7 @@ class AdminPageController extends Controller
                 return view('adminpage.index');
     }
     public function renderStaff(){
-        $users=DB::table('users')->get()->where('role','admin');
+        $users=DB::select('select * from users where role in ("admin","staff")');
         return view('adminpage.staffManagement',['users'=>$users]);
     }
     public function renderUser(){

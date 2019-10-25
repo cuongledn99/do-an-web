@@ -20,6 +20,27 @@ $(function(){
         title: 'Enter username',
         mode: 'inline'
     });
+    $('#inline-fullname').editable({
+        type: 'text',
+        pk: 2,
+        name: 'fullname',
+        title: 'Enter username',
+        mode: 'inline'
+    });
+    $('#inline-address').editable({
+        type: 'text',
+        pk: 3,
+        name: 'username',
+        title: 'Enter username',
+        mode: 'inline'
+    });
+    $('#inline-email').editable({
+        type: 'text',
+        pk: 4,
+        name: 'username',
+        title: 'Enter username',
+        mode: 'inline'
+    });
 
     $('#inline-firstname').editable({
         validate: function(value) {
@@ -32,8 +53,9 @@ $(function(){
         prepend: "not selected",
         mode: 'inline',
         source: [
-            {value: 1, text: 'Male'},
-            {value: 2, text: 'Female'}
+            {value: 'staff', text: 'Staff'},
+            {value: 'admin', text: 'Admin'},
+            {value: 'customer', text: 'Customer'}
         ],
         display: function(value, sourceData) {
             var colors = {"": "gray", 1: "green", 2: "blue"},

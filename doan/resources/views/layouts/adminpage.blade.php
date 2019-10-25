@@ -192,7 +192,7 @@
 
 
 
-
+    
 
 
     <!-- App js -->
@@ -209,6 +209,15 @@
     <!-- Modal-Effect -->
     <script src="{{asset('assets/plugins/custombox/dist/custombox.min.js')}}"></script>
     <script src="{{asset('assets/plugins/custombox/dist/legacy.min.js')}}"></script>
+
+    <!-- XEditable Plugin -->
+    <script src="{{asset('assets/plugins/moment/moment.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/plugins/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/pages/jquery.xeditable.js')}}"></script>
+
+    
+
+    
 
 </body>
 
