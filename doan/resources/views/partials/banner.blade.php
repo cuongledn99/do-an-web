@@ -16,7 +16,7 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
 				  <ul class="nav navbar-nav menu__list">
-					<li class="active menu__item menu__item--current"><a class="menu__link" href="{{$url->getHome()}}">Home <span class="sr-only">(current)</span></a></li>
+					<li class="active menu__item menu__item--current"><a class="menu__link" href="#">Home <span class="sr-only">(current)</span></a></li>
 					<li class="dropdown menu__item">
 						<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">men's wear <span class="caret"></span></a>
 							<ul class="dropdown-menu multi-column columns-3">
@@ -24,18 +24,18 @@
 									<div class="col-sm-6 multi-gd-img1 multi-gd-text ">
 										
 
-										<a href="{{$url->getMens()}}"><img src="{{asset('images/woo1.jpg')}}" alt=" "/></a>
+										<a href="#"><img src="{{asset('images/woo1.jpg')}}" alt=" "/></a>
 
 									</div>
 									<div class="col-sm-3 multi-gd-img">
 										<ul class="multi-column-dropdown">
-											<li><a href="{{$url->getMens()}}{{$url->getAthletic()}}">Athletic Shoes</a></li>
-											<li><a href="{{$url->getMens()}}{{$url->getSandals()}}">Sandals</a></li>
-											<li><a href="{{$url->getMens()}}{{$url->getCasual()}}">Casual Shoes</a></li>
-											<li><a href="{{$url->getMens()}}{{$url->getBoots()}}">Boots</a></li>
-											<li><a href="{{$url->getMens()}}{{$url->getDress()}}">Dress Shoes</a></li>
-											<li><a href="{{$url->getMens()}}{{$url->getSlippers()}}">Slippers</a></li>
-											<li><a href="{{$url->getMens()}}{{$url->getWides()}}">Wides</a></li>
+											<li><a href="#">Athletic Shoes</a></li>
+											<li><a href="#">Sandals</a></li>
+											<li><a href="#">Casual Shoes</a></li>
+											<li><a href="#">Boots</a></li>
+											<li><a href="#">Dress Shoes</a></li>
+											<li><a href="#">Slippers</a></li>
+											<li><a href="#">Wides</a></li>
 										</ul>
 									</div>
 									<div class="clearfix"></div>
@@ -49,26 +49,26 @@
 								<div class="row">
 									<div class="col-sm-3 multi-gd-img">
 										<ul class="multi-column-dropdown">
-											<li><a href="{{$url->getWomens()}}{{$url->getAthletic()}}">Athletic Shoes</a></li>
-											<li><a href="{{$url->getWomens()}}{{$url->getSandals()}}">Sandals</a></li>
-											<li><a href="{{$url->getWomens()}}{{$url->getCasual()}}">Casual Shoes</a></li>
-											<li><a href="{{$url->getWomens()}}{{$url->getBoots()}}">Boots</a></li>
-											<li><a href="{{$url->getWomens()}}{{$url->getDress()}}">Dress Shoes</a></li>
-											<li><a href="{{$url->getWomens()}}{{$url->getSlippers()}}">Slippers</a></li>
-											<li><a href="{{$url->getWomens()}}{{$url->getWides()}}">Wides</a></li>
+											<li><a href="#">Athletic Shoes</a></li>
+											<li><a href="#">Sandals</a></li>
+											<li><a href="#">Casual Shoes</a></li>
+											<li><a href="#">Boots</a></li>
+											<li><a href="#">Dress Shoes</a></li>
+											<li><a href="#">Slippers</a></li>
+											<li><a href="#">Wides</a></li>
 										</ul>
 									</div>
 								
 									<div class="col-sm-6 multi-gd-img multi-gd-text ">
-										<a href="{{$url->getMens()}}"><img src="{{asset('images/woo.jpg')}}" alt=" "/></a>
+										<a href="#"><img src="{{asset('images/woo.jpg')}}" alt=" "/></a>
 									</div>
 									<div class="clearfix"></div>
 								</div>
 							</ul>
 					</li>
-					<li class=" menu__item"><a class="menu__link" href="{{$url->getElectronic()}}">Electronics</a></li>
-					<li class=" menu__item"><a class="menu__link" href="{{$url->getCodes()}}">Short Codes</a></li>
-					<li class=" menu__item"><a class="menu__link" href="{{$url->getContact()}}">contact</a></li>
+					<li class=" menu__item"><a class="menu__link" href="#">Electronics</a></li>
+					<li class=" menu__item"><a class="menu__link" href="#">Short Codes</a></li>
+					<li class=" menu__item"><a class="menu__link" href="#">contact</a></li>
 				  </ul>
 				</div>
 			  </div>
@@ -76,7 +76,7 @@
 		</div>
 		<div class="top_nav_right">
 			<div class="cart box_1">
-						<a href="{{$url->getCheckOut()}}">
+						<a href="#">
 							<h3> <div class="total">
 								<i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
 								<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>

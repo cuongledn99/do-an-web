@@ -187,14 +187,14 @@
 									<img src="images/a1.png" alt="" class="pro-image-back">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="{{$url->getSingle()}}" class="link-product-add-cart">Quick View</a>
+												<a href="#" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
 										<span class="product-new-top">New</span>
 
 								</div>
 								<div class="item-info-product ">
-									<h4><a href="{{$url->getSingle()}}">Air Tshirt Black</a></h4>
+									<h4><a href="#">Air Tshirt Black</a></h4>
 									<div class="info-product-price">
 										<span class="item_price">$45.99</span>
 										<del>$69.71</del>
@@ -210,14 +210,14 @@
 									<img src="images/a8.png" alt="" class="pro-image-back">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="{{$url->getSingle()}}" class="link-product-add-cart">Quick View</a>
+												<a href="#" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
 										<span class="product-new-top">1+1 Offer</span>
 
 								</div>
 								<div class="item-info-product ">
-									<h4><a href="{{$url->getSingle()}}">Next Blue Blazer</a></h4>
+									<h4><a href="#">Next Blue Blazer</a></h4>
 									<div class="info-product-price">
 										<span class="item_price">$99.99</span>
 										<del>$109.71</del>
@@ -233,14 +233,14 @@
 									<img src="images/a3.png" alt="" class="pro-image-back">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="{{$url->getSingle()}}" class="link-product-add-cart">Quick View</a>
+												<a href="#" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
 										<span class="product-new-top">New</span>
 
 								</div>
 								<div class="item-info-product ">
-									<h4><a href="{{$url->getSingle()}}">Air Tshirt Black </a></h4>
+									<h4><a href="#">Air Tshirt Black </a></h4>
 									<div class="info-product-price">
 										<span class="item_price">$119.99</span>
 										<del>$120.71</del>
@@ -256,14 +256,14 @@
 									<img src="images/a4.png" alt="" class="pro-image-back">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="{{$url->getSingle()}}" class="link-product-add-cart">Quick View</a>
+												<a href="#" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
 										<span class="product-new-top">New</span>
 
 								</div>
 								<div class="item-info-product ">
-									<h4><a href="{{$url->getSingle()}}">Maroon Puma Tshirt</a></h4>
+									<h4><a href="#">Maroon Puma Tshirt</a></h4>
 									<div class="info-product-price">
 										<span class="item_price">$79.99</span>
 										<del>$120.71</del>
@@ -279,14 +279,14 @@
 									<img src="images/a5.png" alt="" class="pro-image-back">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="{{$url->getSingle()}}" class="link-product-add-cart">Quick View</a>
+												<a href="#" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
 										<span class="product-new-top">Combo Pack</span>
 
 								</div>
 								<div class="item-info-product ">
-									<h4><a href="{{$url->getSingle()}}">Multicoloured TShirts</a></h4>
+									<h4><a href="#">Multicoloured TShirts</a></h4>
 									<div class="info-product-price">
 										<span class="item_price">$129.99</span>
 										<del>$150.71</del>
@@ -302,14 +302,14 @@
 									<img src="images/a6.png" alt="" class="pro-image-back">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="{{$url->getSingle()}}" class="link-product-add-cart">Quick View</a>
+												<a href="#" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
 										<span class="product-new-top">New</span>
 
 								</div>
 								<div class="item-info-product ">
-									<h4><a href="{{$url->getSingle()}}">Air Tshirt Black </a></h4>
+									<h4><a href="#">Air Tshirt Black </a></h4>
 									<div class="info-product-price">
 										<span class="item_price">$129.99</span>
 										<del>$150.71</del>
@@ -325,14 +325,14 @@
 									<img src="images/a7.png" alt="" class="pro-image-back">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="{{$url->getSingle()}}" class="link-product-add-cart">Quick View</a>
+												<a href="#" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
 										<span class="product-new-top">New</span>
 
 								</div>
 								<div class="item-info-product ">
-									<h4><a href="{{$url->getSingle()}}">Dresses</a></h4>
+									<h4><a href="#">Dresses</a></h4>
 									<div class="info-product-price">
 										<span class="item_price">$129.99</span>
 										<del>$150.71</del>
@@ -348,14 +348,14 @@
 									<img src="images/a2.png" alt="" class="pro-image-back">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="{{$url->getSingle()}}" class="link-product-add-cart">Quick View</a>
+												<a href="#" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
 										<span class="product-new-top">New</span>
 
 								</div>
 								<div class="item-info-product ">
-									<h4><a href="{{$url->getSingle()}}">Wedding Blazers</a></h4>
+									<h4><a href="#">Wedding Blazers</a></h4>
 									<div class="info-product-price">
 										<span class="item_price">$129.99</span>
 										<del>$150.71</del>
@@ -371,14 +371,14 @@
 									<img src="images/g1.png" alt="" class="pro-image-back">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="{{$url->getSingle()}}" class="link-product-add-cart">Quick View</a>
+												<a href="#" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
 										<span class="product-new-top">New</span>
 
 								</div>
 								<div class="item-info-product ">
-									<h4><a href="{{$url->getSingle()}}">Dresses</a></h4>
+									<h4><a href="#">Dresses</a></h4>
 									<div class="info-product-price">
 										<span class="item_price">$45.99</span>
 										<del>$69.71</del>
@@ -394,14 +394,14 @@
 									<img src="images/g2.png" alt="" class="pro-image-back">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="{{$url->getSingle()}}" class="link-product-add-cart">Quick View</a>
+												<a href="#" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
 										<span class="product-new-top">New</span>
 
 								</div>
 								<div class="item-info-product ">
-									<h4><a href="{{$url->getSingle()}}"> Shirts</a></h4>
+									<h4><a href="#"> Shirts</a></h4>
 									<div class="info-product-price">
 										<span class="item_price">$45.99</span>
 										<del>$69.71</del>
@@ -417,14 +417,14 @@
 									<img src="images/g3.png" alt="" class="pro-image-back">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="{{$url->getSingle()}}" class="link-product-add-cart">Quick View</a>
+												<a href="#" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
 										<span class="product-new-top">New</span>
 
 								</div>
 								<div class="item-info-product ">
-									<h4><a href="{{$url->getSingle()}}">Shirts</a></h4>
+									<h4><a href="#">Shirts</a></h4>
 									<div class="info-product-price">
 										<span class="item_price">$45.99</span>
 										<del>$69.71</del>
@@ -440,14 +440,14 @@
 									<img src="images/mw2.png" alt="" class="pro-image-back">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="{{$url->getSingle()}}" class="link-product-add-cart">Quick View</a>
+												<a href="#" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
 										<span class="product-new-top">New</span>
 
 								</div>
 								<div class="item-info-product ">
-									<h4><a href="{{$url->getSingle()}}">T shirts</a></h4>
+									<h4><a href="#">T shirts</a></h4>
 									<div class="info-product-price">
 										<span class="item_price">$45.99</span>
 										<del>$69.71</del>
@@ -466,14 +466,14 @@
 									<img src="images/w1.png" alt="" class="pro-image-back">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="{{$url->getSingle()}}" class="link-product-add-cart">Quick View</a>
+												<a href="#" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
 										<span class="product-new-top">New</span>
 
 								</div>
 								<div class="item-info-product ">
-									<h4><a href="{{$url->getSingle()}}">Wedges</a></h4>
+									<h4><a href="#">Wedges</a></h4>
 									<div class="info-product-price">
 										<span class="item_price">$45.99</span>
 										<del>$69.71</del>
@@ -489,14 +489,14 @@
 									<img src="images/w2.png" alt="" class="pro-image-back">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="{{$url->getSingle()}}" class="link-product-add-cart">Quick View</a>
+												<a href="#" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
 										<span class="product-new-top">New</span>
 
 								</div>
 								<div class="item-info-product ">
-									<h4><a href="{{$url->getSingle()}}">Sandals</a></h4>
+									<h4><a href="#">Sandals</a></h4>
 									<div class="info-product-price">
 										<span class="item_price">$45.99</span>
 										<del>$69.71</del>
@@ -512,14 +512,14 @@
 									<img src="images/mw1.png" alt="" class="pro-image-back">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="{{$url->getSingle()}}" class="link-product-add-cart">Quick View</a>
+												<a href="#" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
 										<span class="product-new-top">New</span>
 
 								</div>
 								<div class="item-info-product ">
-									<h4><a href="{{$url->getSingle()}}">Casual Shoes</a></h4>
+									<h4><a href="#">Casual Shoes</a></h4>
 									<div class="info-product-price">
 										<span class="item_price">$45.99</span>
 										<del>$69.71</del>
@@ -535,14 +535,14 @@
 									<img src="images/mw3.png" alt="" class="pro-image-back">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="{{$url->getSingle()}}" class="link-product-add-cart">Quick View</a>
+												<a href="#" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
 										<span class="product-new-top">New</span>
 
 								</div>
 								<div class="item-info-product ">
-									<h4><a href="{{$url->getSingle()}}">Sport Shoes</a></h4>
+									<h4><a href="#">Sport Shoes</a></h4>
 									<div class="info-product-price">
 										<span class="item_price">$45.99</span>
 										<del>$69.71</del>
@@ -558,14 +558,14 @@
 									<img src="images/ep2.png" alt="" class="pro-image-back">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="{{$url->getSingle()}}" class="link-product-add-cart">Quick View</a>
+												<a href="#" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
 										<span class="product-new-top">New</span>
 
 								</div>
 								<div class="item-info-product ">
-									<h4><a href="{{$url->getSingle()}}">Watches</a></h4>
+									<h4><a href="#">Watches</a></h4>
 									<div class="info-product-price">
 										<span class="item_price">$45.99</span>
 										<del>$69.71</del>
@@ -581,14 +581,14 @@
 									<img src="images/ep3.png" alt="" class="pro-image-back">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="{{$url->getSingle()}}" class="link-product-add-cart">Quick View</a>
+												<a href="#" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
 										<span class="product-new-top">New</span>
 
 								</div>
 								<div class="item-info-product ">
-									<h4><a href="{{$url->getSingle()}}">Watches</a></h4>
+									<h4><a href="#">Watches</a></h4>
 									<div class="info-product-price">
 										<span class="item_price">$45.99</span>
 										<del>$69.71</del>
@@ -608,14 +608,14 @@
 									<img src="images/g1.png" alt="" class="pro-image-back">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="{{$url->getSingle()}}" class="link-product-add-cart">Quick View</a>
+												<a href="#" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
 										<span class="product-new-top">New</span>
 
 								</div>
 								<div class="item-info-product ">
-									<h4><a href="{{$url->getSingle()}}">Dresses</a></h4>
+									<h4><a href="#">Dresses</a></h4>
 									<div class="info-product-price">
 										<span class="item_price">$45.99</span>
 										<del>$69.71</del>
@@ -631,14 +631,14 @@
 									<img src="images/g2.png" alt="" class="pro-image-back">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="{{$url->getSingle()}}" class="link-product-add-cart">Quick View</a>
+												<a href="#" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
 										<span class="product-new-top">New</span>
 
 								</div>
 								<div class="item-info-product ">
-									<h4><a href="{{$url->getSingle()}}"> Shirts</a></h4>
+									<h4><a href="#"> Shirts</a></h4>
 									<div class="info-product-price">
 										<span class="item_price">$45.99</span>
 										<del>$69.71</del>
@@ -654,14 +654,14 @@
 									<img src="images/g3.png" alt="" class="pro-image-back">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="{{$url->getSingle()}}" class="link-product-add-cart">Quick View</a>
+												<a href="#" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
 										<span class="product-new-top">New</span>
 
 								</div>
 								<div class="item-info-product ">
-									<h4><a href="{{$url->getSingle()}}">Shirts</a></h4>
+									<h4><a href="#">Shirts</a></h4>
 									<div class="info-product-price">
 										<span class="item_price">$45.99</span>
 										<del>$69.71</del>
@@ -677,14 +677,14 @@
 									<img src="images/mw2.png" alt="" class="pro-image-back">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="{{$url->getSingle()}}" class="link-product-add-cart">Quick View</a>
+												<a href="#" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
 										<span class="product-new-top">New</span>
 
 								</div>
 								<div class="item-info-product ">
-									<h4><a href="{{$url->getSingle()}}">T shirts</a></h4>
+									<h4><a href="#">T shirts</a></h4>
 									<div class="info-product-price">
 										<span class="item_price">$45.99</span>
 										<del>$69.71</del>
@@ -700,14 +700,14 @@
 									<img src="images/w4.png" alt="" class="pro-image-back">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="{{$url->getSingle()}}" class="link-product-add-cart">Quick View</a>
+												<a href="#" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
 										<span class="product-new-top">New</span>
 
 								</div>
 								<div class="item-info-product ">
-									<h4><a href="{{$url->getSingle()}}">Air Tshirt Black Domyos</a></h4>
+									<h4><a href="#">Air Tshirt Black Domyos</a></h4>
 									<div class="info-product-price">
 										<span class="item_price">$45.99</span>
 										<del>$69.71</del>
@@ -723,14 +723,14 @@
 									<img src="images/w3.png" alt="" class="pro-image-back">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="{{$url->getSingle()}}" class="link-product-add-cart">Quick View</a>
+												<a href="#" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
 										<span class="product-new-top">New</span>
 
 								</div>
 								<div class="item-info-product ">
-									<h4><a href="{{$url->getSingle()}}">Hand Bags</a></h4>
+									<h4><a href="#">Hand Bags</a></h4>
 									<div class="info-product-price">
 										<span class="item_price">$45.99</span>
 										<del>$69.71</del>

@@ -2,7 +2,7 @@
 <div class="footer">
 	<div class="container">
 		<div class="col-md-3 footer-left">
-			<h2><a href="{{$url->getHome()}}"><img src="{{asset('images/logo3.jpg')}}" alt=" " /></a></h2>
+			<h2><a href="#"><img src="{{asset('images/logo3.jpg')}}" alt=" " /></a></h2>
 			<p>Neque porro quisquam est, qui dolorem ipsum quia dolor
 			sit amet, consectetur, adipisci velit, sed quia non
 			numquam eius modi tempora incidunt ut labore
@@ -23,12 +23,12 @@
 				<div class="col-md-4 sign-gd">
 					<h4>Information</h4>
 					<ul>
-						<li><a href="{{$url->getHome()}}">Home</a></li>
-						<li><a href="{{$url->getMens()}}">Men's Wear</a></li>
-						<li><a href="{{$url->getWomens()}}">Women's Wear</a></li>
-						<li><a href="{{$url->getElectronic()}}">Electronics</a></li>
-						<li><a href="{{$url->getCodes()}}">Short Codes</a></li>
-						<li><a href="{{$url->getContact()}}">Contact</a></li>
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Men's Wear</a></li>
+						<li><a href="#">Women's Wear</a></li>
+						<li><a href="#">Electronics</a></li>
+						<li><a href="#">Short Codes</a></li>
+						<li><a href="#">Contact</a></li>
 					</ul>
 				</div>
 
@@ -43,15 +43,15 @@
 				<div class="col-md-4 sign-gd flickr-post">
 					<h4>Flickr Posts</h4>
 					<ul>
-						<li><a href="{{$url->getSingle()}}"><img src="{{asset('images/b15.jpg')}}" alt=" " class="img-responsive" /></a></li>
-						<li><a href="{{$url->getSingle()}}"><img src="{{asset('images/b16.jpg')}}" alt=" " class="img-responsive" /></a></li>
-						<li><a href="{{$url->getSingle()}}"><img src="{{asset('images/b17.jpg')}}" alt=" " class="img-responsive" /></a></li>
-						<li><a href="{{$url->getSingle()}}"><img src="{{asset('images/b18.jpg')}}" alt=" " class="img-responsive" /></a></li>
-						<li><a href="{{$url->getSingle()}}"><img src="{{asset('images/b15.jpg')}}" alt=" " class="img-responsive" /></a></li>
-						<li><a href="{{$url->getSingle()}}"><img src="{{asset('images/b16.jpg')}}" alt=" " class="img-responsive" /></a></li>
-						<li><a href="{{$url->getSingle()}}"><img src="{{asset('images/b17.jpg')}}" alt=" " class="img-responsive" /></a></li>
-						<li><a href="{{$url->getSingle()}}"><img src="{{asset('images/b18.jpg')}}" alt=" " class="img-responsive" /></a></li>
-						<li><a href="{{$url->getSingle()}}"><img src="{{asset('images/b15.jpg')}}" alt=" " class="img-responsive" /></a></li>
+						<li><a href="#"><img src="{{asset('images/b15.jpg')}}" alt=" " class="img-responsive" /></a></li>
+						<li><a href="#"><img src="{{asset('images/b16.jpg')}}" alt=" " class="img-responsive" /></a></li>
+						<li><a href="#"><img src="{{asset('images/b17.jpg')}}" alt=" " class="img-responsive" /></a></li>
+						<li><a href="#"><img src="{{asset('images/b18.jpg')}}" alt=" " class="img-responsive" /></a></li>
+						<li><a href="#"><img src="{{asset('images/b15.jpg')}}" alt=" " class="img-responsive" /></a></li>
+						<li><a href="#"><img src="{{asset('images/b16.jpg')}}" alt=" " class="img-responsive" /></a></li>
+						<li><a href="#"><img src="{{asset('images/b17.jpg')}}" alt=" " class="img-responsive" /></a></li>
+						<li><a href="#"><img src="{{asset('images/b18.jpg')}}" alt=" " class="img-responsive" /></a></li>
+						<li><a href="#"><img src="{{asset('images/b15.jpg')}}" alt=" " class="img-responsive" /></a></li>
 					</ul>
 				</div>
 				<div class="clearfix"></div>
