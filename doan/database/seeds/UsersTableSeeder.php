@@ -20,12 +20,13 @@ class UsersTableSeeder extends Seeder
             'address'=>'ben cau',
             'role'=>'admin',
             'created_at'=>now(),
-            'updated_at'=>now()
+            'updated_at'=>now(),
+            'dob'=>now()
         ]);
         
         DB::table('users')->insert([
             'id'=>2,
-
+            'dob'=>now(),
             'username' => 'huycuong',
             'email' => Str::random(10).'@gmail.com',
             'password' => bcrypt('password'),
@@ -37,6 +38,7 @@ class UsersTableSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'id'=>3,
+            'dob'=>now(),
             'username' => 'vanhau',
             'email' => Str::random(10).'@gmail.com',
             'password' => bcrypt('password'),
@@ -48,6 +50,7 @@ class UsersTableSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'id'=>4,
+            'dob'=>now(),
             'username' => 'dinhtung',
             'email' => Str::random(10).'@gmail.com',
             'password' => bcrypt('password'),
@@ -59,6 +62,7 @@ class UsersTableSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'id'=>5,
+            'dob'=>now(),
             'username' => 'vanthanh',
             'email' => Str::random(10).'@gmail.com',
             'password' => bcrypt('password'),
