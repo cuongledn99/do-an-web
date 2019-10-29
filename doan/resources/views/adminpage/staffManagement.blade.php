@@ -123,14 +123,14 @@
     const viewDetail=(userid)=>{
         $.get(`/api/user/${userid}`,(data,status)=>{
             
-            let {username,fullname,address,email,role}=data[0]
+            let {username,fullname,address,email,role,dob}=data[0]
             
              $('#modal-username').text(username) 
              $('#modal-fullname').text(fullname)  
              $('#modal-address').text(address) 
              $('#modal-email').text(email) 
              $('#modal-role').text(role) 
-            //  $('#modal-username').text(username) 
+              $('#modal-dob').text(dob) 
         });
     }
 </script>
