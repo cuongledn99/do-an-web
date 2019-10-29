@@ -19,7 +19,3 @@ Route::get('/admin/manageStaff','AdminPageController@renderStaff');
 Route::get('admin/manageUser','AdminPageController@renderUser');
 Route::get('admin/manageProduct','AdminPageController@renderProduct');
 
-/**
- * adminpage api
- */
-Route::get('admin/user/{id}','AdminPageController@getUserInfo');

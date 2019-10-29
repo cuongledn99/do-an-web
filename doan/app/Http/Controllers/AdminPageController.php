@@ -23,8 +23,9 @@ class AdminPageController extends Controller
 
     public function getUserInfo($id){
         $user=DB::table('users')
-        ->get()
-        ->where('id',$id);
-        return $user;
+        ->where('id',$id)
+        ->get();
+        
+       return $user;
     }
 }

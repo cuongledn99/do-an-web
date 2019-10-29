@@ -32,7 +32,6 @@
                                 </button>
                                 <a
                                 id='btn-view-{{$user->id}}'
-                                onclick="setID({{$user->id}})"
                                 onclick="viewDetail({{$user->id}})" 
                                 href="#custom-modal"
                                 class="btn btn-icon waves-effect waves-light btn-success m-b-5 "
@@ -73,33 +72,33 @@
                                         <table class="table">
                                             <tbody>
                                                 <tr>
-                                                    <td width="35%">Username</td>
-                                                    <td width="65%"><a href="#" id="inline-username" data-type="text" data-pk="1" data-title="Enter username"
+                                                    <td width="35%" >Username</td>
+                                                    <td width="65%"><a href="#" id='modal-username' data-type="text" data-pk="1" data-title="Enter username"
                                                             class="editable editable-click" style="">superuser</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td width="35%">Full name</td>
-                                                    <td width="65%"><a href="#" id="inline-fullname" data-type="text" data-pk="2" data-title="Enter username"
+                                                    <td width="65%"><a href="#" id="modal-fullname" data-type="text" data-pk="2" data-title="Enter username"
                                                             class="editable editable-click" style="">superuser</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td width="35%">Adress</td>
-                                                    <td width="65%"><a href="#" id="inline-address" data-type="text" data-pk="3" data-title="Enter username"
+                                                    <td width="65%"><a href="#" id="modal-address" data-type="text" data-pk="3" data-title="Enter username"
                                                             class="editable editable-click" style="">superuser</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td width="35%">Email</td>
-                                                    <td width="65%"><a href="#" id="inline-email" data-type="text" data-pk="4" data-title="Enter username"
+                                                    <td width="65%"><a href="#" id="modal-email" data-type="text" data-pk="4" data-title="Enter username"
                                                             class="editable editable-click" style="">superuser</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Role</td>
-                                                    <td><a href="#" id="inline-sex" data-type="select" data-pk="1" data-value="" data-title="Select sex"
+                                                    <td><a href="#" id="modal-role" data-type="select" data-pk="1" data-value="" data-title="Select sex"
                                                             class="editable editable-click" style="color: gray;">not selected</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Date of birth</td>
-                                                    <td><a href="#" id="inline-dob" data-type="combodate" data-value="1984-05-15" data-format="YYYY-MM-DD"
+                                                    <td><a href="#" id="modal-dob" data-type="combodate" data-value="1984-05-15" data-format="YYYY-MM-DD"
                                                             data-viewformat="DD/MM/YYYY" data-template="D / MMM / YYYY" data-pk="1"
                                                             data-title="Select Date of birth" class="editable editable-click">15/05/1984</a></td>
                                                 </tr>
@@ -122,8 +121,16 @@
 
 <script>
     const viewDetail=(userid)=>{
-        $.get(`/admin/user/${userid}`,(data,status)=>{
-            console.log(data)    
+        $.get(`/api/user/${userid}`,(data,status)=>{
+            
+            let {username,fullname,address,email,role}=data[0]
+            
+             $('#modal-username').text(username) 
+             $('#modal-fullname').text(fullname)  
+             $('#modal-address').text(address) 
+             $('#modal-email').text(email) 
+             $('#modal-role').text(role) 
+            //  $('#modal-username').text(username) 
         });
     }
 </script>
