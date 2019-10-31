@@ -7,8 +7,13 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+    public function getRoles(){
+        $roles=DB::table('users')
+        ->select(DB::raw('distinct role'))
+        ->get();
+        return $roles;
+    }
     public function getUserInfo($id){
-        info('get info');
         $user=DB::table('users')
         ->where('id',$id)
         ->get();
@@ -17,7 +22,6 @@ class UserController extends Controller
     }
 
     public function updateUser($id){
-        info('update');
         DB::table('users')
         ->where('id',$id)
         ->update(['address'=>'test','email'=>'mail']);

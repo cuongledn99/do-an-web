@@ -82,7 +82,7 @@
                                                             class="editable editable-click" style=""></a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="35%">Adress</td>
+                                                    <td width="35%">Address</td>
                                                     <td width="65%"><a href="#" id="inline-address" data-type="text" data-pk="3" data-title="Enter username"
                                                             class="editable editable-click" style=""></a></td>
                                                 </tr>
@@ -120,11 +120,6 @@
 
 <script>
 let selectedId=''
-// $.ajaxSetup({
-//     headers: {
-//         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-//     }
-// });
 </script>
 <script>
     const viewDetail = (userid) => {
@@ -142,19 +137,38 @@ let selectedId=''
         });
     }
     const updateUserInfo = () => {
-        
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+        let username=$('#inline-username').text()
+        let fullname =$('#inline-fullname').text()
+        let address = $('#inline-address').text()
+        let email =$('#inline-email').text()
+        let role = $('#inline-role').text()
+        let dob =$('#inline-dob').text()
+        console.log(username)
+        console.log(fullname)
+        console.log(address)
+        console.log(email)
+        console.log(role)
+        console.log(dob)
         $.ajax({
-            url: `/api/user/${selectedId}`,
-            type: 'POST',
+            url: `/api/user/allRoles`,
+            type: 'get',
             success: function (result) {
-                console.log('result: '+result)
+                console.log(result)
+                console.log('result: ')
             }
         })
+        // $.ajaxSetup({
+        //     headers: {
+        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //     }
+        // });
+        // $.ajax({
+        //     url: `/api/user/${selectedId}`,
+        //     type: 'POST',
+        //     success: function (result) {
+        //         console.log('result: '+result)
+        //     }
+        // })
     }
 </script>
 @endsection
