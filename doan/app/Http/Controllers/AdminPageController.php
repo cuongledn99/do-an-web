@@ -21,11 +21,5 @@ class AdminPageController extends Controller
         return view('adminpage.ProductManagement');
     }
 
-    public function getUserInfo($id){
-        $user=DB::table('users')
-        ->where('id',$id)
-        ->get();
-        
-       return $user;
-    }
+    
 }

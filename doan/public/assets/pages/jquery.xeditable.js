@@ -41,6 +41,13 @@ $(function(){
         title: 'Enter username',
         mode: 'inline'
     });
+    $('#inline-role').editable({
+        type: 'text',
+        pk: 4,
+        name: 'username',
+        title: 'Enter username',
+        mode: 'inline'
+    });
 
     $('#inline-firstname').editable({
         validate: function(value) {

@@ -73,39 +73,39 @@
                                             <tbody>
                                                 <tr>
                                                     <td width="35%" >Username</td>
-                                                    <td width="65%"><a href="#" id='modal-username' data-type="text" data-pk="1" data-title="Enter username"
-                                                            class="editable editable-click" style="">superuser</a></td>
+                                                    <td width="65%"><a href="#" id='inline-username' data-type="text" data-pk="1" data-title="Enter username"
+                                                            class="editable editable-click" style=""></a></td>
                                                 </tr>
                                                 <tr>
                                                     <td width="35%">Full name</td>
-                                                    <td width="65%"><a href="#" id="modal-fullname" data-type="text" data-pk="2" data-title="Enter username"
-                                                            class="editable editable-click" style="">superuser</a></td>
+                                                    <td width="65%"><a href="#" id="inline-fullname" data-type="text" data-pk="2" data-title="Enter username"
+                                                            class="editable editable-click" style=""></a></td>
                                                 </tr>
                                                 <tr>
                                                     <td width="35%">Adress</td>
-                                                    <td width="65%"><a href="#" id="modal-address" data-type="text" data-pk="3" data-title="Enter username"
-                                                            class="editable editable-click" style="">superuser</a></td>
+                                                    <td width="65%"><a href="#" id="inline-address" data-type="text" data-pk="3" data-title="Enter username"
+                                                            class="editable editable-click" style=""></a></td>
                                                 </tr>
                                                 <tr>
                                                     <td width="35%">Email</td>
-                                                    <td width="65%"><a href="#" id="modal-email" data-type="text" data-pk="4" data-title="Enter username"
-                                                            class="editable editable-click" style="">superuser</a></td>
+                                                    <td width="65%"><a href="#" id="inline-email" data-type="text" data-pk="4" data-title="Enter username"
+                                                            class="editable editable-click" style=""></a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Role</td>
-                                                    <td><a href="#" id="modal-role" data-type="select" data-pk="1" data-value="" data-title="Select sex"
+                                                    <td><a href="#" id="inline-role" data-type="select" data-pk="1" data-value="" data-title="Select sex"
                                                             class="editable editable-click" style="color: gray;">not selected</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Date of birth</td>
-                                                    <td><a href="#" id="modal-dob" data-type="combodate" data-value="1984-05-15" data-format="YYYY-MM-DD"
+                                                    <td><a href="#" id="inline-dob" data-type="combodate" data-value="1984-05-15" data-format="YYYY-MM-DD"
                                                             data-viewformat="DD/MM/YYYY" data-template="D / MMM / YYYY" data-pk="1"
-                                                            data-title="Select Date of birth" class="editable editable-click">15/05/1984</a></td>
+                                                            data-title="Select Date of birth" class="editable editable-click"></a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                         <button type="button"  class="btn btn-danger btn-rounded w-md waves-effect waves-light m-b-5" onclick="Custombox.close()">Cancel</button>
-                                        <button type="button" class="btn btn-success btn-rounded w-md waves-effect waves-light m-b-5">Save</button>
+                                        <button type="button" class="btn btn-success btn-rounded w-md waves-effect waves-light m-b-5" onclick="updateUserInfo()">Save</button>
 
                                 </div>
                         </div>
@@ -118,20 +118,43 @@
     </div>
 </div>
 
-
 <script>
-    const viewDetail=(userid)=>{
-        $.get(`/api/user/${userid}`,(data,status)=>{
-            
-            let {username,fullname,address,email,role,dob}=data[0]
-            
-             $('#modal-username').text(username) 
-             $('#modal-fullname').text(fullname)  
-             $('#modal-address').text(address) 
-             $('#modal-email').text(email) 
-             $('#modal-role').text(role) 
-              $('#modal-dob').text(dob) 
+let selectedId=''
+// $.ajaxSetup({
+//     headers: {
+//         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//     }
+// });
+</script>
+<script>
+    const viewDetail = (userid) => {
+        selectedId = userid
+        $.get(`/api/user/${userid}`, (data, status) => {
+
+            let { username, fullname, address, email, role, dob } = data[0]
+
+            $('#inline-username').text(username)
+            $('#inline-fullname').text(fullname)
+            $('#inline-address').text(address)
+            $('#inline-email').text(email)
+            $('#inline-role').text(role)
+            $('#inline-dob').text(dob)
         });
+    }
+    const updateUserInfo = () => {
+        
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: `/api/user/${selectedId}`,
+            type: 'POST',
+            success: function (result) {
+                console.log('result: '+result)
+            }
+        })
     }
 </script>
 @endsection
