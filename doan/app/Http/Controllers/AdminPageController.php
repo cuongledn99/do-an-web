@@ -18,13 +18,24 @@ class AdminPageController extends Controller
         return view('adminpage.UserManagement');
     }
     public function renderProduct(){
-        return view('adminpage.ProductManagement');
+        $shoes=DB::table('shoes')
+                                 ->join('category', 'shoes.categoryID', '=', 'category.id')
+                                 ->select('shoes.id','shoes.name','category.categoryName','shoes.inStock')
+                                 ->get();
+        return view('adminpage.ProductManagement',['shoes'=>$shoes]);
     }
     public function deleteUser($id){
         DB::table('users')
             ->where('id', '=', $id)
             ->delete();
 
-        return true;
+        return 1;
+    }
+    public function deleteProduct($id){
+        DB::table('shoes')
+            ->where('id', '=', $id)
+            ->delete();
+
+        return 1;
     }
 }
