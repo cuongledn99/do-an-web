@@ -143,32 +143,37 @@ let selectedId=''
         let email =$('#inline-email').text()
         let role = $('#inline-role').text()
         let dob =$('#inline-dob').text()
-        console.log(username)
-        console.log(fullname)
-        console.log(address)
-        console.log(email)
-        console.log(role)
-        console.log(dob)
-        $.ajax({
-            url: `/api/user/allRoles`,
-            type: 'get',
-            success: function (result) {
-                console.log(result)
-                console.log('result: ')
+        
+        // format date before submit to server
+        let arrDOB=dob.split('/')
+        let arrDOBFormat1=dob.split('-')
+        if(arrDOB.length>1){
+            dob=`${arrDOB[1]}/${arrDOB[0]}/${arrDOB[2]}`
+        }
+        if(arrDOBFormat1.length>1){
+            dob=`${arrDOBFormat1[1]}/${arrDOBFormat1[2]}/${arrDOBFormat1[0]}`
+        }
+        
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
-        })
-        // $.ajaxSetup({
-        //     headers: {
-        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //     }
-        // });
-        // $.ajax({
-        //     url: `/api/user/${selectedId}`,
-        //     type: 'POST',
-        //     success: function (result) {
-        //         console.log('result: '+result)
-        //     }
-        // })
+        });
+        
+        $.post(
+            `/api/user/${selectedId}`,
+            {
+                username,
+                fullname,
+                address,
+                email,
+                role,
+                dob
+            },
+            function(data,status){
+                location.reload()
+            }
+        )
     }
 </script>
 @endsection
