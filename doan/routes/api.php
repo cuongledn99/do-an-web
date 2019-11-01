@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 Route::delete('admin/user/{id}','AdminPageController@deleteUser');
+Route::delete('admin/product/{id}','AdminPageController@deleteProduct');
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

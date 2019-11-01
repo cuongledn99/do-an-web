@@ -29,7 +29,10 @@
                         <td>{{$user->role}}</td>
                         <td>{{$user->email}}</td>
                         <td>
-                            <button type="button" class="btn btn-primary" onclick="setID({{$user->id}})" data-toggle="modal" data-target="#myModal">
+                            <button type="button" class="btn btn-primary" 
+                            onclick="setID({{$user->id}})" 
+                            data-toggle="modal" 
+                            data-target="#myModal">
                                 <i class="fa fa-trash"></i>
                             </button>
 
