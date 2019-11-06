@@ -4,7 +4,7 @@
     <div class="col-12">
         <div class="card-box table-responsive">
             <h4 class="m-t-0 header-title">Staff Management</h4>
-            
+
 
             <table id="tableStaffs" class="table table-bordered">
                 <thead>
@@ -27,9 +27,9 @@
                         <td>{{$user->role}}</td>
                         <td>{{$user->email}}</td>
                         <td>
-                               <button class="btn btn-icon waves-effect waves-light btn-danger m-b-5">
-                                    <i class="fa fa-trash"></i>
-                                </button>
+                            <button type="button" class="btn btn-primary" onclick="setID({{$user->id}})" data-toggle="modal" data-target="#myModal">
+                                <i class="fa fa-trash"></i>
+                            </button>
                                 <a
                                 id='btn-view-{{$user->id}}'
                                 onclick="viewDetail({{$user->id}})" 
@@ -43,6 +43,30 @@
                                     <i class="fa fa-eye"></i>
                                 </a>
                         </td>
+                        <div class="modal" id="myModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Are you sure to want delete ?</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+
+
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer" style="justify-content:center;">
+                                        <button type="button" class="btn btn-success" onclick="confirmDelete()" data-dismiss="modal">Yes</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
                     </tr>
                     @endforeach
                 </tbody>
@@ -122,6 +146,22 @@
         </div>
     </div>
 </div>
+<script>
+    var selected = '';
 
+    function setID(id) {
+        selected = id;
+        console.log(selected);
+    }
 
+    function confirmDelete() {
+        $.ajax({
+            url: `/api/admin/user/${selected}`,
+            type: 'DELETE',
+            success: function(result) {
+                location.reload();
+            }
+        });
+    }
+</script>
 @endsection
