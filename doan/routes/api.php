@@ -10,7 +10,7 @@ Route::get('/user/{id}','UserController@getUserInfo');
 Route::post('/user/{id}','UserController@updateUser');
 Route::get('user/allRoles','UserController@getRoles');
 
-Route::delete('admin/user/{id}','AdminPageController@deleteUser');
+Route::delete('admin/user/{id}','UserController@deleteUser');
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

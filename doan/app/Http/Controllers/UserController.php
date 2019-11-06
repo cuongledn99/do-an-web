@@ -64,4 +64,12 @@ class UserController extends Controller
             );
         return 1;
     }
+
+    public function deleteUser($id){
+        DB::table('users')
+            ->where('id', '=', $id)
+            ->delete();
+
+        return 1;
+    }
 }

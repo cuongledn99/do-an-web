@@ -27,7 +27,7 @@
                         <td>{{$user->role}}</td>
                         <td>{{$user->email}}</td>
                         <td>
-                            <button type="button" class="btn btn-primary" onclick="setID({{$user->id}})" data-toggle="modal" data-target="#myModal">
+                            <button type="button" class="btn btn-icon waves-effect waves-light btn-danger m-b-5" onclick="setID({{$user->id}})" data-toggle="modal" data-target="#myModal">
                                 <i class="fa fa-trash"></i>
                             </button>
                                 <a
@@ -146,22 +146,5 @@
         </div>
     </div>
 </div>
-<script>
-    var selected = '';
 
-    function setID(id) {
-        selected = id;
-        console.log(selected);
-    }
-
-    function confirmDelete() {
-        $.ajax({
-            url: `/api/admin/user/${selected}`,
-            type: 'DELETE',
-            success: function(result) {
-                location.reload();
-            }
-        });
-    }
-</script>
 @endsection

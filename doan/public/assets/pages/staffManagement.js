@@ -1,6 +1,25 @@
 let selectedId = ''
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+function setID(id) {
+    selectedId = id;
+}
+
+function confirmDelete() {
+    $.ajax({
+        url: `/api/admin/user/${selectedId}`,
+        type: 'DELETE',
+        success: function(result) {
+            location.reload();
+        }
+    });
+}
+
 const viewDetail = (userid) => {
-    console.log('view detail func')
     selectedId = userid
     $.get(`/api/user/${userid}`, (data, status) => {
 
@@ -78,11 +97,6 @@ $('#btnSubmitUpdate').click(function (e) {
         dob = `${arrDOBFormat1[1]}/${arrDOBFormat1[2]}/${arrDOBFormat1[0]}`
     }
 
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
     //stop submit the form, we will post it manually.
     e.preventDefault();
     // Get form
