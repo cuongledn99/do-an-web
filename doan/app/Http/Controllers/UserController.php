@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Utils\UploadFile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 
 class UserController extends Controller
 {
@@ -49,10 +51,8 @@ class UserController extends Controller
         $hasFile = $req->hasFile('file');
         if ($hasFile) {
             $file = $req->file('file');
-            $fileExt = $file->getClientOriginalExtension();
-            $newFilename = uniqid('avatar', true) . '.' . $fileExt;
-
-            $newImageURL = $file->move('upload', $newFilename);
+           
+            $newImageURL= UploadFile::uploadFile('upload',$file);
 
             $updateArr['image'] = $newImageURL;
         }
