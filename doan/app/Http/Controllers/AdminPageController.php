@@ -11,7 +11,7 @@ class AdminPageController extends Controller
                 return view('adminpage.index');
     }
     public function renderStaff(){
-        $users=DB::table('users')->get()->where('role','admin');
+        $users=DB::table('users')->get();
         return view('adminpage.staffManagement',['users'=>$users]);
     }
     public function renderUser(){
@@ -25,6 +25,6 @@ class AdminPageController extends Controller
             ->where('id', '=', $id)
             ->delete();
 
-        return true;
+        return 1;
     }
 }

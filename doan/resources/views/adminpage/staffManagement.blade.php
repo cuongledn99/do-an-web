@@ -81,15 +81,9 @@
             url: `/api/admin/user/${selected}`,
             type: 'DELETE',
             success: function(result) {
-                if(result==true)
-                    alert('ok')
-                    else
-                    alert('not ok')
-                console.log(result);
                 location.reload();
             }
         });
-
     }
 </script>
 
