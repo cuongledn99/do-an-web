@@ -216,7 +216,7 @@
     <script type="text/javascript" src="{{asset('assets/plugins/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/pages/jquery.xeditable.js')}}"></script>
 
-    
+    <script src="{{asset('assets/pages/staffManagement.js')}}"></script>
 
     
 
