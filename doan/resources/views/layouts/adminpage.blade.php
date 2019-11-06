@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
     <meta name="author" content="Coderthemes">
-
+<!-- CSRF Token -->
+<meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
 
     <title>Adminto - Responsive Admin Dashboard Template</title>
 
-    <!--Morris Chart CSS -->
-    <link rel="stylesheet" href="{{asset('assets/plugins/morris/morris.css')}}">
+    <!-- Custom box css -->
+    <link href="{{asset('assets/plugins/custombox/dist/custombox.min.css')}}" rel="stylesheet">
 
     <!-- App css -->
     <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
@@ -192,7 +193,7 @@
 
 
 
-
+    
 
 
     <!-- App js -->
@@ -202,9 +203,22 @@
     <script src="{{asset('assets/plugins/datatables/dataTables.bootstrap4.min.js')}}"></script>
     <script>
         $(document).ready(function () {
-                        $('#tableStaffs').DataTable()
-                    });
+        $('#tableStaffs').DataTable()
+        });
     </script>
+
+    <!-- Modal-Effect -->
+    <script src="{{asset('assets/plugins/custombox/dist/custombox.min.js')}}"></script>
+    <script src="{{asset('assets/plugins/custombox/dist/legacy.min.js')}}"></script>
+
+    <!-- XEditable Plugin -->
+    <script src="{{asset('assets/plugins/moment/moment.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/plugins/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/pages/jquery.xeditable.js')}}"></script>
+
+    <script src="{{asset('assets/pages/staffManagement.js')}}"></script>
+
+    
 
 </body>
 
