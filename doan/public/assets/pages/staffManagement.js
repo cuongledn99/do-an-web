@@ -1,17 +1,17 @@
-let selectedId = ''
+let selectedIdStaff = ''
 $.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
 
-function setID(id) {
-    selectedId = id;
+function setIdStaff(id) {
+    selectedIdStaff = id;
 }
 
-function confirmDelete() {
+function confirmDeleteStaff() {
     $.ajax({
-        url: `/api/admin/user/${selectedId}`,
+        url: `/api/admin/user/${selectedIdStaff}`,
         type: 'DELETE',
         success: function(result) {
             location.reload();
@@ -20,7 +20,7 @@ function confirmDelete() {
 }
 
 const viewDetail = (userid) => {
-    selectedId = userid
+    selectedIdStaff = userid
     $.get(`/api/user/${userid}`, (data, status) => {
 
         let { username, fullname, address, email, role, dob, image } = data[0]
@@ -118,7 +118,7 @@ $('#btnSubmitUpdate').click(function (e) {
     $.ajax({
         type: "POST",
         enctype: 'multipart/form-data',
-        url: `/api/user/${selectedId}`,
+        url: `/api/user/${selectedIdStaff}`,
         data: data,
         processData: false,
         contentType: false,

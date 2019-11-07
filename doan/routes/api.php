@@ -11,6 +11,8 @@ Route::post('/user/{id}','UserController@updateUser');
 Route::get('user/allRoles','UserController@getRoles');
 
 Route::delete('admin/user/{id}','UserController@deleteUser');
+Route::delete('admin/product/{id}','ProductController@deleteProduct');
+
 Route::post('admin/product',function(Request $request){
     info ('hello');
     $name=$request->input('name');
@@ -51,7 +53,6 @@ Route::post('admin/product',function(Request $request){
 
 
 
-Route::delete('admin/product/{id}','AdminPageController@deleteProduct');
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

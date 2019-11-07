@@ -9,4 +9,4 @@ Route::get('/admin','AdminPageController@renderAdminPage');
 Route::get('/admin/manageStaff','AdminPageController@renderStaff');
 Route::get('admin/manageUser','AdminPageController@renderUser');
 Route::get('admin/manageProduct','AdminPageController@renderProduct')->name('manageProduct');
-Route::resource('shoes','AdminPageController');
+// Route::resource('shoes','AdminPageController');

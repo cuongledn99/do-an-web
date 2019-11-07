@@ -27,7 +27,7 @@
                         <td>{{$user->role}}</td>
                         <td>{{$user->email}}</td>
                         <td>
-                            <button type="button" class="btn btn-icon waves-effect waves-light btn-danger m-b-5" onclick="setID({{$user->id}})" data-toggle="modal" data-target="#myModal">
+                            <button type="button" class="btn btn-icon waves-effect waves-light btn-danger m-b-5" onclick="setIdStaff({{$user->id}})" data-toggle="modal" data-target="#myModal">
                                 <i class="fa fa-trash"></i>
                             </button>
                                 <a
@@ -57,7 +57,7 @@
 
                                     <!-- Modal footer -->
                                     <div class="modal-footer" style="justify-content:center;">
-                                        <button type="button" class="btn btn-success" onclick="confirmDelete()" data-dismiss="modal">Yes</button>
+                                        <button type="button" class="btn btn-success" onclick="confirmDeleteStaff()" data-dismiss="modal">Yes</button>
                                         <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
                                     </div>
 

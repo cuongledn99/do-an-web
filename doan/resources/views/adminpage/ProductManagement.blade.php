@@ -38,7 +38,7 @@
                                 type="button" class="btn btn-primary"
                                  data-toggle="modal" 
                                  data-target="#myModal"
-                                 onclick="getID({{$shoe->id}})"
+                                 onclick="setIdProduct({{$shoe->id}})"
                                  >
                                     <i class="fa fa-trash"></i>
                                 </button>
@@ -59,7 +59,7 @@
                                             <div class="modal-footer">
                                             <button type="button" 
                                             class="btn btn-success" 
-                                            onclick="confirmDelete()"
+                                            onclick="confirmDeleteProduct()"
                                             data-dismiss="modal">Yes</button>
                                                 <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
                                             </div>

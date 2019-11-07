@@ -217,6 +217,7 @@
     <script type="text/javascript" src="{{asset('assets/pages/jquery.xeditable.js')}}"></script>
 
     <script src="{{asset('assets/pages/staffManagement.js')}}"></script>
+    <script src="{{asset('assets/pages/productManagement.js')}}"></script>
 
     
 
