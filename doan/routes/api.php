@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Utils\UploadFile;
 
 /**
  * adminpage api
@@ -14,41 +15,37 @@ Route::delete('admin/user/{id}','UserController@deleteUser');
 Route::delete('admin/product/{id}','ProductController@deleteProduct');
 
 Route::post('admin/product',function(Request $request){
-    info ('hello');
+    
     $name=$request->input('name');
     $description=$request->input('description');
     $categoryid=$request->input('categoryid');
-    $image=$request->file('image');
     $inprice=$request->input('inprice');
     $outprice=$request->input('outprice');
     $instock=$request->input('instock');
     $created_at=now();
     $updated_at=now();
-    DB::table('shoes')->insert([
-        [
-            'name'=>$name,
-            'description'=>$description,
-            'categoryID'=>$categoryid,
-            'inPrice'=>(float)$inprice,
-            'outPrice'=>(float)$outprice,
-            'inStock'=>(int)$instock,
-            'created_at'=>$created_at,
-            'updated_at'=>$updated_at,
-            'image'=>$image
-        ]
-    ]);
+    
      
    
     if ($request->hasFile('image')) {
         $image = $request->file('image');
-        $name = $image->getClientOriginalName();
-        $destinationPath = public_path('PublicImage');
-        $image->move($destinationPath, $name);
-        
         //return back()->with('success','Image Upload successfully');
-    
+        $newImageURL= UploadFile::uploadFile('upload',$image);
+        // $updateArr['image'] = $newImageURL;
+        DB::table('shoes')->insert([
+            [
+                'name'=>$name,
+                'description'=>$description,
+                'categoryID'=>$categoryid,
+                'inPrice'=>(float)$inprice,
+                'outPrice'=>(float)$outprice,
+                'inStock'=>(int)$instock,
+                'created_at'=>$created_at,
+                'updated_at'=>$updated_at,
+                'image'=>$newImageURL,
+            ]
+        ]);
 }
-    
     // xy ly luu xuong db
     return redirect('/admin/manageProduct');
 });
