@@ -27,11 +27,13 @@ Route::post('admin/product',function(Request $request){
     DB::table('shoes')->insert([
         [
             'name'=>$name,
+            'description'=>$description,
             'categoryID'=>$categoryid,
             'inPrice'=>(float)$inprice,
             'outPrice'=>(float)$outprice,
             'inStock'=>(int)$instock,
             'created_at'=>$created_at,
+            'updated_at'=>$updated_at,
             'image'=>$image
         ]
     ]);
@@ -39,11 +41,11 @@ Route::post('admin/product',function(Request $request){
    
     if ($request->hasFile('image')) {
         $image = $request->file('image');
-        $name = time().'.'.$image->getClientOriginalExtension();
-        $destinationPath = public_path('test');
+        $name = $image->getClientOriginalName();
+        $destinationPath = public_path('PublicImage');
         $image->move($destinationPath, $name);
         
-        return back()->with('success','Image Upload successfully');
+        //return back()->with('success','Image Upload successfully');
     
 }
     

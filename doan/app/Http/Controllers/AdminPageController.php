@@ -24,7 +24,9 @@ class AdminPageController extends Controller
                                  ->join('category', 'shoes.categoryID', '=', 'category.id')
                                  ->select('shoes.id','shoes.name','category.categoryName','shoes.inStock')
                                  ->get();
-        return view('adminpage.ProductManagement',['shoes'=>$shoes]);
+        $category=DB::table('category')
+                                ->get();
+        return view('adminpage.ProductManagement',['shoes'=>$shoes],['category'=>$category]);
     }
     public function deleteProduct($id){
         DB::table('shoes')
