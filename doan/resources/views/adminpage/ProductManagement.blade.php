@@ -58,9 +58,9 @@
                                 </div>
                             </div>
 
-                            <button class="btn btn-icon waves-effect waves-light btn-success m-b-5">
+                            <a id='btn-view-{{$shoe->id}}' onclick="viewDetailProduct({{$shoe->id}})" href="#custom-modal" class="btn btn-icon waves-effect waves-light btn-success m-b-5 " data-animation="door" data-plugin="custommodal" data-overlayspeed="100" data-overlaycolor="#36404a">
                                 <i class="fa fa-eye"></i>
-                            </button>
+                            </a>
                         </td>
                     </tr>
                     @endforeach
@@ -119,9 +119,9 @@
                                                 <label for="categoryid" class="col-sm-3 col-form-label">Category</label>
                                                 <div class="col-sm-9">
                                                     <select class="form-control" id="categoryid" name="categoryid">
-                                                    @foreach($category as $categorys)
+                                                        @foreach($category as $categorys)
                                                         <option value="1">{{$categorys->categoryName}}</option>
-                                                    @endforeach
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
@@ -173,29 +173,104 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-<script>
-    var selected = '';
+<div id="custom-modal" class="modal-demo">
+    <button type="button" class="close" onclick="Custombox.close();">
+        <span>&times;</span><span class="sr-only">Close</span>
+    </button>
+    <h4 class="custom-modal-title">Detail information Product</h4>
+    <div class="custom-modal-text">
+        <div class="bg-picture card-box">
+            <form enctype="multipart/form-data" method="post" id="fileUploadForm">
+                <div class="profile-info-name row">
+                    <div class='col-sm-3'>
+                        <img id='product-avatar' src='{{asset("/images/avatar.png")}}' class="img-thumbnail" alt="Product_Image">
+                        <div>
+                            <label for="file" class="btn">Change image</label>
+                            <input id="file" style="display:none" type="file">
+                        </div>
+                    </div>
+                    <div class='col-sm-9'>
+                        <div class="profile-info-detail">
 
-    function getID(id) {
-        selected = id;
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td width="35%">ID</td>
+                                        <td width="65%">
+                                            <input type="text" id="ProductID">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="35%">Name</td>
+                                        <td width="65%">
+                                            <input type="text" id="ProductName">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="35%">Description</td>
+                                        <td width="65%">
+                                            <input type="text" id="ProductDescription">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>CategoryID</td>
+                                        <td>
+                                            <select name="categoryid" id="categoryid">
+                                                <option value="#" id="selectedCate"></option>
+                                                @foreach($category as $categorys)
+                                                <option value="1">{{$categorys->categoryName}}</option>
+                                                @endforeach
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="35%">Inprice</td>
+                                        <td width="65%">
+                                            <input type="text" id="inprice">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="35%">Outprice</td>
+                                        <td width="65%">
+                                            <input type="text" id="outprice">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="35%">Instock</td>
+                                        <td width="65%">
+                                            <input type="text" id="instock">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Created_at</td>
+                                        <td>
+                                            <input type="text" id="createdat">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Updated_at</td>
+                                        <td>
+                                            <input type="text" id="updatedat">
+                                        </td>
+                                    </tr>
+                                    <!-- <tr>
+                                        <td>Date of birth</td>
+                                        <td><a href="#" id="inline-dob" data-type="combodate" data-value="1984-05-15"
+                                                data-format="YYYY-MM-DD" data-viewformat="DD/MM/YYYY" data-template="D / MMM / YYYY"
+                                                data-pk="1" data-title="Select Date of birth" class="editable editable-click"></a></td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                            <button type="button" class="btn btn-danger btn-rounded w-md waves-effect waves-light m-b-5" onclick="Custombox.close()">Cancel</button>
+                            <button type="submit" class="btn btn-success btn-rounded w-md waves-effect waves-light m-b-5" id='btnSubmitUpdate'>Save</button>
 
-    }
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
-    function confirmDelete() {
-        $.ajax({
-            url: `/api/admin/product/${selected}`,
-            type: 'DELETE',
-            success: function(result) {
-                if (result == true)
-                    alert('Deleted')
-                else
-                    alert('Delete Fail')
-                console.log(result);
-                location.reload();
-            }
-        });
-
-        console.log(selected)
-    }
-</script>
 @endsection

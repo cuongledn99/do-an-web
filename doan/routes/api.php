@@ -9,7 +9,10 @@ use App\Utils\UploadFile;
 Route::get('user/allRoles','UserController@getRoles');
 Route::get('/user/{id}','UserController@getUserInfo');
 Route::post('/user/{id}','UserController@updateUser');
-Route::get('user/allRoles','UserController@getRoles');
+
+Route::get('/product/{ProductID}','ProductController@getProductInfo');
+Route::post('/product/{ProductID}','ProductController@updateProduct');
+// Route::get('user/allRoles','UserController@getRoles');
 
 Route::delete('admin/user/{id}','UserController@deleteUser');
 Route::delete('admin/product/{id}','ProductController@deleteProduct');
