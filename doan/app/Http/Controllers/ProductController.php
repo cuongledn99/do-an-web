@@ -34,10 +34,10 @@ class ProductController extends Controller
     {
         $shoes = DB::table('shoes')
                                 ->join('category', 'shoes.categoryID', '=', 'category.id')
-                                ->select('shoes.id','shoes.name','shoes.description','shoes.image','shoes.inPrice','shoes.outPrice','shoes.inStock','shoes.created_at','shoes.updated_at','category.categoryName')
+                                ->select('shoes.id','shoes.name','shoes.description','shoes.image','shoes.inPrice','shoes.outPrice','shoes.inStock','shoes.created_at','shoes.updated_at','category.categoryName','shoes.categoryID')
                                 ->where('shoes.id',$ProductID)
                                 ->get();
-        info($ProductID);
+        // info($ProductID);
         // $categoryName=DB::table('category')
         //     ->where('id','=',$id)
         //     ->select('category.categoryName')

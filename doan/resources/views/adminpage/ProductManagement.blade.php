@@ -126,7 +126,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="categoryid" class="col-sm-3 col-form-label">Image</label>
+                                                <label for="image" class="col-sm-3 col-form-label">Image</label>
                                                 <div class="col-sm-9">
                                                     <div class="custom-file mb-3">
                                                         <input type="file" class="custom-file-input" id="image" name="image">
@@ -180,13 +180,14 @@
     <h4 class="custom-modal-title">Detail information Product</h4>
     <div class="custom-modal-text">
         <div class="bg-picture card-box">
-            <form enctype="multipart/form-data" method="post" id="fileUploadForm">
+            <form enctype="multipart/form-data" action="/api/admin/updateProduct"  method="POST" id="fileUploadForm">
+            {{ csrf_field() }}
                 <div class="profile-info-name row">
                     <div class='col-sm-3'>
                         <img id='product-avatar' src='{{asset("/images/avatar.png")}}' class="img-thumbnail" alt="Product_Image">
                         <div>
-                            <label for="file" class="btn">Change image</label>
-                            <input id="file" style="display:none" type="file">
+                            <label for="image2" class="btn">Change image</label>
+                            <input id="image2" name="image2" style="display:none" type="file">
                         </div>
                     </div>
                     <div class='col-sm-9'>
@@ -197,19 +198,19 @@
                                     <tr>
                                         <td width="35%">ID</td>
                                         <td width="65%">
-                                            <input type="text" id="ProductID">
+                                            <input type="text" name="ProductID" id="ProductID">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td width="35%">Name</td>
                                         <td width="65%">
-                                            <input type="text" id="ProductName">
+                                            <input type="text" name="ProductName" id="ProductName">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td width="35%">Description</td>
                                         <td width="65%">
-                                            <input type="text" id="ProductDescription">
+                                            <input type="text" name="ProductDescription" id="ProductDescription">
                                         </td>
                                     </tr>
                                     <tr>
@@ -218,7 +219,7 @@
                                             <select name="categoryid" id="categoryid">
                                                 <option value="#" id="selectedCate"></option>
                                                 @foreach($category as $categorys)
-                                                <option value="1">{{$categorys->categoryName}}</option>
+                                                <option value="{{$categorys->id}}">{{$categorys->categoryName}}</option>
                                                 @endforeach
                                             </select>
                                         </td>
@@ -226,31 +227,31 @@
                                     <tr>
                                         <td width="35%">Inprice</td>
                                         <td width="65%">
-                                            <input type="text" id="inprice">
+                                            <input type="text" name="inprice" id="inprice">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td width="35%">Outprice</td>
                                         <td width="65%">
-                                            <input type="text" id="outprice">
+                                            <input type="text" name="outprice" id="outprice">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td width="35%">Instock</td>
                                         <td width="65%">
-                                            <input type="text" id="instock">
+                                            <input type="text" name="instock" id="instock">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Created_at</td>
                                         <td>
-                                            <input type="text" id="createdat">
+                                            <input type="text" name="createdat" id="createdat">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Updated_at</td>
                                         <td>
-                                            <input type="text" id="updatedat">
+                                            <input type="text" name="updatedat" id="updatedat">
                                         </td>
                                     </tr>
                                     <!-- <tr>
@@ -262,7 +263,7 @@
                                 </tbody>
                             </table>
                             <button type="button" class="btn btn-danger btn-rounded w-md waves-effect waves-light m-b-5" onclick="Custombox.close()">Cancel</button>
-                            <button type="submit" class="btn btn-success btn-rounded w-md waves-effect waves-light m-b-5" id='btnSubmitUpdate'>Save</button>
+                            <button type="submit" class="btn btn-success btn-rounded w-md waves-effect waves-light m-b-5" id='btnUpdateProduct'>Save</button>
 
                         </div>
                     </div>
