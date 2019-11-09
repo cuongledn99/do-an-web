@@ -2,7 +2,7 @@
 
 use App\Utils\UrlUtil;
 
-Route::get('/', 'Pages\\NonAuths\\HomeController@index');
+Route::get('/', 'HomeController@index');
 
 
 Route::get('/admin','AdminPageController@renderAdminPage');

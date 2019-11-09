@@ -51,9 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	@yield('content')
 
-	<!-- //product-nav -->
 
-	@include('partials.coupons', [])
 
 	<!-- footer -->
 	@include('partials.footer', [])
