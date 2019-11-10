@@ -18,7 +18,7 @@ class UploadFile
         $fileExt = $file->getClientOriginalExtension();
         $newFilename = uniqid('file', true) . '.' . $fileExt;
 
-        $newFileUrl = $file->move('upload', $newFilename);
+        $newFileUrl = $file->move($folder, $newFilename);
 
         return $newFileUrl;
     }
