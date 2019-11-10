@@ -196,26 +196,26 @@
                             <table class="table">
                                 <tbody>
                                     <tr>
-                                        <td width="35%">ID</td>
+                                        <td width="35%" style="text-align:center;vertical-align: middle;">ID</td>
                                         <td width="65%">
                                             <input type="text" class="form-control" id="ProductIDLablel" disabled> 
                                             <input type="text" name="ProductID" id="ProductID" style='display:none'> 
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td width="35%">Name</td>
+                                        <td width="35%" style="text-align:center;vertical-align: middle;">Name</td>
                                         <td width="65%">
                                             <input type="text" class="form-control" name="ProductName" id="ProductName">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td width="35%">Description</td>
+                                        <td width="35%" style="text-align:center;vertical-align: middle;">Description</td>
                                         <td width="65%">
                                             <textarea class="form-control" rows="4" cols="15" id="ProductDescription" name="ProductDescription"></textarea>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>CategoryID</td>
+                                        <td style="text-align:center;vertical-align: middle;">CategoryID</td>
                                         <td>
                                             <select class="form-control" name="categoryid" id="categoryid">
                                                 <option value="#" id="selectedCate"></option>
@@ -226,19 +226,21 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td width="35%">Inprice</td>
+                                        <td width="20%" style="text-align:center;vertical-align: middle;">Inprice</td>
                                         <td width="65%">
                                             <input type="text" class="form-control" name="inprice" id="inprice">
                                         </td>
+                                        <td width="15%" style="text-align:center;vertical-align: middle;">VND</td>
                                     </tr>
                                     <tr>
-                                        <td width="35%">Outprice</td>
+                                        <td width="20%" style="text-align:center;vertical-align: middle;">Outprice</td>
                                         <td width="65%">
                                             <input type="text" class="form-control" name="outprice" id="outprice">
                                         </td>
+                                        <td width="15%" style="text-align:center;vertical-align: middle;">VND</td>
                                     </tr>
                                     <tr>
-                                        <td width="35%">Instock</td>
+                                        <td width="20%" style="text-align:center;vertical-align: middle;">Instock</td>
                                         <td width="65%">
                                             <input type="text" class="form-control" name="instock" id="instock">
                                         </td>
