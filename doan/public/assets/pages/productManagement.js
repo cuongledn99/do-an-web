@@ -41,9 +41,7 @@ const viewDetailProduct = (productid) => {
             = data[0]
 
         inPrice = inPrice.replace('.00000', '')
-        inPrice+=' VND'
         outPrice = outPrice.replace('.00000', '')
-        outPrice+=' VND'
 
         $('#ProductID').val(id)
         $('#ProductIDLablel').val(id)
