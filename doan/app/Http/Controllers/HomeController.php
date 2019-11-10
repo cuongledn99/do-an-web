@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -24,5 +25,14 @@ class HomeController extends Controller
     public function index()
     {
         return view('homepage.index');
+    }
+
+    public function renderProduct()
+    {
+        $data=DB::table('shoes')->simplePaginate(10);
+        // $shoes=json_encode($shoes);
+        // info($shoes);
+        return view('homepage.index',['data'=>$data]);
+        // return $shoes;
     }
 }

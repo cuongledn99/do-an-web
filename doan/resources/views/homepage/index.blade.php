@@ -55,12 +55,39 @@
 </div>
 <!-- //banner -->
 
-
+<div class="container mt-3">
+        <h2>Justify content</h2>
+        <p>Use the .justify-content-* classes to change the alignment of flex items. Choose from start (default), end, center, between or around:</p>
+        
+        
+        <div class="d-flex justify-content-between bg-secondary mb-3">
+          <div class="p-2 bg-info">Flex item 1</div>
+          <div class="p-2 bg-warning">Flex item 2</div>
+          <div class="p-2 bg-primary">Flex item 3</div>
+        </div>
+        <div class="d-flex justify-content-around bg-secondary mb-3">
+          <div class="p-2 bg-info">Flex item 1</div>
+          <div class="p-2 bg-warning">Flex item 2</div>
+          <div class="p-2 bg-primary">Flex item 3</div>
+        </div>
+      </div>
 
 <!-- //content-bottom -->
 <!-- product-nav -->
 
 <div class="product-easy container">
+        
+    <!-- top pagination -->
+    <div class="row d-flex justify-content-between bg-secondary mb-3">
+        <div class="p-2">
+                <button type="button" class="btn btn-primary btn-rounded w-md waves-effect waves-light m-b-5">Primary</button>
+        </div>
+        <div class="p-2"></div>
+        <div class="p-2">
+                <button type="button" class="btn btn-primary btn-rounded w-md waves-effect waves-light m-b-5">Primary</button>
+        </div>
+    </div>
+    <!-- end top pagination -->
     <div class="" aria-labelledby="">
         <div class="col-md-3 product-men">
             <div class="men-pro-item simpleCart_shelfItem">
@@ -340,5 +367,67 @@
         </div>
         <div class="clearfix"></div>
     </div>
+    <div class="row">
+       
+        <div class="col-xs-12 center-block text-center">
+                <nav>
+                        <ul class="pagination pagination-split">
+                            <li class="page-item">
+                                <a class="page-link" href="{{$data->previousPageUrl()}}" aria-label="Previous">
+                                    <span aria-hidden="true">«</span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            </li>
+                            <li class="page-item 
+                                @if($data->currentPage()===1) 
+                                active 
+                                @endif">
+                                <a class="page-link" href="{{$data->url(1)}}">1</a>
+                            </li>
+                            <li class="page-item 
+                                @if($data->currentPage()===2) 
+                                active 
+                                @endif">
+                                <a class="page-link" href="{{$data->url(2)}}">2</a>
+                            </li>
+                            <li class="page-item 
+                                @if($data->currentPage()===3) 
+                                active 
+                                @endif">
+                                <a class="page-link" href="{{$data->url(3)}}">3</a>
+                            </li>
+                            <li class="page-item 
+                                @if($data->currentPage()===4) 
+                                active 
+                                @endif">
+                                <a class="page-link" href="{{$data->url(4)}}">4</a>
+                            </li>
+                            <li class="page-item 
+                                @if($data->currentPage()===5) 
+                                active 
+                                @endif">
+                                <a class="page-link" href="{{$data->url(5)}}">5</a>
+                            </li>
+                            <li class="page-item 
+                                @if($data->currentPage()===6) 
+                                active 
+                                @endif">
+                                <a class="page-link" href="{{$data->url(6)}}">6</a>
+                            </li>
+                            
+                            <li class="page-item">
+                                <a class="page-link" href="{{$data->nextPageUrl()}}" aria-label="Next">
+                                    <span aria-hidden="true">»</span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+        </div>
+        
+    </div>
+    
 </div>
+    
+
 @endsection
