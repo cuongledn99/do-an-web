@@ -30,9 +30,11 @@ class HomeController extends Controller
     public function renderProduct()
     {
         $data=DB::table('shoes')->simplePaginate(12);
-        // $shoes=json_encode($shoes);
-        // info($shoes);
+        foreach($data as $item)
+        {
+            $item->outPrice=str_replace('.00000','',$item->outPrice);
+            $item->outPrice=$item->outPrice.' VND';
+        }
         return view('homepage.index',['data'=>$data]);
-        // return $shoes;
     }
 }
