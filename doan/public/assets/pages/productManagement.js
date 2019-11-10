@@ -22,11 +22,29 @@ function confirmDeleteProduct(){
 const viewDetailProduct = (productid) => {
     
     selectedIdProduct = productid;
-    console.log(selectedIdProduct,'id1')
+    
     $.get(`/api/product/${selectedIdProduct}`, (data, status) => {
 
-        let { id, name, description,categoryName,categoryID, image, inPrice, outPrice,inStock,created_at,updated_at} = data[0]
-        console.log(id,'id')
+        let {
+            id,
+            name,
+            description,
+            categoryName,
+            categoryID,
+            image,
+            inPrice,
+            outPrice,
+            inStock,
+            created_at,
+            updated_at
+        }
+            = data[0]
+
+        inPrice = inPrice.replace('.00000', '')
+        inPrice+=' VND'
+        outPrice = outPrice.replace('.00000', '')
+        outPrice+=' VND'
+
         $('#ProductID').val(id)
         $('#ProductIDLablel').val(id)
         $('#ProductName').val(name)
