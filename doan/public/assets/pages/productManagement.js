@@ -28,6 +28,7 @@ const viewDetailProduct = (productid) => {
         let { id, name, description,categoryName,categoryID, image, inPrice, outPrice,inStock,created_at,updated_at} = data[0]
         console.log(id,'id')
         $('#ProductID').val(id)
+        $('#ProductIDLablel').val(id)
         $('#ProductName').val(name)
         $('#ProductDescription').val(description)
         $('#selectedCate').text(categoryName)

@@ -28,15 +28,28 @@ Route::post('admin/updateProduct',function(Request $request){
     $inprice=$request->input('inprice');
     $outprice=$request->input('outprice');
     $instock=$request->input('instock');
-    $createdat=$request->input('createdat');
-    $updatedat=$request->input('updatedat');
-    $newImageURLUpdate='';
-    if ($request->hasFile('image2')) {
-        info('hello');
+    // $createdat=$request->input('createdat');
+    // $updatedat=$request->input('updatedat');
+    $newImageURLUpdate=$request->hasFile('image2');
+    if ($newImageURLUpdate) {
+        // info('hello');
         $imageUpdate = $request->file('image2');
         $newImageURLUpdate = UploadFile::uploadFile('upload', $imageUpdate);
-        
+        DB::table('shoes')
+        ->where('id', $ProductIdUpdate)
+        ->update([
+            'name' => $ProductNameUpdate,
+            'description' => $ProDescription,
+            'categoryid' => $categoryid,
+            'inPrice' => (float) $inprice,
+            'outPrice' => (float) $outprice,
+            'inStock' => (int) $instock,
+            // 'created_at' => $createdat,
+            'updated_at' => now(),
+            'image' => $newImageURLUpdate,
+        ]);
     }
+    info($ProductIdUpdate);
     DB::table('shoes')
         ->where('id', $ProductIdUpdate)
         ->update([
@@ -46,14 +59,10 @@ Route::post('admin/updateProduct',function(Request $request){
             'inPrice' => (float) $inprice,
             'outPrice' => (float) $outprice,
             'inStock' => (int) $instock,
-            'created_at' => $createdat,
-            'updated_at' => $updatedat,
-            'image' => $newImageURLUpdate,
+            // 'created_at' => $createdat,
+            'updated_at' => now(),
+            // 'image' => $newImageURLUpdate,
         ]);
-    info($newImageURLUpdate);
-       
-    
-     
     return redirect('/admin/manageProduct');
 
 });

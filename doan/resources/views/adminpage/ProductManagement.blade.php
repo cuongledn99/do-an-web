@@ -198,25 +198,26 @@
                                     <tr>
                                         <td width="35%">ID</td>
                                         <td width="65%">
-                                            <input type="text" name="ProductID" id="ProductID">
+                                            <input type="text" class="form-control" id="ProductIDLablel" disabled> 
+                                            <input type="text" name="ProductID" id="ProductID" style='display:none'> 
                                         </td>
                                     </tr>
                                     <tr>
                                         <td width="35%">Name</td>
                                         <td width="65%">
-                                            <input type="text" name="ProductName" id="ProductName">
+                                            <input type="text" class="form-control" name="ProductName" id="ProductName">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td width="35%">Description</td>
                                         <td width="65%">
-                                            <input type="text" name="ProductDescription" id="ProductDescription">
+                                            <textarea class="form-control" rows="4" cols="15" id="ProductDescription" name="ProductDescription"></textarea>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>CategoryID</td>
                                         <td>
-                                            <select name="categoryid" id="categoryid">
+                                            <select class="form-control" name="categoryid" id="categoryid">
                                                 <option value="#" id="selectedCate"></option>
                                                 @foreach($category as $categorys)
                                                 <option value="{{$categorys->id}}">{{$categorys->categoryName}}</option>
@@ -227,22 +228,22 @@
                                     <tr>
                                         <td width="35%">Inprice</td>
                                         <td width="65%">
-                                            <input type="text" name="inprice" id="inprice">
+                                            <input type="text" class="form-control" name="inprice" id="inprice">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td width="35%">Outprice</td>
                                         <td width="65%">
-                                            <input type="text" name="outprice" id="outprice">
+                                            <input type="text" class="form-control" name="outprice" id="outprice">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td width="35%">Instock</td>
                                         <td width="65%">
-                                            <input type="text" name="instock" id="instock">
+                                            <input type="text" class="form-control" name="instock" id="instock">
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <!-- <tr>
                                         <td>Created_at</td>
                                         <td>
                                             <input type="text" name="createdat" id="createdat">
@@ -253,7 +254,7 @@
                                         <td>
                                             <input type="text" name="updatedat" id="updatedat">
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                     <!-- <tr>
                                         <td>Date of birth</td>
                                         <td><a href="#" id="inline-dob" data-type="combodate" data-value="1984-05-15"
