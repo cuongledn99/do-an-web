@@ -51,5 +51,19 @@ class ShoesTableSeeder extends Seeder
             'updated_at'=>now(),
             'categoryID'=>1
         ]);
+        $json=File::get('database/data/data.json');
+        $data=json_decode($json);
+        foreach($data as $item){
+            DB::table('shoes')->insert([
+                'name'=>$item->title,
+                'categoryID'=>2,
+                'image'=>$item->src,
+                'inPrice'=> $item->priceold,
+                'outPrice'=>$item->priceold*1.2,
+                'inStock'=>20,
+                'created_at'=>now(),
+                'updated_at'=>now(),
+            ]);
+        }
     }
 }

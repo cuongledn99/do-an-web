@@ -29,5 +29,11 @@ class CategoryTableSeeder extends Seeder
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
+        DB::table('category')->insert([
+            'id'=>4,
+            'categoryName'=>'Giày nam',
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
     }
 }
