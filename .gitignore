@@ -1,2 +1,11 @@
 
+*.log
+
+doan/public/test/
+
+
+doan/public/images/
+
 doan/public/upload/
+
+doan/public/PublicImage/

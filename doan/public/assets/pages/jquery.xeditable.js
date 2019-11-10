@@ -20,6 +20,34 @@ $(function(){
         title: 'Enter username',
         mode: 'inline'
     });
+    $('#inline-fullname').editable({
+        type: 'text',
+        pk: 2,
+        name: 'fullname',
+        title: 'Enter username',
+        mode: 'inline'
+    });
+    $('#inline-address').editable({
+        type: 'text',
+        pk: 3,
+        name: 'username',
+        title: 'Enter username',
+        mode: 'inline'
+    });
+    $('#inline-email').editable({
+        type: 'text',
+        pk: 4,
+        name: 'username',
+        title: 'Enter username',
+        mode: 'inline'
+    });
+    // $('#inline-role').editable({
+    //     type: 'text',
+    //     pk: 4,
+    //     name: 'username',
+    //     title: 'Enter username',
+    //     mode: 'inline'
+    // });
 
     $('#inline-firstname').editable({
         validate: function(value) {
@@ -28,12 +56,13 @@ $(function(){
         mode: 'inline'
     });
 
-    $('#inline-sex').editable({
+    $('#inline-role').editable({
         prepend: "not selected",
         mode: 'inline',
         source: [
-            {value: 1, text: 'Male'},
-            {value: 2, text: 'Female'}
+            {value: 'staff', text: 'staff'},
+            {value: 'admin', text: 'admin'},
+            {value: 'customer', text: 'customer'}
         ],
         display: function(value, sourceData) {
             var colors = {"": "gray", 1: "green", 2: "blue"},
