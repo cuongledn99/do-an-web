@@ -29,7 +29,7 @@ class HomeController extends Controller
 
     public function renderProduct()
     {
-        $data=DB::table('shoes')->simplePaginate(10);
+        $data=DB::table('shoes')->simplePaginate(12);
         // $shoes=json_encode($shoes);
         // info($shoes);
         return view('homepage.index',['data'=>$data]);
