@@ -114,7 +114,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">Full Name</label>
                                                 <div class="col-sm-9">
-                                                    <input type="fullname" name="fullname" class="form-control" placeholder="Full Name">
+                                                    <input type="text" name="fullname" class="form-control" placeholder="Full Name">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -136,13 +136,13 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">Adress</label>
                                                 <div class="col-sm-9">
-                                                    <input type="address" name="address" class="form-control">
+                                                    <input type="text" name="address" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">Email</label>
                                                 <div class="col-sm-9">
-                                                    <input type="email" name="email" class="form-control">
+                                                    <input type="text" name="email" class="form-control">
                                                 </div>
                                             </div>
 

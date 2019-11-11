@@ -64,8 +64,52 @@ Route::post('admin/updateUser',function(Request $request){
                 ]);
                 return redirect('/admin/manageUser');
 });
+//add staff
+Route::post('admin/addstaff',function(Request $request){
+        $staffusernameadd=$request->input('staffusernameAdd');
+        $stafffullnameadd=$request->input('stafffullnameAdd');
+        $staffpasswordadd=$request->input('staffpasswordAdd');
+        $staffaddressadd=$request->input('staffaddressAdd');
+        $staffemailadd=$request->input('staffemailAdd');
+        $staffdobadd=$request->input('staffdobAdd');
+        $created_atStaffAdd=now();
+        $updated_atStaffAdd=now();
+        $staffroleAdd=$request->get('rolestaff');
+        if($request->hasFile('imagestaffAdd')){
+            $imageStaffAdd=$request->file('imagestaffAdd');
+            $newURLStaffAdd=UploadFile::uploadFile('upload',$imageStaffAdd);
+            DB::table('users')->insert(
+                [
+                        'username'=>$staffusernameadd,
+                        'fullname'=>$stafffullnameadd,
+                        'password'=>$staffpasswordadd,
+                        'address'=>$staffaddressadd,
+                        'email'=>$staffemailadd,
+                        'role'=>$staffroleAdd,
+                        'dob'=>$staffdobadd,
+                        'email'=>$newURLStaffAdd,
+                        'created_at'=>$created_atStaffAdd,
+                        'updated_at'=>$updated_atStaffAdd,
+                ]);
+        }
+        else{
+            DB::table('users')->insert(
+                [
+                        'username'=>$staffusernameadd,
+                        'fullname'=>$stafffullnameadd,
+                        'password'=>$staffpasswordadd,
+                        'address'=>$staffaddressadd,
+                        'email'=>$staffemailadd,
+                        'dob'=>$staffdobadd,
+                        'role'=>$staffroleAdd,
+                        // 'email'=>$newURLStaffAdd,
+                        'created_at'=>$created_atStaffAdd,
+                        'updated_at'=>$updated_atStaffAdd,
+                ]);
+        }
 
-
+        return redirect('/admin/manageStaff');
+});
 //update staff
 Route::post('admin/user',function(Request $request){
     $staffIdUpdate=$request->input('staffid');
@@ -77,6 +121,7 @@ Route::post('admin/user',function(Request $request){
     $staffdob=$request->input('staffdob');
     $staffrole=$request->get('staffrole');
     $newURLstaff=$request->hasFile('imagestaff');
+    $staffUpdatedat=now();
     if($newURLstaff){
 
         $newURLimagestaff=$request->file('imagestaff');
@@ -93,6 +138,7 @@ Route::post('admin/user',function(Request $request){
                     'role' => $staffrole,
                     'fullname' => $stafffullname,
                     'image' => $URLimagestaff,
+                    'updated_at'=>$staffUpdatedat
                 ]
             );
     }
