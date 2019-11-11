@@ -25,6 +25,12 @@ class UserController extends Controller
 
         return $user;
     }
+    public function getUserInfo1($userid){
+        $user=DB::table('users')
+            ->where('id',$userid)
+            ->get();
+            return $user;
+    }
 
     public function updateUser(Request $req, $id)
     {
@@ -71,5 +77,23 @@ class UserController extends Controller
             ->delete();
 
         return 1;
+    }
+    public function deleteUser1($id){
+        
+        DB::table('bill_detail')
+            ->join('bill','bill.id','=','bill_detail.billID')
+            ->where('bill.customerID',$id)
+            // ->select('bill.id')
+            ->delete();
+      
+       
+        
+        DB::table('bill')
+            ->where('customerID',$id)
+            ->delete();
+        DB::table('users')
+            ->where('id',$id)
+            ->delete();
+            return 1;
     }
 }

@@ -13,12 +13,57 @@ Route::get('user/allRoles','UserController@getRoles');
 Route::get('/user/{id}','UserController@getUserInfo');
 Route::post('/user/{id}','UserController@updateUser');
 
+Route::get('/user1/{userid}','UserController@getUserInfo1');
 Route::get('/product/{ProductID}','ProductController@getProductInfo');
 Route::post('/product/{ProductID}','ProductController@updateProduct');
 // Route::get('user/allRoles','UserController@getRoles');
 
-Route::delete('admin/user/{id}','UserController@deleteUser');
+//delete
+Route::delete('admin/staff/{id}','UserController@deleteUser');
+//delete user
+Route::delete('admin/user/{id}','UserController@deleteUser1');
+//delete product
 Route::delete('admin/product/{id}','ProductController@deleteProduct');
+
+Route::post('admin/updateUser',function(Request $request){
+    $userid=$request->input('UserID');
+    $username=$request->input('username');
+    $password=$request->input('password');
+    $fullname=$request->input('fullname');
+    $address=$request->input('address');
+    $email=$request->input('email');
+    $dob=$request->input('dob');
+    $newImageURLUserUpdate=$request->hasFile('imageUser');
+    if($newImageURLUserUpdate){
+        $imageUserUpdate=$request->file('imageUser');
+        $newImageURLUserUpdate=UploadFile::uploadFile('upload',$imageUserUpdate);
+        DB::table('users')
+            ->where('id',$userid)
+            ->update(
+                [
+                    'username'=>$username,
+                    'password'=>$password,
+                    'fullname'=>$fullname,
+                    'address'=>$address,
+                    'email'=>$email,
+                    'dob'=>$dob,
+                    'image'=>$newImageURLUserUpdate
+                ]);
+    }
+    DB::table('users')
+            ->where('id',$userid)
+            ->update(
+                [
+                    'username'=>$username,
+                    'password'=>$password,
+                    'fullname'=>$fullname,
+                    'address'=>$address,
+                    'email'=>$email,
+                    'dob'=>$dob,
+                    // 'image'=>$newImageURLUserUpdate
+                ]);
+                return redirect('/admin/manageUser');
+});
 
 Route::post('admin/updateProduct',function(Request $request){
     $ProductIdUpdate=$request->input('ProductID');

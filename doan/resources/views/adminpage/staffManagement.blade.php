@@ -20,7 +20,7 @@
 
                 <tbody>
                     @foreach ($users as $user)
-                    
+
                     <tr>
                         <td>{{$user->id}}</td>
                         <td>{{$user->username}}</td>
@@ -30,18 +30,9 @@
                             <button type="button" class="btn btn-icon waves-effect waves-light btn-danger m-b-5" onclick="setIdStaff({{$user->id}})" data-toggle="modal" data-target="#myModal">
                                 <i class="fa fa-trash"></i>
                             </button>
-                                <a
-                                id='btn-view-{{$user->id}}'
-                                onclick="viewDetail({{$user->id}})" 
-                                href="#custom-modal"
-                                class="btn btn-icon waves-effect waves-light btn-success m-b-5 "
-                                data-animation="door" 
-                                data-plugin="custommodal"
-                                data-overlayspeed="100" 
-                                data-overlaycolor="#36404a"
-                                >
-                                    <i class="fa fa-eye"></i>
-                                </a>
+                            <a id='btn-view-{{$user->id}}' onclick="viewDetailUser({{$user->id}})" href="#custom-modal" class="btn btn-icon waves-effect waves-light btn-success m-b-5 " data-animation="door" data-plugin="custommodal" data-overlayspeed="100" data-overlaycolor="#36404a">
+                                <i class="fa fa-eye"></i>
+                            </a>
                         </td>
                         <div class="modal" id="myModal">
                             <div class="modal-dialog">
@@ -93,56 +84,60 @@
                     </div>
                     <div class='col-sm-9'>
                         <div class="profile-info-detail">
-                    
+
                             <table class="table">
                                 <tbody>
                                     <tr>
                                         <td width="35%">Username</td>
-                                        <td width="65%"><a href="#" id='inline-username' data-type="text" data-pk="1"
-                                                data-title="Enter username" class="editable editable-click" style=""></a>
+                                        <td width="65%">
+                                            <input type="text" id="username" name="username" class="form-control">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td width="35%">Full name</td>
-                                        <td width="65%"><a href="#" id="inline-fullname" data-type="text" data-pk="2"
-                                                data-title="Enter username" class="editable editable-click" style=""></a>
+                                        <td width="65%">
+                                            <input type="text" id="fullname" name="fullname" class="form-control">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td width="35%">Address</td>
-                                        <td width="65%"><a href="#" id="inline-address" data-type="text" data-pk="3"
-                                                data-title="Enter username" class="editable editable-click" style=""></a>
+                                        <td width="65%">
+                                            <input type="text" id="address" name="address" class="form-control">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td width="35%">Email</td>
-                                        <td width="65%"><a href="#" id="inline-email" data-type="text" data-pk="4"
-                                                data-title="Enter username" class="editable editable-click" style=""></a>
+                                        <td width="65%">
+                                            <input type="text" id="email" name="email" class="form-control">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Role</td>
-                                        <td><a href="#" id="inline-role" data-type="select" data-pk="1" data-value=""
-                                                data-title="Select sex" class="editable editable-click" style="color: gray;">not
-                                                selected</a></td>
+                                        <td>
+                                            <select class="form-control" name="role" id="role">
+                                                <option value="#" id="selectedRole"></option>
+                                                @foreach($users as $user)
+                                                <option value="{{$user->id}}">{{$user->role}}</option>
+                                                @endforeach
+                                            </select>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Date of birth</td>
-                                        <td><a href="#" id="inline-dob" data-type="combodate" data-value="1984-05-15"
-                                                data-format="YYYY-MM-DD" data-viewformat="DD/MM/YYYY" data-template="D / MMM / YYYY"
-                                                data-pk="1" data-title="Select Date of birth" class="editable editable-click"></a></td>
+                                        <td>
+                                            <input type="text" id="dob" name="dob" class="form-control">
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
                             <button type="button" class="btn btn-danger btn-rounded w-md waves-effect waves-light m-b-5" onclick="Custombox.close()">Cancel</button>
-                            <button type="submit" class="btn btn-success btn-rounded w-md waves-effect waves-light m-b-5"
-                                id='btnSubmitUpdate'>Save</button>
-                
+                            <button type="submit" class="btn btn-success btn-rounded w-md waves-effect waves-light m-b-5" id='btnSubmitUpdate'>Save</button>
+
                         </div>
                     </div>
                     <div class="clearfix"></div>
                 </div>
-            </form> 
+            </form>
         </div>
     </div>
 </div>

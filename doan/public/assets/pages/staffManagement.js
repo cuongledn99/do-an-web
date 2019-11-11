@@ -11,7 +11,7 @@ function setIdStaff(id) {
 
 function confirmDeleteStaff() {
     $.ajax({
-        url: `/api/admin/user/${selectedIdStaff}`,
+        url: `/api/admin/staff/${selectedIdStaff}`,
         type: 'DELETE',
         success: function(result) {
             location.reload();
