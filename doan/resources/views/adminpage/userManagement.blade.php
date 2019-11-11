@@ -4,7 +4,9 @@
     <div class="col-12">
         <div class="card-box table-responsive">
             <h4 class="m-t-0 header-title">User Management</h4>
-
+            <!-- Button trigger modal -->
+            <button class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#myModal2">Add User
+            </button>
 
             <table id="tableStaffs" class="table table-bordered">
                 <thead>
@@ -69,6 +71,110 @@
         </div>
     </div>
 </div> <!-- end row -->
+
+<!-- sample modal content -->
+<div id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Add User</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card-box">
+                            <h4 class="m-t-0 header-title">Add User</h4>
+
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="p-20">
+                                        <!-- @if(count($errors)>0)
+                                        <ul>
+                                            @foreach($errors->all() as $error)
+                                            <li>{{$error}}</li>
+                                            @endforeach
+                                        </ul>
+                                        @endif
+                                        @if(\Session::has('success'))
+                                        <div class="alert alert-success">
+                                            <p>{{\Session::get('success')}}</p>
+
+                                        </div>
+                                        @endif -->
+                                        <form class="form-horizontal" enctype="multipart/form-data" role="form" method="POST" action="/api/admin/user1">
+                                            {{ csrf_field() }}
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">UserName</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" name="username" class="form-control" placeholder="username...">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Full Name</label>
+                                                <div class="col-sm-9">
+                                                    <input type="fullname" name="fullname" class="form-control" placeholder="Full Name">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Password </label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" name="password" class="form-control" placeholder="PassWord">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group row">
+                                                <label for="image" class="col-sm-3 col-form-label">Image</label>
+                                                <div class="col-sm-9">
+                                                    <div class="custom-file mb-3">
+                                                        <input type="file" class="custom-file-input" id="imageuser" name="imageuser">
+                                                        <label class="custom-file-label" for="imageuser">Choose file image</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Adress</label>
+                                                <div class="col-sm-9">
+                                                    <input type="address" name="address" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Email</label>
+                                                <div class="col-sm-9">
+                                                    <input type="email" name="email" class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Day Of birth</label>
+                                                <div class="col-sm-9">
+                                                <input type="date" id="dob" name="dob" data-date="" class="form-control" data-date-format="yyyy mm dd">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                    <input type="submit" class="btn btn-success" value="Add">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- end row -->
+
+                        </div> <!-- end card-box -->
+                    </div><!-- end col -->
+                </div>
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <div id="custom-modal" class="modal-demo">
     <button type="button" class="close" onclick="Custombox.close();">
         <span>&times;</span><span class="sr-only">Close</span>
@@ -80,7 +186,7 @@
             {{ csrf_field() }}
                 <div class="profile-info-name row">
                     <div class='col-sm-3'>
-                        <img id='product-avatar' src='{{asset("/images/avatar.png")}}' class="img-thumbnail" alt="Product_Image">
+                        <img id='user-avatar' src='{{asset("/images/avatar.png")}}' class="img-thumbnail" alt="Product_Image">
                         <div>
                             <label for="imageUser" class="btn">Change image</label>
                             <input id="imageUser" name="imageUser" style="display:none" type="file">
@@ -102,6 +208,12 @@
                                         <td width="35%" style="text-align:center;vertical-align: middle;">UserName</td>
                                         <td width="65%">
                                             <input type="text" class="form-control" name="username" id="username">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="35%" style="text-align:center;vertical-align: middle;">Full Name</td>
+                                        <td width="65%">
+                                            <input type="text" class="form-control" name="fullname" id="fullname">
                                         </td>
                                     </tr>
                                     <tr>
@@ -136,8 +248,8 @@
                                     <tr>
                                         <td width="35%" style="text-align:center;vertical-align: middle;">Day Of Birth</td>
                                         <td width="65%">
-                                            <input type="date" id="dob" name="dob" data-date="" class="form-control" data-date-format="yyyy mm dd"> 
-                                            <!-- <input type="text" class="form-control" name="dob" id="dob"> -->
+                                            <!-- <input type="date" id="dob" name="dob" data-date="" class="form-control" data-date-format="yyyy mm dd">  -->
+                                            <input type="text" class="form-control" name="dob1" id="dob1">
                                         </td>
                                     </tr>
                                     <!-- <tr>

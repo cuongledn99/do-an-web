@@ -65,6 +65,8 @@ Route::post('admin/updateUser',function(Request $request){
                 return redirect('/admin/manageUser');
 });
 
+
+//update product
 Route::post('admin/updateProduct',function(Request $request){
     $ProductIdUpdate=$request->input('ProductID');
     $ProductNameUpdate=$request->input('ProductName');
@@ -94,7 +96,7 @@ Route::post('admin/updateProduct',function(Request $request){
             'image' => $newImageURLUpdate,
         ]);
     }
-    info($ProductIdUpdate);
+    // info($ProductIdUpdate);
     DB::table('shoes')
         ->where('id', $ProductIdUpdate)
         ->update([
@@ -111,6 +113,105 @@ Route::post('admin/updateProduct',function(Request $request){
     return redirect('/admin/manageProduct');
 
 });
+
+//update user
+Route::post('admin/updateUser',function(Request $request){
+    $usernameUpdate=$request->input('username');
+    $idUser=$request->input('UserID');
+    $passwordUpdate=$request->input('password');
+    $fullnameUpdate=$request->input('fullname');
+    $addressUpdate=$request->input('address');
+    $emailUpdate=$request->input('email');
+    $dobUpdate=$request->input('dob1');
+    $newImageURLUserUpdate=$request->hasFile('imageUser');
+    if ($newImageURLUserUpdate) {
+        $imageUserUpdate = $request->file('imageUser');
+        $newURL = UploadFile::uploadFile('upload', $imageUserUpdate);
+        DB::table('users')
+            ->where('id', $idUser)
+            ->update(
+                [
+                    'username' => $usernameUpdate,
+                    'password' => $passwordUpdate,
+                    'fullname' => $fullnameUpdate,
+                    'address' => $addressUpdate,
+                    'email' => $emailUpdate,
+                    'dob' => $dobUpdate,
+                    'image' => $newURL,
+                    'updated_at'=>now(),
+                ]
+            );
+    }
+    else{
+        DB::table('users')
+        ->where('id', $idUser)
+        ->update(
+            [
+                'username' => $usernameUpdate,
+                'password' => $passwordUpdate,
+                'fullname' => $fullnameUpdate,
+                'address' => $addressUpdate,
+                'email' => $emailUpdate,
+                'dob' => $dobUpdate,
+                // 'image' => $newURL,
+                'updated_at'=>now(),
+            ]
+        );
+    }
+    return redirect('/admin/manageUser');
+
+});
+
+//add user
+Route::post('admin/user1',function(Request $request){
+    $username=$request->input('username');
+    $fullname=$request->input('fullname');
+    $password=$request->input('password');
+    $address=$request->input('address');
+    $email=$request->input('email');
+    $dob=$request->input('dob');
+    $created_at=now();
+    $updated_at=now();
+    $role='customer';
+    $newImageUrlUser='';
+    if($request->hasFile('imageuser')){
+        // info('test if has file Image User');
+        $imageuser = $request->file('imageuser');
+        //return back()->with('success','Image Upload successfully');
+        $newImageUrlUser= UploadFile::uploadFile('upload',$imageuser);
+        DB::table('users')->insert(
+                [
+                    'username'=>$username,
+                    'fullname'=>$fullname,
+                    'password'=>$password,
+                    'address'=>$address,
+                    'email'=>$email,
+                    'role'=>$role,
+                    'dob'=>$dob,
+                    'created_at'=>$created_at,
+                    'updated_at'=>$updated_at,
+                    'image'=>$newImageUrlUser,
+                ]);
+    }
+    else{
+    DB::table('users')->insert(
+        [
+            'username'=>$username,
+            'fullname'=>$fullname,
+            'password'=>$password,
+            'address'=>$address,
+            'email'=>$email,
+            'role'=>$role,
+            'dob'=>$dob,
+            'created_at'=>$created_at,
+            'updated_at'=>$updated_at,
+            // 'image'=>$newImageURL,
+        ]);
+    }
+    return redirect('/admin/manageUser');
+});
+
+//add product
 Route::post('admin/product',function(Request $request){
     
     $name=$request->input('name');

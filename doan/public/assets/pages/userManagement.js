@@ -40,7 +40,8 @@ const viewDetailUser=(userid)=>{
         $('#address').val(address)
         $('#email').val(email)
         // $('#selectedRole').text(role)
-        $('#dob').val(dob)
+        $('#dob1').val(dob)
+        console.log(username);
 
         if (image) {
             $('#user-avatar').attr('src', `/${image}`)
