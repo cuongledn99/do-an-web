@@ -66,6 +66,57 @@ Route::post('admin/updateUser',function(Request $request){
 });
 
 
+//update staff
+Route::post('admin/user',function(Request $request){
+    $staffIdUpdate=$request->input('staffid');
+    $staffUsernameUpdate=$request->input('staffusername');
+    $staffaddress=$request->input('staffaddress');
+    $stafffullname=$request->input('stafffullname');
+    $staffpassword=$request->input('staffpassword');
+    $staffemail=$request->input('staffemail');
+    $staffdob=$request->input('staffdob');
+    $staffrole=$request->get('staffrole');
+    $newURLstaff=$request->hasFile('imagestaff');
+    if($newURLstaff){
+
+        $newURLimagestaff=$request->file('imagestaff');
+        $URLimagestaff=UploadFile::uploadFile('upload',$newURLimagestaff);
+        DB::table('users')
+            ->where('id', $staffIdUpdate)
+            ->update(
+                [
+                    'username' => $staffUsernameUpdate,
+                    'address' => $staffaddress,
+                    'password' => $staffpassword,
+                    'email' => $staffemail,
+                    'dob' => $staffdob,
+                    'role' => $staffrole,
+                    'fullname' => $stafffullname,
+                    'image' => $URLimagestaff,
+                ]
+            );
+    }
+    else {
+        DB::table('users')
+            ->where('id',$staffIdUpdate)
+            ->update(
+                    [
+                        'username'=>$staffUsernameUpdate,
+                        'address'=>$staffaddress,
+                        'password'=>$staffpassword,
+                        'email'=>$staffemail,
+                        'dob'=>$staffdob,
+                        'role'=>$staffrole,
+                        'fullname'=>$stafffullname,
+                        // 'image'=>$URLimagestaff,
+                    ] );
+    }
+
+    return redirect('/admin/manageStaff');
+
+});
+
+
 //update product
 Route::post('admin/updateProduct',function(Request $request){
     $ProductIdUpdate=$request->input('ProductID');

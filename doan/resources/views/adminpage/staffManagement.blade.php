@@ -30,7 +30,7 @@
                             <button type="button" class="btn btn-icon waves-effect waves-light btn-danger m-b-5" onclick="setIdStaff({{$user->id}})" data-toggle="modal" data-target="#myModal">
                                 <i class="fa fa-trash"></i>
                             </button>
-                            <a id='btn-view-{{$user->id}}' onclick="viewDetailUser({{$user->id}})" href="#custom-modal" class="btn btn-icon waves-effect waves-light btn-success m-b-5 " data-animation="door" data-plugin="custommodal" data-overlayspeed="100" data-overlaycolor="#36404a">
+                            <a id='btn-view-{{$user->id}}' onclick="viewDetailStaff({{$user->id}})" href="#custom-modal3" class="btn btn-icon waves-effect waves-light btn-success m-b-5 " data-animation="door" data-plugin="custommodal" data-overlayspeed="100" data-overlaycolor="#36404a">
                                 <i class="fa fa-eye"></i>
                             </a>
                         </td>
@@ -66,20 +66,21 @@
     </div>
 </div> <!-- end row -->
 <!-- Modal -->
-<div id="custom-modal" class="modal-demo">
+<div id="custom-modal3" class="modal-demo">
     <button type="button" class="close" onclick="Custombox.close();">
         <span>&times;</span><span class="sr-only">Close</span>
     </button>
-    <h4 class="custom-modal-title">Detail information</h4>
+    <h4 class="custom-modal-title">Staff Detail information</h4>
     <div class="custom-modal-text">
         <div class="bg-picture card-box">
-            <form enctype="multipart/form-data" method="post" id="fileUploadForm">
+            <form enctype="multipart/form-data" action="/api/admin/user" method="POST" id="fileUploadForm">
+            {{ csrf_field() }}
                 <div class="profile-info-name row">
                     <div class='col-sm-3'>
-                        <img id='user-avatar' src='{{asset("/images/avatar.png")}}' class="img-thumbnail" alt="profile-image">
+                        <img id='staff-avatar' src='{{asset("/images/avatar.png")}}' class="img-thumbnail" alt="profile-image">
                         <div>
-                            <label for="file" class="btn">Change image</label>
-                            <input id="file" style="display:none" type="file">
+                            <label for="imagestaff" class="btn">Change image</label>
+                            <input id="imagestaff" name="imagestaff" style="display:none" type="file">
                         </div>
                     </div>
                     <div class='col-sm-9'>
@@ -88,50 +89,63 @@
                             <table class="table">
                                 <tbody>
                                     <tr>
+                                        <td width="35%">Staff ID</td>
+                                        <td width="65%">
+                                            <input type="text" id="staffid" name="staffid" class="form-control">
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td width="35%">Username</td>
                                         <td width="65%">
-                                            <input type="text" id="username" name="username" class="form-control">
+                                            <input type="text" id="staffusername" name="staffusername" class="form-control">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td width="35%">Full name</td>
                                         <td width="65%">
-                                            <input type="text" id="fullname" name="fullname" class="form-control">
+                                            <input type="text" id="stafffullname" name="stafffullname" class="form-control">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="35%">PassWord</td>
+                                        <td width="65%">
+                                            <input type="text" id="staffpassword" name="staffpassword" class="form-control">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td width="35%">Address</td>
                                         <td width="65%">
-                                            <input type="text" id="address" name="address" class="form-control">
+                                            <input type="text" id="staffaddress" name="staffaddress" class="form-control">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td width="35%">Email</td>
                                         <td width="65%">
-                                            <input type="text" id="email" name="email" class="form-control">
+                                            <input type="text" id="staffemail" name="staffemail" class="form-control">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Role</td>
                                         <td>
-                                            <select class="form-control" name="role" id="role">
-                                                <option value="#" id="selectedRole"></option>
-                                                @foreach($users as $user)
-                                                <option value="{{$user->id}}">{{$user->role}}</option>
-                                                @endforeach
+                                            <select class="form-control" name="staffrole" id="staffrole">
+                                                <option value="#" id="selectedRoleStaff" name="optionselected"></option>
+                                               
+                                                <option value="admin">Admin</option>
+                                                <option value="staff">Staff</option>
+                                                
                                             </select>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Date of birth</td>
                                         <td>
-                                            <input type="text" id="dob" name="dob" class="form-control">
+                                            <input type="text" id="staffdob" name="staffdob" class="form-control">
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                             <button type="button" class="btn btn-danger btn-rounded w-md waves-effect waves-light m-b-5" onclick="Custombox.close()">Cancel</button>
-                            <button type="submit" class="btn btn-success btn-rounded w-md waves-effect waves-light m-b-5" id='btnSubmitUpdate'>Save</button>
+                            <button type="submit" class="btn btn-success btn-rounded w-md waves-effect waves-light m-b-5" id='btnSubmitUpdateStaff'>Save</button>
 
                         </div>
                     </div>

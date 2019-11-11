@@ -31,7 +31,7 @@ const viewDetailUser=(userid)=>{
             image
          }
          = data[0] 
-        console.log( id,'id')
+        // console.log( id,'id')
         $('#UserIDLablel').val(id)
         $('#UserID').val(id)
         $('#username').val(username)
@@ -41,7 +41,7 @@ const viewDetailUser=(userid)=>{
         $('#email').val(email)
         // $('#selectedRole').text(role)
         $('#dob1').val(dob)
-        console.log(username);
+        // console.log(username);
 
         if (image) {
             $('#user-avatar').attr('src', `/${image}`)
