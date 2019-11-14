@@ -35,4 +35,17 @@ class HomeController extends Controller
         }
         return view('homepage.index', ['data' => $data]);
     }
+
+    public function renderProductByCategory($categoryID)
+    {
+        $data = DB::table('shoes')
+            ->where('categoryID', $categoryID)
+            ->simplePaginate(15);
+        foreach ($data as $item) {
+            $item->outPrice = str_replace('.00000', '', $item->outPrice);
+            $item->outPrice = $item->outPrice . ' VND';
+        }
+
+        return view('homepage.index', ['data' => $data]);
+    }
 }

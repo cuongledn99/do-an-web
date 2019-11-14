@@ -20,7 +20,7 @@
 					
 					
 					<li class="dropdown menu__item">
-						<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">men's wear 
+						<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Category 
 							<span class="caret"></span>
 						</a>
 							<ul class="dropdown-menu multi-column columns-3">
@@ -32,15 +32,9 @@
 
 									</div>
 									<div class="col-sm-3 multi-gd-img">
-										<ul class="multi-column-dropdown">
+										<ul id='listCategory' class="multi-column-dropdown">
 											<!-- {{-- loop all category here --}} -->
-											<li><a href="#">Athletic Shoes</a></li>
-											<li><a href="#">Sandals</a></li>
-											<li><a href="#">Casual Shoes</a></li>
-											<li><a href="#">Boots</a></li>
-											<li><a href="#">Dress Shoes</a></li>
-											<li><a href="#">Slippers</a></li>
-											<li><a href="#">Wides</a></li>
+											
 										</ul>
 									</div>
 									<div class="clearfix"></div>
