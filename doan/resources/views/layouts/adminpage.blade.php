@@ -218,6 +218,7 @@
 
     <script src="{{asset('assets/pages/staffManagement.js')}}"></script>
     <script src="{{asset('assets/pages/productManagement.js')}}"></script>
+    <script src="{{asset('assets/pages/userManagement.js')}}"></script>
 
     
 

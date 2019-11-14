@@ -17,7 +17,11 @@ class AdminPageController extends Controller
         return view('adminpage.staffManagement',['users'=>$users]);
     }
     public function renderUser(){
-        return view('adminpage.UserManagement');
+        $users=DB::table('users')
+                    ->where('role','customer')
+                    ->get();
+
+        return view('adminpage.userManagement',['users'=>$users]);
     }
     public function renderProduct(){
         $shoes=DB::table('shoes')

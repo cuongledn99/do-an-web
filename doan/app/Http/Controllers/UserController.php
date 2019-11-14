@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
 use App\Utils\UploadFile;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 
 class UserController extends Controller
 {
@@ -23,6 +22,13 @@ class UserController extends Controller
             ->where('id', $id)
             ->get();
 
+        return $user;
+    }
+    public function getUserInfo1($userid)
+    {
+        $user = DB::table('users')
+            ->where('id', $userid)
+            ->get();
         return $user;
     }
 
@@ -47,12 +53,12 @@ class UserController extends Controller
             'dob' => $dob,
         ];
 
-        // process file
+        // process upload image
         $hasFile = $req->hasFile('file');
         if ($hasFile) {
             $file = $req->file('file');
-           
-            $newImageURL= UploadFile::uploadFile('upload',$file);
+
+            $newImageURL = UploadFile::uploadFile('upload', $file);
 
             $updateArr['image'] = $newImageURL;
         }
@@ -65,11 +71,49 @@ class UserController extends Controller
         return 1;
     }
 
-    public function deleteUser($id){
-        DB::table('users')
-            ->where('id', '=', $id)
+    public function deleteUser($id)
+    {
+        info('delete user '.$id);
+        // delete bill details linked with staff
+        DB::table('bill_detail')
+            ->join('bill', 'bill_detail.billID', '=', 'bill.id')
+            ->where('bill.createdBy', $id)
+            ->delete();
+        // delete bill link with staff
+        DB::table('bill')
+            ->where('createdBy', $id)
             ->delete();
 
+        // delete bill details linked with customer
+        DB::table('bill_detail')
+            ->join('bill', 'bill_detail.billID', '=', 'bill.id')
+            ->where('bill.customerID', $id)
+            ->delete();
+        // delete bill link with customer
+        DB::table('bill')
+            ->where('customerID', $id)
+            ->delete();
+        
+        DB::table('users')
+            ->where('id', $id)
+            ->delete();
+        return 1;
+    }
+    public function deleteUser1($id)
+    {
+
+        DB::table('bill_detail')
+            ->join('bill', 'bill.id', '=', 'bill_detail.billID')
+            ->where('bill.customerID', $id)
+        // ->select('bill.id')
+            ->delete();
+
+        DB::table('bill')
+            ->where('customerID', $id)
+            ->delete();
+        DB::table('users')
+            ->where('id', $id)
+            ->delete();
         return 1;
     }
 }
