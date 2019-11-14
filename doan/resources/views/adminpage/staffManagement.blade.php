@@ -98,7 +98,7 @@
 
                                         </div>
                                         @endif -->
-                                        <form id="formAdd" class="form-horizontal" onsubmit="return validateUser(this);" enctype="multipart/form-data" role="form" method="POST" action="/api/admin/addstaff">
+                                        <form id="formAdd" class="form-horizontal"  enctype="multipart/form-data" role="form" method="POST" action="/api/admin/addstaff">
                                             {{ csrf_field() }}
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">UserName</label>

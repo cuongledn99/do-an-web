@@ -56,25 +56,45 @@ $('#staffusernameAdd').on('input',function(e){
                 }
     });
 });
- function validateUser(f){
-     
-        GetUsername=$('#staffusernameAdd').val();
-        var result=true;
-     $.get(`/api/validateUser/${GetUsername}`,(data,status) =>{
-            // console.log(data,'datadata')
-            
-                if(data!=0){
-                    
-                   result=false;
-                   
-                }else{
-                    
-                 
+
+$('form').submit(async function(e){
+    var GetUsername=$('#staffusernameAdd').val();
+    var result= false;
+    await $.get(`/api/validateUser/${GetUsername}`,(data,status) =>{
+            // console.log(data,'datad  ata')
+
+                if(data==0){
+                    result=true;
                 }
+               
                 
     });
-    return result;
-}
+    console.log(result,'result')
+    if(result){
+    e.preventDefault();
+        return false;
+    }
+    
+});
+// async function validateUser(f){
+     
+//        var GetUsername=$('#staffusernameAdd').val();
+//         let result=false;
+//     await $.get(`/api/validateUser/${GetUsername}`,(data,status) =>{
+//             // console.log(data,'datad  ata')
+
+//                 if(data!=0){
+//                    result=false;
+//                    console.log('khac khong')
+//                 }
+//                 else{
+//                     result=true;
+//                 }
+                
+//     });
+//     console.log(result,'result')
+//     return result;
+// }
 
 function inputUsername(){
     
