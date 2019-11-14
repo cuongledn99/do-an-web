@@ -17,8 +17,12 @@
 				<div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
 				  <ul class="nav navbar-nav menu__list">
 					<li class="active menu__item menu__item--current"><a class="menu__link" href="#">Home <span class="sr-only">(current)</span></a></li>
+					
+					
 					<li class="dropdown menu__item">
-						<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">men's wear <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">men's wear 
+							<span class="caret"></span>
+						</a>
 							<ul class="dropdown-menu multi-column columns-3">
 								<div class="row">
 									<div class="col-sm-6 multi-gd-img1 multi-gd-text ">
@@ -29,6 +33,7 @@
 									</div>
 									<div class="col-sm-3 multi-gd-img">
 										<ul class="multi-column-dropdown">
+											<!-- {{-- loop all category here --}} -->
 											<li><a href="#">Athletic Shoes</a></li>
 											<li><a href="#">Sandals</a></li>
 											<li><a href="#">Casual Shoes</a></li>
@@ -42,32 +47,7 @@
 								</div>
 							</ul>
 					</li>
-				
-					<li class="dropdown menu__item">
-						<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">women's wear <span class="caret"></span></a>
-							<ul class="dropdown-menu multi-column columns-3">
-								<div class="row">
-									<div class="col-sm-3 multi-gd-img">
-										<ul class="multi-column-dropdown">
-											<li><a href="#">Athletic Shoes</a></li>
-											<li><a href="#">Sandals</a></li>
-											<li><a href="#">Casual Shoes</a></li>
-											<li><a href="#">Boots</a></li>
-											<li><a href="#">Dress Shoes</a></li>
-											<li><a href="#">Slippers</a></li>
-											<li><a href="#">Wides</a></li>
-										</ul>
-									</div>
-								
-									<div class="col-sm-6 multi-gd-img multi-gd-text ">
-										<a href="#"><img src="{{asset('images/woo.jpg')}}" alt=" "/></a>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</ul>
-					</li>
-					<li class=" menu__item"><a class="menu__link" href="#">Electronics</a></li>
-					<li class=" menu__item"><a class="menu__link" href="#">Short Codes</a></li>
+					
 					<li class=" menu__item"><a class="menu__link" href="#">contact</a></li>
 				  </ul>
 				</div>

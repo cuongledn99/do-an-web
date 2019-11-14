@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -29,12 +28,11 @@ class HomeController extends Controller
 
     public function renderProduct()
     {
-        $data=DB::table('shoes')->simplePaginate(12);
-        foreach($data as $item)
-        {
-            $item->outPrice=str_replace('.00000','',$item->outPrice);
-            $item->outPrice=$item->outPrice.' VND';
+        $data = DB::table('shoes')->simplePaginate(12);
+        foreach ($data as $item) {
+            $item->outPrice = str_replace('.00000', '', $item->outPrice);
+            $item->outPrice = $item->outPrice . ' VND';
         }
-        return view('homepage.index',['data'=>$data]);
+        return view('homepage.index', ['data' => $data]);
     }
 }
