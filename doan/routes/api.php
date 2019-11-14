@@ -14,6 +14,9 @@ use Illuminate\Http\Request;
 */
 Route::get("/product", "Apis\\ProductController@create");
 
+// get all category name
+Route::get('/category','ProductController@getAllCategory');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

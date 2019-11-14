@@ -4,8 +4,10 @@ use App\Utils\UrlUtil;
 use Illuminate\Support\Facades\DB;
 
 Route::get('/', 'HomeController@renderProduct');
-Route::get('/test', function () {
-    $data = DB::table('shoes')->simplePaginate(12);
+Route::get('/category/{categoryID}', function ($categoryID) {
+    $data = DB::table('shoes')
+    ->where('categoryID',$categoryID)
+    ->simplePaginate(15);
     foreach ($data as $item) {
         $item->outPrice = str_replace('.00000', '', $item->outPrice);
         $item->outPrice = $item->outPrice . ' VND';
