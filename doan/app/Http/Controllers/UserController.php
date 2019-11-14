@@ -72,9 +72,18 @@ class UserController extends Controller
     }
 
     public function deleteUser($id){
-        DB::table('users')
-            ->where('id', '=', $id)
+
+        DB::table('bill_detail')
+        ->join('bill','bill.id','=','bill_detail.billID')
+        ->where('bill.customerID',$id)
+        ->delete();
+        DB::table('bill')
+            ->where('customerID',$id)
             ->delete();
+        DB::table('users')
+            ->where('id',$id)
+            ->delete();
+            return 1;
 
         return 1;
     }

@@ -106,7 +106,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">Name</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" name="name" class="form-control" placeholder="Name product...">
+                                                    <input type="text" name="name" required class="form-control" placeholder="Name product...">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -118,7 +118,7 @@
                                             <div class="form-group row">
                                                 <label for="categoryid" class="col-sm-3 col-form-label">Category</label>
                                                 <div class="col-sm-9">
-                                                    <select class="form-control" id="categoryid" name="categoryid">
+                                                    <select class="form-control" required id="categoryid" name="categoryid">
                                                         @foreach($category as $categorys)
                                                         <option value="1">{{$categorys->categoryName}}</option>
                                                         @endforeach
@@ -137,19 +137,19 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">inPrice</label>
                                                 <div class="col-sm-9">
-                                                    <input type="number" name="inprice" class="form-control">
+                                                    <input type="number" required name="inprice" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">outPrice</label>
                                                 <div class="col-sm-9">
-                                                    <input type="number" name="outprice" class="form-control">
+                                                    <input type="number" required name="outprice" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">inStock</label>
                                                 <div class="col-sm-9">
-                                                    <input type="number" name="instock" class="form-control">
+                                                    <input type="number" required name="instock" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group">

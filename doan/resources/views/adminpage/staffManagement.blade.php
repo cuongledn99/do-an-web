@@ -98,24 +98,25 @@
 
                                         </div>
                                         @endif -->
-                                        <form class="form-horizontal" enctype="multipart/form-data" role="form" method="POST" action="/api/admin/addstaff">
+                                        <form id="formAdd" class="form-horizontal" onsubmit="return validateUser(this);" enctype="multipart/form-data" role="form" method="POST" action="/api/admin/addstaff">
                                             {{ csrf_field() }}
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">UserName</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" name="staffusernameAdd" class="form-control" placeholder="username...">
+                                                    <input type="text" id="staffusernameAdd" name="staffusernameAdd"  required class="form-control" placeholder="username...">
+                                                    <div id="trunguser" style="color:red; display:none">Username này đã được dùng</div>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">Full Name</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" name="stafffullnameAdd" class="form-control" placeholder="Full Name">
+                                                    <input type="text" name="stafffullnameAdd" required class="form-control" placeholder="Full Name">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">Password </label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" name="staffpasswordAdd" class="form-control" placeholder="PassWord">
+                                                    <input type="password" name="staffpasswordAdd" class="form-control" required placeholder="PassWord">
                                                 </div>
                                             </div>
                                             
@@ -131,7 +132,7 @@
                                             <div class="form-group row">
                                                 <label for="rolestaff" class="col-sm-3 col-form-label">Role</label>
                                                 <div class="col-sm-9">
-                                                    <select class="form-control" id="rolestaff" name="rolestaff">
+                                                    <select class="form-control" required id="rolestaff" name="rolestaff">
                                                        
                                                         <option value="admin">admin</option>
                                                         <option value="staff">staff</option>
@@ -148,7 +149,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">Email</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" name="staffemailAdd" class="form-control">
+                                                    <input type="email"  name="staffemailAdd" class="form-control">
                                                 </div>
                                             </div>
 
@@ -207,43 +208,44 @@
                                     <tr>
                                         <td width="35%">Staff ID</td>
                                         <td width="65%">
-                                            <input type="text" id="staffid" name="staffid" class="form-control">
+                                            <input type="text" class="form-control" id="staffIDLablel" disabled> 
+                                            <input type="text" id="staffid" name="staffid" class="form-control" style='display:none'>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td width="35%">Username</td>
                                         <td width="65%">
-                                            <input type="text" id="staffusername" name="staffusername" class="form-control">
+                                            <input type="text" required id="staffusername" name="staffusername" class="form-control">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td width="35%">Full name</td>
                                         <td width="65%">
-                                            <input type="text" id="stafffullname" name="stafffullname" class="form-control">
+                                            <input type="text" required id="stafffullname" name="stafffullname" class="form-control">
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <!-- <tr>
                                         <td width="35%">PassWord</td>
                                         <td width="65%">
                                             <input type="text" id="staffpassword" name="staffpassword" class="form-control">
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                     <tr>
                                         <td width="35%">Address</td>
                                         <td width="65%">
-                                            <input type="text" id="staffaddress" name="staffaddress" class="form-control">
+                                            <input type="text" required id="staffaddress" name="staffaddress" class="form-control">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td width="35%">Email</td>
                                         <td width="65%">
-                                            <input type="text" id="staffemail" name="staffemail" class="form-control">
+                                            <input type="text" required id="staffemail" name="staffemail" class="form-control">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Role</td>
                                         <td>
-                                            <select class="form-control" name="staffrole" id="staffrole">
+                                            <select class="form-control" required name="staffrole" id="staffrole">
                                                 <option value="#" id="selectedRoleStaff" name="optionselected"></option>
                                                
                                                 <option value="admin">Admin</option>
@@ -255,7 +257,8 @@
                                     <tr>
                                         <td>Date of birth</td>
                                         <td>
-                                            <input type="text" id="staffdob" name="staffdob" class="form-control">
+                                            <!-- <input type="text" required id="staffdob" name="staffdob" class="form-control"> -->
+                                            <input type="date" id="staffdob" name="staffdob" data-date="" class="form-control" data-date-format="yyyy mm dd">
                                         </td>
                                     </tr>
                                 </tbody>

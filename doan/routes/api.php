@@ -2,7 +2,9 @@
 
 use Illuminate\Http\Request;
 use App\Utils\UploadFile;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\Environment\Console;
 use Symfony\Component\Console\Input\Input;
 
 
@@ -65,48 +67,97 @@ Route::post('admin/updateUser',function(Request $request){
                 return redirect('/admin/manageUser');
 });
 //add staff
-Route::post('admin/addstaff',function(Request $request){
-        $staffusernameadd=$request->input('staffusernameAdd');
-        $stafffullnameadd=$request->input('stafffullnameAdd');
-        $staffpasswordadd=$request->input('staffpasswordAdd');
-        $staffaddressadd=$request->input('staffaddressAdd');
-        $staffemailadd=$request->input('staffemailAdd');
-        $staffdobadd=$request->input('staffdobAdd');
-        $created_atStaffAdd=now();
-        $updated_atStaffAdd=now();
-        $staffroleAdd=$request->get('rolestaff');
-        if($request->hasFile('imagestaffAdd')){
-            $imageStaffAdd=$request->file('imagestaffAdd');
-            $newURLStaffAdd=UploadFile::uploadFile('upload',$imageStaffAdd);
-            DB::table('users')->insert(
-                [
-                        'username'=>$staffusernameadd,
-                        'fullname'=>$stafffullnameadd,
-                        'password'=>$staffpasswordadd,
-                        'address'=>$staffaddressadd,
-                        'email'=>$staffemailadd,
-                        'role'=>$staffroleAdd,
-                        'dob'=>$staffdobadd,
-                        'email'=>$newURLStaffAdd,
-                        'created_at'=>$created_atStaffAdd,
-                        'updated_at'=>$updated_atStaffAdd,
-                ]);
-        }
-        else{
-            DB::table('users')->insert(
-                [
-                        'username'=>$staffusernameadd,
-                        'fullname'=>$stafffullnameadd,
-                        'password'=>$staffpasswordadd,
-                        'address'=>$staffaddressadd,
-                        'email'=>$staffemailadd,
-                        'dob'=>$staffdobadd,
-                        'role'=>$staffroleAdd,
-                        // 'email'=>$newURLStaffAdd,
-                        'created_at'=>$created_atStaffAdd,
-                        'updated_at'=>$updated_atStaffAdd,
-                ]);
-        }
+Route::post('admin/addstaff', function (Request $request) {
+    
+
+    $staffusernameadd = $request->input('staffusernameAdd');
+    $stafffullnameadd = $request->input('stafffullnameAdd');
+    $ArrayUsername= DB::table('users')
+                    ->select('username')
+                    ->get();
+ 
+  
+    // info(array_search($staffusernameadd,$ArrayUsername));
+    $staffpasswordadd = $request->input('staffpasswordAdd');
+    $hashPassword = Hash::make($staffpasswordadd);
+    $staffaddressadd = $request->input('staffaddressAdd'); //
+    $staffemailadd = $request->input('staffemailAdd'); //
+    $staffdobadd = $request->input('staffdobAdd'); //
+    $created_atStaffAdd = now();
+    $updated_atStaffAdd = now();
+    $staffroleAdd = $request->get('rolestaff');
+    // info($request->has('staffaddressAdd'));
+    // info(empty($staffaddressadd));
+    $insertValues=
+    [
+        'username' => $staffusernameadd,
+        'fullname' => $stafffullnameadd,
+        'password' => $hashPassword,
+        'role' => $staffroleAdd,
+        'created_at' => $created_atStaffAdd,
+        'updated_at' => $updated_atStaffAdd,
+    ];
+
+    // insert image if available
+    if ($request->hasFile('imagestaffAdd')) {
+        $imageStaffAdd = $request->file('imagestaffAdd');
+        $newURLStaffAdd = UploadFile::uploadFile('upload', $imageStaffAdd);
+        $insertValues['image'] = $newURLStaffAdd;
+    }
+
+    // insert address if not null
+    if(empty($staffaddressadd)!=1)
+    {
+        $insertValues['address']=$staffaddressadd;
+    }
+
+    // insert email if not null
+    if(empty($staffemailadd)!=1)
+    {
+        $insertValues['email']=$staffemailadd;
+    }
+
+    // insert dob if not null
+    if(empty($staffdobadd)!=1) {
+        $insertValues['dob'] = $staffdobadd;
+    }
+
+    DB::table('users')->insert(
+        $insertValues
+    );
+
+    // if ($request->hasFile('imagestaffAdd')) {
+    //     $imageStaffAdd = $request->file('imagestaffAdd');
+    //     $newURLStaffAdd = UploadFile::uploadFile('upload', $imageStaffAdd);
+    //     DB::table('users')->insert(
+    //         [
+    //             'username' => $staffusernameadd,
+    //             'fullname' => $stafffullnameadd,
+    //             'password' => $hashPassword,
+    //             'address' => $staffaddressadd,
+    //             'email' => $staffemailadd,
+    //             'role' => $staffroleAdd,
+    //             'dob' => $staffdobadd,
+    //             'image' => $newURLStaffAdd,
+    //             'created_at' => $created_atStaffAdd,
+    //             'updated_at' => $updated_atStaffAdd,
+    //         ]
+    //     );
+    // } else {
+    //     DB::table('users')->insert(
+    //         [
+    //                     'username'=>$staffusernameadd,
+    //                     'fullname'=>$stafffullnameadd,
+    //                     'password'=>$hashPassword,
+    //                     'address'=>$staffaddressadd,
+    //                     'email'=>$staffemailadd,
+    //                     'dob'=>$staffdobadd,
+    //                     'role'=>$staffroleAdd,
+    //                     // 'email'=>$newURLStaffAdd,
+    //                     'created_at'=>$created_atStaffAdd,
+    //                     'updated_at'=>$updated_atStaffAdd,
+    //             ]);
+    //     }
 
         return redirect('/admin/manageStaff');
 });
@@ -116,7 +167,7 @@ Route::post('admin/user',function(Request $request){
     $staffUsernameUpdate=$request->input('staffusername');
     $staffaddress=$request->input('staffaddress');
     $stafffullname=$request->input('stafffullname');
-    $staffpassword=$request->input('staffpassword');
+    // $staffpassword=$request->input('staffpassword');
     $staffemail=$request->input('staffemail');
     $staffdob=$request->input('staffdob');
     $staffrole=$request->get('staffrole');
@@ -132,7 +183,7 @@ Route::post('admin/user',function(Request $request){
                 [
                     'username' => $staffUsernameUpdate,
                     'address' => $staffaddress,
-                    'password' => $staffpassword,
+                    // 'password' => $staffpassword,
                     'email' => $staffemail,
                     'dob' => $staffdob,
                     'role' => $staffrole,
@@ -149,7 +200,7 @@ Route::post('admin/user',function(Request $request){
                     [
                         'username'=>$staffUsernameUpdate,
                         'address'=>$staffaddress,
-                        'password'=>$staffpassword,
+                        // 'password'=>$staffpassword,
                         'email'=>$staffemail,
                         'dob'=>$staffdob,
                         'role'=>$staffrole,
@@ -215,7 +266,7 @@ Route::post('admin/updateProduct',function(Request $request){
 Route::post('admin/updateUser',function(Request $request){
     $usernameUpdate=$request->input('username');
     $idUser=$request->input('UserID');
-    $passwordUpdate=$request->input('password');
+    // $passwordUpdate=$request->input('password');
     $fullnameUpdate=$request->input('fullname');
     $addressUpdate=$request->input('address');
     $emailUpdate=$request->input('email');
@@ -229,7 +280,7 @@ Route::post('admin/updateUser',function(Request $request){
             ->update(
                 [
                     'username' => $usernameUpdate,
-                    'password' => $passwordUpdate,
+                    // 'password' => $passwordUpdate,
                     'fullname' => $fullnameUpdate,
                     'address' => $addressUpdate,
                     'email' => $emailUpdate,
@@ -245,7 +296,7 @@ Route::post('admin/updateUser',function(Request $request){
         ->update(
             [
                 'username' => $usernameUpdate,
-                'password' => $passwordUpdate,
+                // 'password' => $passwordUpdate,
                 'fullname' => $fullnameUpdate,
                 'address' => $addressUpdate,
                 'email' => $emailUpdate,
@@ -264,47 +315,72 @@ Route::post('admin/user1',function(Request $request){
     $username=$request->input('username');
     $fullname=$request->input('fullname');
     $password=$request->input('password');
-    $address=$request->input('address');
-    $email=$request->input('email');
-    $dob=$request->input('dob');
+    $hashPasswordCustomer=Hash::make($password);
+    $address=$request->input('address');//
+    $email=$request->input('email');//
+    $dob=$request->input('dob');//
     $created_at=now();
     $updated_at=now();
     $role='customer';
-    $newImageUrlUser='';
-    if($request->hasFile('imageuser')){
-        // info('test if has file Image User');
-        $imageuser = $request->file('imageuser');
-        //return back()->with('success','Image Upload successfully');
-        $newImageUrlUser= UploadFile::uploadFile('upload',$imageuser);
-        DB::table('users')->insert(
-                [
-                    'username'=>$username,
-                    'fullname'=>$fullname,
-                    'password'=>$password,
-                    'address'=>$address,
-                    'email'=>$email,
-                    'role'=>$role,
-                    'dob'=>$dob,
-                    'created_at'=>$created_at,
-                    'updated_at'=>$updated_at,
-                    'image'=>$newImageUrlUser,
-                ]);
+    $UserArray=[
+        'username'=>$username,
+        'fullname'=>$fullname,
+        'password'=>$hashPasswordCustomer,
+        'created_at'=>$created_at,
+        'updated_at'=>$updated_at,
+        'role'=>$role
+    ];
+    if(empty($address)!=1){
+        $UserArray['address']=$address;
+
     }
-    else{
+    if(empty($email)!=1)
+    {
+        $UserArray['email'] = $email;
+    }
+    if(empty($dob)!=1){
+        $UserArray['dob']=$dob;
+    }
     DB::table('users')->insert(
-        [
-            'username'=>$username,
-            'fullname'=>$fullname,
-            'password'=>$password,
-            'address'=>$address,
-            'email'=>$email,
-            'role'=>$role,
-            'dob'=>$dob,
-            'created_at'=>$created_at,
-            'updated_at'=>$updated_at,
-            // 'image'=>$newImageURL,
-        ]);
-    }
+        $UserArray
+    );
+
+
+    // $newImageUrlUser='';
+    // if($request->hasFile('imageuser')){
+    //     // info('test if has file Image User');
+    //     $imageuser = $request->file('imageuser');
+    //     //return back()->with('success','Image Upload successfully');
+    //     $newImageUrlUser= UploadFile::uploadFile('upload',$imageuser);
+    //     DB::table('users')->insert(
+    //             [
+    //                 'username'=>$username,
+    //                 'fullname'=>$fullname,
+    //                 'password'=>$hashPasswordCustomer,
+    //                 'address'=>$address,
+    //                 'email'=>$email,
+    //                 'role'=>$role,
+    //                 'dob'=>$dob,
+    //                 'created_at'=>$created_at,
+    //                 'updated_at'=>$updated_at,
+    //                 'image'=>$newImageUrlUser,
+    //             ]);
+    // }
+    // else{
+    // DB::table('users')->insert(
+    //     [
+    //         'username'=>$username,
+    //         'fullname'=>$fullname,
+    //         'password'=>$hashPasswordCustomer,
+    //         'address'=>$address,
+    //         'email'=>$email,
+    //         'role'=>$role,
+    //         'dob'=>$dob,
+    //         'created_at'=>$created_at,
+    //         'updated_at'=>$updated_at,
+    //         // 'image'=>$newImageURL,
+    //     ]);
+    // }
     return redirect('/admin/manageUser');
 });
 
@@ -342,6 +418,15 @@ Route::post('admin/product',function(Request $request){
     return redirect('/admin/manageProduct');
 });
 
+// check user da ton tai hay chua
+// neu da ton tai -> return true
+// else return false
+Route::get('/validateUser/{inputUsername}',function($inputUsername){
+ $data=   DB::table('users')
+    ->where('username',$inputUsername)
+    ->count();
+    return $data;
+});
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

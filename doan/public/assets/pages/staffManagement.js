@@ -25,10 +25,11 @@ const viewDetailStaff = (userid) => {
 
         let { id,username,password, fullname, address, email, role, dob, image } = data[0]
         $('#staffid').val(id)
+        $('#staffIDLablel').val(id)
         $('#staffusername').val(username)
         $('#stafffullname').val(fullname)
         $('#staffaddress').val(address)
-        $('#staffpassword').val(password)
+        // $('#staffpassword').val(password)
         $('#staffemail').val(email)
         $('#selectedRoleStaff').text(role)
         $('#selectedRoleStaff').attr('value',role)
@@ -40,6 +41,57 @@ const viewDetailStaff = (userid) => {
         }
     });
 }
+
+$('#staffusernameAdd').on('input',function(e){
+   GetUsername=$('#staffusernameAdd').val();
+    console.log(GetUsername,'test');
+    $.get(`/api/validateUser/${GetUsername}`,(data,status) =>{
+        $result=data;
+        console.log($result,'result')
+                if($result!=0){
+                    $('#trunguser').show();
+                }
+                else{
+                    $('#trunguser').hide();
+                }
+    });
+});
+ function validateUser(f){
+     
+        GetUsername=$('#staffusernameAdd').val();
+        var result=true;
+     $.get(`/api/validateUser/${GetUsername}`,(data,status) =>{
+            // console.log(data,'datadata')
+            
+                if(data!=0){
+                    
+                   result=false;
+                   
+                }else{
+                    
+                 
+                }
+                
+    });
+    return result;
+}
+
+function inputUsername(){
+    
+    // GetUsername=$('#staffusernameAdd').val();
+    // console.log(GetUsername,'test');
+    // $.get(`/api/validateUser/${GetUsername}`,(data,status) =>{
+    //     $result=data;
+    //     console.log($result,'result')
+    //             if($result!=0){
+    //                 $('#trunguser').show();
+    //             }
+    //             else{
+    //                 $('#trunguser').text('bạn có thể dùng username này').css("color","green")
+    //             }
+    // });
+}
+
 // const updateUserInfo = () => {
 //     let username = $('#inline-username').text()
 //     let fullname = $('#inline-fullname').text()

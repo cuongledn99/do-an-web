@@ -108,19 +108,19 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">UserName</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" name="username" class="form-control" placeholder="username...">
+                                                    <input type="text" name="username" class="form-control" required placeholder="username...">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">Full Name</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" name="fullname" class="form-control" placeholder="Full Name">
+                                                    <input type="text" name="fullname" required class="form-control" placeholder="Full Name">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">Password </label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" name="password" class="form-control" placeholder="PassWord">
+                                                    <input type="password" name="password" required class="form-control" placeholder="PassWord">
                                                 </div>
                                             </div>
                                             
@@ -216,12 +216,12 @@
                                             <input type="text" class="form-control" name="fullname" id="fullname">
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <!-- <tr>
                                         <td width="35%" style="text-align:center;vertical-align: middle;">PassWord</td>
                                         <td width="65%">
                                             <input class="form-control" id="password" name="password">
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                     <!-- <tr>
                                         <td style="text-align:center;vertical-align: middle;">Role</td>
                                         <td>
@@ -249,7 +249,8 @@
                                         <td width="35%" style="text-align:center;vertical-align: middle;">Day Of Birth</td>
                                         <td width="65%">
                                             <!-- <input type="date" id="dob" name="dob" data-date="" class="form-control" data-date-format="yyyy mm dd">  -->
-                                            <input type="text" class="form-control" name="dob1" id="dob1">
+                                            <!-- <input type="text" class="form-control" name="dob1" id="dob1"> -->
+                                            <input type="date" id="dob1" name="dob1" data-date="" class="form-control" data-date-format="yyyy mm dd">
                                         </td>
                                     </tr>
                                     <!-- <tr>
