@@ -8,7 +8,7 @@ function setIdUser(id){
     selectedIdUser=id;
 }
 //show image when chose input file
-var loadFile = function(event) {
+var loadFileImageUser = function(event) {
     var image = document.getElementById('user-avatar');
     console.log(image,'test loadFile image trong userManagement.js')
     image.src = URL.createObjectURL(event.target.files[0]);

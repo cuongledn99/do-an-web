@@ -9,7 +9,7 @@ function  setIdProduct(id){
     console.log(selectedIdProduct,'selected product')
 }
 //show image when chose input file
-var loadFile = function(event) {
+var loadFileImageProduct = function(event) {
     var image = document.getElementById('product-avatar');
     image.src = URL.createObjectURL(event.target.files[0]);
   };

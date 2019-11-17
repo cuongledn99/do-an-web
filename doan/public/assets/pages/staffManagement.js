@@ -9,7 +9,7 @@ function setIdStaff(id) {
     selectedIdStaff = id;
 }
 //show image when chose input file
-var loadFile = function(event) {
+var loadFileImageStaff = function(event) {
     var image = document.getElementById('staff-avatar');
     image.src = URL.createObjectURL(event.target.files[0]);
   };

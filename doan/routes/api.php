@@ -469,6 +469,14 @@ Route::get('/validateUser/{inputUsername}',function($inputUsername){
     return $data;
 });
 
+//validateCategoryName
+Route::get('/validateCatename/{inputCateName}',function($inputCateName){
+    $countCateName=DB::table('category')
+        ->where('categoryName',$inputCateName)
+        ->count();
+        return $countCateName;
+});
+
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

@@ -187,7 +187,7 @@
                         <img id='product-avatar' src='{{asset("/images/avatar.png")}}' class="img-thumbnail" alt="Product_Image">
                         <div>
                             <label for="image2" class="btn">Change image</label>
-                            <input id="image2" name="image2" onchange="loadFile(event)" style="display:none" type="file">
+                            <input id="image2" name="image2" onchange="loadFileImageProduct(event)" style="display:none" type="file">
                         </div>
                     </div>
                     <div class='col-sm-9'>

@@ -98,13 +98,13 @@
 
                                         </div>
                                         @endif -->
-                                        <form id="formAdd" class="form-horizontal" onsubmit="return validateCate(this)"  enctype="multipart/form-data" role="form" method="POST" action="/api/admin/addcate">
+                                        <form id="formAdd" class="form-horizontal" onsubmit="return validateCateName(this)"  enctype="multipart/form-data" role="form" method="POST" action="/api/admin/addcate">
                                             {{ csrf_field() }}
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">CateName</label>
                                                 <div class="col-sm-9">
                                                     <input type="text" id="categorynameAdd" name="categorynameAdd"  required class="form-control" placeholder="category name...">
-                                                    <!-- <div id="trunguser" style="color:red; display:none">Username này đã được dùng</div> -->
+                                                    <div id="trungcate" style="color:red; display:none">CateName này đã được dùng</div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
