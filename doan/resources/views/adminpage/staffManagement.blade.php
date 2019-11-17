@@ -194,10 +194,10 @@
             {{ csrf_field() }}
                 <div class="profile-info-name row">
                     <div class='col-sm-3'>
-                        <img id='staff-avatar' src='{{asset("/images/avatar.png")}}' class="img-thumbnail" alt="profile-image">
+                        <img id='staff-avatar' src='{{asset("/images/avatar.png")}}' class="img-thumbnail" alt="staff-image">
                         <div>
                             <label for="imagestaff" class="btn">Change image</label>
-                            <input id="imagestaff" name="imagestaff" style="display:none" type="file">
+                            <input id="imagestaff" name="imagestaff" onchange="loadFile(event)" style="display:none" type="file">
                         </div>
                     </div>
                     <div class='col-sm-9'>

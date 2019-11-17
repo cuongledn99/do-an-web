@@ -8,7 +8,11 @@ $.ajaxSetup({
 function setIdStaff(id) {
     selectedIdStaff = id;
 }
-
+//show image when chose input file
+var loadFile = function(event) {
+    var image = document.getElementById('staff-avatar');
+    image.src = URL.createObjectURL(event.target.files[0]);
+  };
 function confirmDeleteStaff() {
     $.ajax({
         url: `/api/admin/staff/${selectedIdStaff}`,

@@ -7,6 +7,12 @@ $.ajaxSetup({
 function setIdUser(id){
     selectedIdUser=id;
 }
+//show image when chose input file
+var loadFile = function(event) {
+    var image = document.getElementById('user-avatar');
+    console.log(image,'test loadFile image trong userManagement.js')
+    image.src = URL.createObjectURL(event.target.files[0]);
+  };
 function confirmDeleteUser(){
     console.log('test confirmDeleteUser')
     $.ajax({
