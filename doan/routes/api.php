@@ -16,6 +16,7 @@ Route::get('/user/{id}','UserController@getUserInfo');
 Route::post('/user/{id}','UserController@updateUser');
 
 Route::get('/user1/{userid}','UserController@getUserInfo1');
+Route::get('/cate/{cateid}','CategoryController@getCateInfor');
 Route::get('/product/{ProductID}','ProductController@getProductInfo');
 Route::post('/product/{ProductID}','ProductController@updateProduct');
 // Route::get('user/allRoles','UserController@getRoles');
@@ -26,6 +27,9 @@ Route::delete('admin/staff/{id}','UserController@deleteUser');
 Route::delete('admin/user/{id}','UserController@deleteUser1');
 //delete product
 Route::delete('admin/product/{id}','ProductController@deleteProduct');
+
+//delete category
+Route::delete('admin/cate/{id}','CategoryController@deleteCate');
 
 Route::post('admin/updateUser',function(Request $request){
     $userid=$request->input('UserID');
@@ -66,6 +70,26 @@ Route::post('admin/updateUser',function(Request $request){
                 ]);
                 return redirect('/admin/manageUser');
 });
+
+//add cate
+Route::post('admin/addcate',function(Request $request){
+    $categoryusernameadd=$request->input('categorynameAdd');
+    $created_atCateAdd=now();
+    $updated_atCateAdd=now();
+    $CateAdd=[
+        'categoryName'=>$categoryusernameadd,
+        'created_at'=>$created_atCateAdd,
+        'updated_at'=>$updated_atCateAdd
+    ];
+    DB::table('category')->insert(
+        $CateAdd
+    );
+    return redirect('/admin/category');
+
+
+});
+
+
 //add staff
 Route::post('admin/addstaff', function (Request $request) {
     

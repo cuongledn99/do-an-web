@@ -16,6 +16,11 @@ class AdminPageController extends Controller
         $users=DB::select('select * from users where role in ("admin","staff")');
         return view('adminpage.staffManagement',['users'=>$users]);
     }
+    public function renderCategory(){
+        $category=DB::table('category')
+                    ->get();
+                    return view('adminpage.categoryManagement',['category'=>$category]);
+    }
     public function renderUser(){
         $users=DB::table('users')
                     ->where('role','customer')
