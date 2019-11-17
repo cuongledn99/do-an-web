@@ -237,6 +237,23 @@ Route::post('admin/user',function(Request $request){
 
 });
 
+//update cate
+Route::post('admin/cate',function(Request $request){
+    $cateIdUpdate=$request->input('cateid');
+    $CateNameUpdate=$request->input('catename');
+    $cateUpdated=now();
+    DB::table('category')->where('id',$cateIdUpdate)
+    ->update(
+        [
+            'categoryName' => $CateNameUpdate,
+            'updated_at'=>$cateUpdated
+        ]);
+            
+    return redirect('/admin/category');
+
+
+});
+
 
 //update product
 Route::post('admin/updateProduct',function(Request $request){

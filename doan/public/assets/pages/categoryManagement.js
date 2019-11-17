@@ -28,6 +28,7 @@ const viewDetailCate=(cateid)=>{
          = data[0] 
         // console.log( id,'id')
         $('#CateIDLablel').val(id)
+        $('#cateid').val(id)
         $('#catename').val(categoryName)
         $('#createdatcate').val(created_at)
         $('#updatedatcate').val(updated_at)

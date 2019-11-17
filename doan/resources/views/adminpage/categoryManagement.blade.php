@@ -137,7 +137,7 @@
     <h4 class="custom-modal-title">Category Detail information</h4>
     <div class="custom-modal-text">
         <div class="bg-picture card-box">
-            <form enctype="multipart/form-data" action="/api/admin/user" method="POST" id="fileUploadForm">
+            <form enctype="multipart/form-data" action="/api/admin/cate" method="POST" id="fileUploadForm">
             {{ csrf_field() }}
                 <div class="profile-info-name row">
                     <div class='col-sm-3'>
