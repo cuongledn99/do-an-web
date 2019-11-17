@@ -43,9 +43,9 @@ const viewDetailStaff = (userid) => {
 }
 
 $('#staffusernameAdd').on('input',function(e){
-   GetUsername=$('#staffusernameAdd').val();
-    console.log(GetUsername,'test');
-    $.get(`/api/validateUser/${GetUsername}`,(data,status) =>{
+   var getUsername=$('#staffusernameAdd').val();
+    console.log(getUsername,'test');
+    $.get(`/api/validateUser/${getUsername}`,(data,status) =>{
         $result=data;
         console.log($result,'result')
                 if($result!=0){
@@ -55,46 +55,72 @@ $('#staffusernameAdd').on('input',function(e){
                     $('#trunguser').hide();
                 }
     });
-});
+}); 
 
-$('form').submit(async function(e){
+// async function x(e){
+//     let GetUsername=$('#staffusernameAdd').val();
+//     let nammm=0;
+//      await $.get(`/api/validateUser/${GetUsername}`,(data,status) =>{
+//              console.log(data,'datad  in submit')
+//              nammm=data;
+//     });
+//     console.log(nammm,'dong 67')
+//     if(nammm!=0){
+//         return false;
+//     }
+//     else{
+//         return true;
+//     }
+    
+// }
+
+// lấy kết quả trả về của ajax
+function getdata(test){
     var GetUsername=$('#staffusernameAdd').val();
-    var result= false;
-    await $.get(`/api/validateUser/${GetUsername}`,(data,status) =>{
-            // console.log(data,'datad  ata')
 
-                if(data==0){
-                    result=true;
+    // $.ajax({
+    //     url:`/api/validateUser/${GetUsername}`,
+    //     async: false,
+    //     success:function(data){
+    //         test(data);
+    //         console.log(data,'test test')
+
+    //     }
+    // });
+    $.extend({
+        xResponse: function(url, data) {
+            // local var
+            var theResponse = null;
+            // jQuery ajax
+            $.ajax({
+                url:`/api/validateUser/${GetUsername}`,
+                type: 'GET',
+                data: data,
+                // dataType: "html",
+                async: false,
+                success: function(respText) {
+                    theResponse = respText;
                 }
-               
-                
+            });
+            // Return the response text
+            return theResponse;
+        }
     });
-    console.log(result,'result')
-    if(result){
-    e.preventDefault();
+    var xData = $.xResponse(`/api/validateUser/${GetUsername}`, {issession: 1,selector: true});
+    return xData;
+}
+// gọi hàm onsubmit
+ function validateUser(f){
+    var x = getdata();
+    // console.log(x,'xxxxxx')
+    if(x!=0){
         return false;
     }
-    
-});
-// async function validateUser(f){
-     
-//        var GetUsername=$('#staffusernameAdd').val();
-//         let result=false;
-//     await $.get(`/api/validateUser/${GetUsername}`,(data,status) =>{
-//             // console.log(data,'datad  ata')
-
-//                 if(data!=0){
-//                    result=false;
-//                    console.log('khac khong')
-//                 }
-//                 else{
-//                     result=true;
-//                 }
-                
-//     });
-//     console.log(result,'result')
-//     return result;
-// }
+    else{
+        return true;
+    }
+  
+}
 
 function inputUsername(){
     
