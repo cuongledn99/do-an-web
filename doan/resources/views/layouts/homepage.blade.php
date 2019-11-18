@@ -51,14 +51,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	@yield('content')
 
-	<!-- //product-nav -->
 
-	@include('partials.coupons', [])
 
 	<!-- footer -->
 	@include('partials.footer', [])
 
 	<!-- footer -->
+
+	<!-- load all category to sub menu -->
+	<script>
+		$.get("/api/category", function(data, status){
+			data.map((item,index)=>{
+				$('#listCategory').append(`<li><a href="/category/${item.id}">${item.categoryName}</a></li>`)
+			})
+		});
+	</script>
 	
 </body>
 

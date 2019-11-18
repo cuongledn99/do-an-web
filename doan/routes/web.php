@@ -2,8 +2,11 @@
 
 use App\Utils\UrlUtil;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
-Route::get('/', 'Pages\\NonAuths\\HomeController@index');
+Route::get('/', 'HomeController@renderProduct');
+Route::get('/category/{categoryID}','HomeController@renderProductByCategory');
+
 
 
 Route::get('/admin','AdminPageController@renderAdminPage');

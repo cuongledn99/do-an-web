@@ -361,6 +361,9 @@ Route::get('/validateUser/{inputUsername}', function ($inputUsername) {
 });
 
 
+// get all category name
+Route::get('/category','ProductController@getAllCategory');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

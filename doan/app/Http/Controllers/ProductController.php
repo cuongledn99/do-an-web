@@ -89,4 +89,10 @@ class ProductController extends Controller
                 );
             return 1;
         }
+    public function getAllCategory()
+    {
+      $data=  DB::table('category')
+        ->get();
+        return $data;
+    }
 }

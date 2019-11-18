@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -23,6 +23,29 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('homepage.index');
+    }
+
+    public function renderProduct()
+    {
+        $data = DB::table('shoes')->simplePaginate(12);
+        foreach ($data as $item) {
+            $item->outPrice = str_replace('.00000', '', $item->outPrice);
+            $item->outPrice = $item->outPrice . ' VND';
+        }
+        return view('homepage.index', ['data' => $data]);
+    }
+
+    public function renderProductByCategory($categoryID)
+    {
+        $data = DB::table('shoes')
+            ->where('categoryID', $categoryID)
+            ->simplePaginate(15);
+        foreach ($data as $item) {
+            $item->outPrice = str_replace('.00000', '', $item->outPrice);
+            $item->outPrice = $item->outPrice . ' VND';
+        }
+
+        return view('homepage.index', ['data' => $data]);
     }
 }
