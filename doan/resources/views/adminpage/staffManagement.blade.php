@@ -190,13 +190,13 @@
     <h4 class="custom-modal-title">Staff Detail information</h4>
     <div class="custom-modal-text">
         <div class="bg-picture card-box">
-            <form enctype="multipart/form-data" action="/api/admin/user" method="POST" id="fileUploadForm">
+            <form enctype="multipart/form-data" onsubmit="return validateStaffView(this)" action="/api/admin/user" method="POST" id="fileUploadForm">
             {{ csrf_field() }}
                 <div class="profile-info-name row">
                     <div class='col-sm-3'>
                         <img id='staff-avatar' src='{{asset("/images/avatar.png")}}' class="img-thumbnail" alt="staff-image">
                         <div>
-                            <label for="imagestaff" class="btn">Change image</label>
+                            <label for="imagestaff" class="btn" >Change Image</label>
                             <input id="imagestaff" name="imagestaff" onchange="loadFileImageStaff(event)" style="display:none" type="file">
                         </div>
                     </div>
@@ -216,6 +216,8 @@
                                         <td width="35%">Username</td>
                                         <td width="65%">
                                             <input type="text" required id="staffusername" name="staffusername" class="form-control">
+                                            <div id="trungstaffview" style="color:red; display:none">Username này đã được dùng</div>
+                            
                                         </td>
                                     </tr>
                                     <tr>

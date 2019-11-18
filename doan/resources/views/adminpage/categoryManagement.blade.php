@@ -5,7 +5,7 @@
         <div class="card-box table-responsive">
             <h4 class="m-t-0 header-title">Category Management</h4>
             <!-- Button trigger modal -->
-            <button class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#myModal3">Add Cate
+            <button class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#myModal3">Add Category
             </button>
 
             <table id="tableStaffs" class="table table-bordered">
@@ -72,7 +72,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Add Cate</h4>
+                <h4 class="modal-title" id="myModalLabel">Add Category</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
@@ -140,13 +140,13 @@
             <form enctype="multipart/form-data" action="/api/admin/cate" method="POST" id="fileUploadForm">
             {{ csrf_field() }}
                 <div class="profile-info-name row">
-                    <div class='col-sm-3'>
+                    <!-- <div class='col-sm-3'>
                         <img id='cate-avatar' src='{{asset("/images/avatar.png")}}' class="img-thumbnail" alt="category-image">
                         <div>
                             <label for="imagestaff" class="btn">Change image</label>
                             <input id="imagestaff" name="imagestaff" style="display:none" type="file">
                         </div>
-                    </div>
+                    </div> -->
                     <div class='col-sm-9'>
                         <div class="profile-info-detail">
 
@@ -165,24 +165,24 @@
                                             <input type="text" required id="catename" name="catename" class="form-control">
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <!-- <tr>
                                         <td width="35%">created at</td>
                                         <td width="65%">
                                             <input type="text" required id="createdatcate" name="createdatcate" class="form-control">
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                     <!-- <tr>
                                         <td width="35%">PassWord</td>
                                         <td width="65%">
                                             <input type="text" id="staffpassword" name="staffpassword" class="form-control">
                                         </td>
                                     </tr> -->
-                                    <tr>
+                                    <!-- <tr>
                                         <td width="35%">updated at</td>
                                         <td width="65%">
                                             <input type="text" required id="updatedatcate" name="updatedatcate" class="form-control">
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                     <!-- <tr>
                                         <td width="35%">Email</td>
                                         <td width="65%">

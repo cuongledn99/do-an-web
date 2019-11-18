@@ -469,6 +469,9 @@ Route::get('/validateUser/{inputUsername}',function($inputUsername){
     return $data;
 });
 
+//validate staff view
+// Route::get('/validatestaffview')
+
 //validateCategoryName
 Route::get('/validateCatename/{inputCateName}',function($inputCateName){
     $countCateName=DB::table('category')
