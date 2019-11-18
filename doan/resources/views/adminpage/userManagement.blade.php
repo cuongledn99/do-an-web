@@ -102,25 +102,27 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">Full Name</label>
                                                 <div class="col-sm-9">
+                                                        <input type="text" name="fullname" required class="form-control" placeholder="Full Name">
                                                 </div>
-                                                    <input type="text" name="fullname" required class="form-control" placeholder="Full Name">
+                                                    
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">Password </label>
                                                 <div class="col-sm-9">
                                                     <input type="password" name="password" required class="form-control" placeholder="PassWord">
-                                            </div>
                                                 </div>
+                                            </div>
                                             
                                             <div class="form-group row">
-                                                <div class="col-sm-9">
                                                 <label for="image" class="col-sm-3 col-form-label">Image</label>
+                                                <div class="col-sm-9">
                                                     <div class="custom-file mb-3">
                                                         <input type="file" class="custom-file-input" id="imageuser" name="imageuser">
                                                         <label class="custom-file-label" for="imageuser">Choose file image</label>
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">Adress</label>
                                                 <div class="col-sm-9">

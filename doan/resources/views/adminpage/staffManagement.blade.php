@@ -215,18 +215,12 @@
                                     <tr>
                                         <td width="35%">Username</td>
                                         <td width="65%">
-                                            <input type="text" required id="staffusername" name="staffusername" class="form-control">
-                                            <div id="trungstaffview" style="color:red; display:none">Username này đã được dùng</div>
+                                            <input type="text" class="form-control" id="staffUsernameLablel" disabled>
+                                            <input type="text" required id="staffusername" name="staffusername" class="form-control" style='display:none'>
                             
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>Username</td>
-                                        <td width="65%">
-                                            <input type="text" class="form-control" id="staffUsernameLablel" disabled>
-                                            <input type="text" required id="staffusername" name="staffusername" class="form-control" style='display:none'>
-                                        </td>
-                                    </tr>
+                                    
                                     <tr>
                                         <td width="35%">Full name</td>
                                         <td width="65%">

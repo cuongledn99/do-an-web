@@ -2,7 +2,6 @@
 
 use App\Utils\UploadFile;
 use Illuminate\Http\Request;
-use App\Utils\UploadFile;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\Environment\Console;
@@ -27,6 +26,51 @@ Route::delete('admin/staff/{id}', 'UserController@deleteUser');
 Route::delete('admin/user/{id}', 'UserController@deleteUser1');
 //delete product
 Route::delete('admin/product/{id}', 'ProductController@deleteProduct');
+//delete category
+Route::delete('admin/cate/{id}','CategoryController@deleteCate');
+
+//add cate
+Route::post('admin/addcate',function(Request $request){
+    $categoryusernameadd=$request->input('categorynameAdd');
+    $created_atCateAdd=now();
+    $updated_atCateAdd=now();
+    $CateAdd=[
+        'categoryName'=>$categoryusernameadd,
+        'created_at'=>$created_atCateAdd,
+        'updated_at'=>$updated_atCateAdd
+    ];
+    DB::table('category')->insert(
+        $CateAdd
+    );
+    return redirect('/admin/category');
+
+
+});
+
+//update cate
+Route::post('admin/cate',function(Request $request){
+    $cateIdUpdate=$request->input('cateid');
+    $CateNameUpdate=$request->input('catename');
+    $cateUpdated=now();
+    DB::table('category')->where('id',$cateIdUpdate)
+    ->update(
+        [
+            'categoryName' => $CateNameUpdate,
+            'updated_at'=>$cateUpdated
+        ]);
+            
+    return redirect('/admin/category');
+
+
+});
+
+//validateCategoryName
+Route::get('/validateCatename/{inputCateName}',function($inputCateName){
+    $countCateName=DB::table('category')
+        ->where('categoryName',$inputCateName)
+        ->count();
+        return $countCateName;
+});
 
 // update user
 Route::post('admin/updateUser', function (Request $request) {
