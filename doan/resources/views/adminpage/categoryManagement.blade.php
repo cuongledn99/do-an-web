@@ -29,9 +29,7 @@
                         <td>{{$categorys->created_at}}</td>
                         <td>{{$categorys->updated_at}}</td>
                         <td>
-                            <button type="button" class="btn btn-icon waves-effect waves-light btn-danger m-b-5" onclick="setIdCate({{$categorys->id}})" data-toggle="modal" data-target="#myModal">
-                                <i class="fa fa-trash"></i>
-                            </button>
+                            
                             <a id='btn-view-{{$categorys->id}}' onclick="viewDetailCate({{$categorys->id}})" href="#custom-modal3" class="btn btn-icon waves-effect waves-light btn-success m-b-5 " data-animation="door" data-plugin="custommodal" data-overlayspeed="100" data-overlaycolor="#36404a">
                                 <i class="fa fa-eye"></i>
                             </a>
