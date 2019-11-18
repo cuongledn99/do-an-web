@@ -2,8 +2,10 @@
 
 use App\Utils\UploadFile;
 use Illuminate\Http\Request;
+use App\Utils\UploadFile;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\Environment\Console;
 use Symfony\Component\Console\Input\Input;
 
 /**
@@ -13,9 +15,10 @@ Route::get('user/allRoles', 'UserController@getRoles');
 Route::get('/user/{id}', 'UserController@getUserInfo');
 Route::post('/user/{id}', 'UserController@updateUser');
 
-Route::get('/user1/{userid}', 'UserController@getUserInfo1');
-Route::get('/product/{ProductID}', 'ProductController@getProductInfo');
-Route::post('/product/{ProductID}', 'ProductController@updateProduct');
+Route::get('/user1/{userid}','UserController@getUserInfo1');
+Route::get('/cate/{cateid}','CategoryController@getCateInfor');
+Route::get('/product/{ProductID}','ProductController@getProductInfo');
+Route::post('/product/{ProductID}','ProductController@updateProduct');
 // Route::get('user/allRoles','UserController@getRoles');
 
 //delete staff
@@ -74,7 +77,6 @@ Route::post('admin/addstaff', function (Request $request) {
         ->select('username')
         ->get();
 
-    // info(array_search($staffusernameadd,$ArrayUsername));
     $staffpasswordadd = $request->input('staffpasswordAdd');
     $hashPassword = Hash::make($staffpasswordadd);
     $staffaddressadd = $request->input('staffaddressAdd'); //
@@ -83,8 +85,6 @@ Route::post('admin/addstaff', function (Request $request) {
     $created_atStaffAdd = now();
     $updated_atStaffAdd = now();
     $staffroleAdd = $request->get('rolestaff');
-    // info($request->has('staffaddressAdd'));
-    // info(empty($staffaddressadd));
     $insertValues =
         [
         'username' => $staffusernameadd,
@@ -120,39 +120,6 @@ Route::post('admin/addstaff', function (Request $request) {
     DB::table('users')->insert(
         $insertValues
     );
-
-    // if ($request->hasFile('imagestaffAdd')) {
-    //     $imageStaffAdd = $request->file('imagestaffAdd');
-    //     $newURLStaffAdd = UploadFile::uploadFile('upload', $imageStaffAdd);
-    //     DB::table('users')->insert(
-    //         [
-    //             'username' => $staffusernameadd,
-    //             'fullname' => $stafffullnameadd,
-    //             'password' => $hashPassword,
-    //             'address' => $staffaddressadd,
-    //             'email' => $staffemailadd,
-    //             'role' => $staffroleAdd,
-    //             'dob' => $staffdobadd,
-    //             'image' => $newURLStaffAdd,
-    //             'created_at' => $created_atStaffAdd,
-    //             'updated_at' => $updated_atStaffAdd,
-    //         ]
-    //     );
-    // } else {
-    //     DB::table('users')->insert(
-    //         [
-    //                     'username'=>$staffusernameadd,
-    //                     'fullname'=>$stafffullnameadd,
-    //                     'password'=>$hashPassword,
-    //                     'address'=>$staffaddressadd,
-    //                     'email'=>$staffemailadd,
-    //                     'dob'=>$staffdobadd,
-    //                     'role'=>$staffroleAdd,
-    //                     // 'email'=>$newURLStaffAdd,
-    //                     'created_at'=>$created_atStaffAdd,
-    //                     'updated_at'=>$updated_atStaffAdd,
-    //             ]);
-    //     }
 
     return redirect('/admin/manageStaff');
 });
@@ -348,6 +315,7 @@ Route::get('/validateUser/{inputUsername}', function ($inputUsername) {
         ->count();
     return $data;
 });
+
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

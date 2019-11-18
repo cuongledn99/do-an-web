@@ -196,8 +196,8 @@
                     <div class='col-sm-3'>
                         <img id='staff-avatar' src='{{asset("/images/avatar.png")}}' class="img-thumbnail" alt="profile-image">
                         <div>
-                            <label for="imagestaff" class="btn">Change image</label>
-                            <input id="imagestaff" name="imagestaff" style="display:none" type="file">
+                            <label for="imagestaff" class="btn" >Change Image</label>
+                            <input id="imagestaff" name="imagestaff" onchange="loadFileImageStaff(event)" style="display:none" type="file">
                         </div>
                     </div>
                     <div class='col-sm-9'>
@@ -210,6 +210,14 @@
                                         <td width="65%">
                                             <input type="text" class="form-control" id="staffIDLablel" disabled> 
                                             <input type="text" id="staffid" name="staffid" class="form-control" style='display:none'>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="35%">Username</td>
+                                        <td width="65%">
+                                            <input type="text" required id="staffusername" name="staffusername" class="form-control">
+                                            <div id="trungstaffview" style="color:red; display:none">Username này đã được dùng</div>
+                            
                                         </td>
                                     </tr>
                                     <tr>

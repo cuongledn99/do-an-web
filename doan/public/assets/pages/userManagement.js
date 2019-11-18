@@ -7,6 +7,12 @@ $.ajaxSetup({
 function setIdUser(id){
     selectedIdUser=id;
 }
+//show image when chose input file
+var loadFileImageUser = function(event) {
+    var image = document.getElementById('user-avatar');
+    console.log(image,'test loadFile image trong userManagement.js')
+    image.src = URL.createObjectURL(event.target.files[0]);
+  };
 function confirmDeleteUser(){
     $.ajax({
         url:`/api/admin/user/${selectedIdUser}`,
@@ -16,7 +22,6 @@ function confirmDeleteUser(){
         }
     });
 }
-
 // validate username on tying
 $('#usernameUser').on('input',function(e){
     GetUsername = $('#usernameUser').val();
@@ -38,12 +43,11 @@ $('#usernameUser').on('input',function(e){
     if(result >0) return false
     return true
  }
-
 // submit form add new user
+
 $('#btn-newUser').click(async function(){
     let username = $('#usernameUser').val();
     let isOK = await isValidUsername(username)
-    console.log(isOK,'isOKisOK')
     if (isOK)
         $('#form-add-user').submit()
 })
@@ -61,7 +65,6 @@ const viewDetailUser=(userid)=>{
             image
          }
          = data[0] 
-        // console.log( id,'id')
         $('#UserIDLablel').val(id)
         $('#UserID').val(id)
         $('#UsernameLablel').val(username)
@@ -70,9 +73,7 @@ const viewDetailUser=(userid)=>{
         $('#fullname').val(fullname)
         $('#address').val(address)
         $('#email').val(email)
-        // $('#selectedRole').text(role)
         $('#dob1').val(dob)
-        // console.log(username);
 
         if (image) {
             $('#user-avatar').attr('src', `/${image}`)

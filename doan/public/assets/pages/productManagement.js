@@ -8,6 +8,11 @@ function  setIdProduct(id){
     selectedIdProduct=id;
     console.log(selectedIdProduct,'selected product')
 }
+//show image when chose input file
+var loadFileImageProduct = function(event) {
+    var image = document.getElementById('product-avatar');
+    image.src = URL.createObjectURL(event.target.files[0]);
+  };
 function confirmDeleteProduct(){
     
     $.ajax({

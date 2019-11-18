@@ -134,6 +134,12 @@
                                     Product Management </span> </a>
                         </li>
 
+                        <!--quản lý category -->
+                        <li>
+                            <a href="/admin/category" class="waves-effect"><i class="mdi mdi-format-font"></i> <span>
+                                    category Management </span> </a>
+                        </li>
+
                     </ul>
                     <div class="clearfix"></div>
                 </div>
@@ -217,6 +223,7 @@
     <script type="text/javascript" src="{{asset('assets/pages/jquery.xeditable.js')}}"></script>
 
     <script src="{{asset('assets/pages/staffManagement.js')}}"></script>
+    <script src="{{asset('assets/pages/categoryManagement.js')}}"></script>
     <script src="{{asset('assets/pages/productManagement.js')}}"></script>
     <script src="{{asset('assets/pages/userManagement.js')}}"></script>
 

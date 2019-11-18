@@ -86,23 +86,10 @@
                         <div class="card-box">
                             <h4 class="m-t-0 header-title">Add User</h4>
 
-
                             <div class="row">
                                 <div class="col-12">
                                     <div class="p-20">
-                                        <!-- @if(count($errors)>0)
-                                        <ul>
-                                            @foreach($errors->all() as $error)
-                                            <li>{{$error}}</li>
-                                            @endforeach
-                                        </ul>
-                                        @endif
-                                        @if(\Session::has('success'))
-                                        <div class="alert alert-success">
-                                            <p>{{\Session::get('success')}}</p>
 
-                                        </div>
-                                        @endif -->
                                         <form id="form-add-user" class="form-horizontal" enctype="multipart/form-data" role="form" method="POST" action="/api/admin/user1">
                                             {{ csrf_field() }}
                                             <div class="form-group row">
@@ -115,19 +102,19 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">Full Name</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" name="fullname" required class="form-control" placeholder="Full Name">
                                                 </div>
+                                                    <input type="text" name="fullname" required class="form-control" placeholder="Full Name">
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">Password </label>
                                                 <div class="col-sm-9">
                                                     <input type="password" name="password" required class="form-control" placeholder="PassWord">
-                                                </div>
                                             </div>
+                                                </div>
                                             
                                             <div class="form-group row">
-                                                <label for="image" class="col-sm-3 col-form-label">Image</label>
                                                 <div class="col-sm-9">
+                                                <label for="image" class="col-sm-3 col-form-label">Image</label>
                                                     <div class="custom-file mb-3">
                                                         <input type="file" class="custom-file-input" id="imageuser" name="imageuser">
                                                         <label class="custom-file-label" for="imageuser">Choose file image</label>
@@ -187,10 +174,10 @@
             {{ csrf_field() }}
                 <div class="profile-info-name row">
                     <div class='col-sm-3'>
-                        <img id='user-avatar' src='{{asset("/images/avatar.png")}}' class="img-thumbnail" alt="Product_Image">
+                        <img id='user-avatar' src='{{asset("/images/avatar.png")}}' class="img-thumbnail" alt="User_Image">
                         <div>
                             <label for="imageUser" class="btn">Change image</label>
-                            <input id="imageUser" name="imageUser" style="display:none" type="file">
+                            <input id="imageUser" name="imageUser" onchange="loadFileImageUser(event)"  style="display:none" type="file">
                         </div>
                     </div>
                     <div class='col-sm-9'>
@@ -218,23 +205,6 @@
                                             <input type="text" class="form-control" name="fullname" id="fullname">
                                         </td>
                                     </tr>
-                                    <!-- <tr>
-                                        <td width="35%" style="text-align:center;vertical-align: middle;">PassWord</td>
-                                        <td width="65%">
-                                            <input class="form-control" id="password" name="password">
-                                        </td>
-                                    </tr> -->
-                                    <!-- <tr>
-                                        <td style="text-align:center;vertical-align: middle;">Role</td>
-                                        <td>
-                                            <select class="form-control" name="role" id="role">
-                                                <option value="#" id="selectedRole"></option>
-                                                @foreach($users as $user)
-                                                <option value="{{$user->role}}">{{$user->role}}</option>
-                                                @endforeach
-                                            </select>
-                                        </td>
-                                    </tr> -->
                                     <tr>
                                         <td width="35%" style="text-align:center;vertical-align: middle;">Address</td>
                                         <td width="65%">
@@ -250,29 +220,9 @@
                                     <tr>
                                         <td width="35%" style="text-align:center;vertical-align: middle;">Day Of Birth</td>
                                         <td width="65%">
-                                            <!-- <input type="date" id="dob" name="dob" data-date="" class="form-control" data-date-format="yyyy mm dd">  -->
-                                            <!-- <input type="text" class="form-control" name="dob1" id="dob1"> -->
                                             <input type="date" id="dob1" name="dob1" data-date="" class="form-control" data-date-format="yyyy mm dd">
                                         </td>
                                     </tr>
-                                    <!-- <tr>
-                                        <td>Created_at</td>
-                                        <td>
-                                            <input type="text" name="createdat" id="createdat">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Updated_at</td>
-                                        <td>
-                                            <input type="text" name="updatedat" id="updatedat">
-                                        </td>
-                                    </tr> -->
-                                    <!-- <tr>
-                                        <td>Date of birth</td>
-                                        <td><a href="#" id="inline-dob" data-type="combodate" data-value="1984-05-15"
-                                                data-format="YYYY-MM-DD" data-viewformat="DD/MM/YYYY" data-template="D / MMM / YYYY"
-                                                data-pk="1" data-title="Select Date of birth" class="editable editable-click"></a></td>
-                                    </tr> -->
                                 </tbody>
                             </table>
                             <button type="button" class="btn btn-danger btn-rounded w-md waves-effect waves-light m-b-5" onclick="Custombox.close()">Cancel</button>

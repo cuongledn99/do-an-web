@@ -8,7 +8,11 @@ $.ajaxSetup({
 function setIdStaff(id) {
     selectedIdStaff = id;
 }
-
+//show image when chose input file
+var loadFileImageStaff = function(event) {
+    var image = document.getElementById('staff-avatar');
+    image.src = URL.createObjectURL(event.target.files[0]);
+  };
 function confirmDeleteStaff() {
     $.ajax({
         url: `/api/admin/staff/${selectedIdStaff}`,
@@ -171,3 +175,83 @@ $('#btn-submitAddStaff').click(async function () {
 //         }
 //     });
 // })
+
+$('#staffusername').on('input',function(e){
+    var getstaffview=$('#staffusername').val();
+     console.log(getstaffview,'test');
+     $.get(`/api/validatestaffview/${getstaffview}`,(data,status) =>{
+         $result=data;
+         console.log($result,'result')
+                 if($result!=0){
+                     $('#trungstaffview').show();
+                 }
+                 else{
+                     $('#trungstaffview').hide();
+                 }
+     });
+ }); 
+ 
+ // async function x(e){
+ //     let GetUsername=$('#staffusernameAdd').val();
+ //     let nammm=0;
+ //      await $.get(`/api/validateUser/${GetUsername}`,(data,status) =>{
+ //              console.log(data,'datad  in submit')
+ //              nammm=data;
+ //     });
+ //     console.log(nammm,'dong 67')
+ //     if(nammm!=0){
+ //         return false;
+ //     }
+ //     else{
+ //         return true;
+ //     }
+     
+ // }
+ 
+ // lấy kết quả trả về của ajax
+ function getdataStaffView(test){
+     var GetUsernameStaffView=$('#staffusername').val();
+ 
+     // $.ajax({
+     //     url:`/api/validateUser/${GetUsername}`,
+     //     async: false,
+     //     success:function(data){
+     //         test(data);
+     //         console.log(data,'test test')
+ 
+     //     }
+     // });
+     $.extend({
+         xResponse: function(url, data) {
+             // local var
+             var theResponse = null;
+             // jQuery ajax
+             $.ajax({
+                 url:`/api/validateUser/${GetUsernameStaffView}`,
+                 type: 'GET',
+                 data: data,
+                 // dataType: "html",
+                 async: false,
+                 success: function(respText) {
+                     theResponse = respText;
+                 }
+             });
+             // Return the response text
+             return theResponse;
+         }
+     });
+     var xData = $.xResponse(`/api/validateUser/${GetUsernameStaffView}`, {issession: 1,selector: true});
+     return xData;
+ }
+ // gọi hàm onsubmit
+  function validateUser(f){
+     var x = getdata();
+     // console.log(x,'xxxxxx')
+     if(x!=0){
+         return false;
+     }
+     else{
+         return true;
+     }
+   
+ }
