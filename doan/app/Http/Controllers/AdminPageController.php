@@ -10,7 +10,10 @@ use App\Providers\shoes;
 class AdminPageController extends Controller
 {
     public function renderAdminPage(){
-                return view('adminpage.index');
+        return view('adminpage.index');
+    }
+    public function loginPage(){
+        return view('adminpage.loginadmin');
     }
     public function renderStaff(){
         $users=DB::select('select * from users where role in ("admin","staff")');

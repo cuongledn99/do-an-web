@@ -9,6 +9,7 @@ use Symfony\Component\Console\Input\Input;
 /**
  * adminpage api
  */
+
 Route::get('user/allRoles', 'UserController@getRoles');
 Route::get('/user/{id}', 'UserController@getUserInfo');
 Route::post('/user/{id}', 'UserController@updateUser');
