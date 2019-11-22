@@ -12,4 +12,15 @@ class AuthController extends Controller
         Auth::logout();
         return redirect('/admin');  
     }
+
+    public  function login(Request $request){
+        $data = $request->all;
+        $credentials = $request->only('username', 'password');
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended('admin');
+        }
+        else {
+            return redirect()->intended('admin/login');
+        }
+    }
 }
