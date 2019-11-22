@@ -9,7 +9,7 @@ use Symfony\Component\Console\Input\Input;
 /**
  * adminpage api
  */
-
+Route::post('/logout','AuthController@logout');
 Route::get('user/allRoles', 'UserController@getRoles');
 Route::get('/user/{id}', 'UserController@getUserInfo');
 Route::post('/user/{id}', 'UserController@updateUser');
@@ -353,3 +353,4 @@ Route::get('/validateUser/{inputUsername}', function ($inputUsername) {
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
