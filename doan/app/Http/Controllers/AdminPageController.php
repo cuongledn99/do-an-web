@@ -6,11 +6,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Providers\shoes;
+use Illuminate\Support\Facades\Auth;
 
 class AdminPageController extends Controller
 {
     public function renderAdminPage(){
-                return view('adminpage.index');
+        return view('adminpage.index');
+    }
+    public function loginPage(){
+        if (Auth::check()) {
+            return redirect('admin'); 
+        }else{
+            return view('adminpage.loginadmin');
+        }
     }
     public function renderStaff(){
         $users=DB::select('select * from users where role in ("admin","staff")');

@@ -89,7 +89,7 @@
                     <h5><a href="#">Tên của user</a> </h5>
                     <ul class="list-inline">
                         <li class="list-inline-item">
-                            <a href="#" class="text-custom">
+                            <a id="btn-logout" class="text-custom">
                                 <i class="mdi mdi-power"></i>
                             </a>
                         </li>
@@ -227,7 +227,17 @@
     <script src="{{asset('assets/pages/productManagement.js')}}"></script>
     <script src="{{asset('assets/pages/userManagement.js')}}"></script>
 
-    
+    <script>
+        $('#btn-logout').click(() => {
+            $.post("/api/logout",
+                {
+                  
+                },
+                function (data, status) {
+                   location.reload() 
+                });
+        })
+    </script>
 
 </body>
 
