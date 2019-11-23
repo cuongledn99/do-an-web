@@ -37,7 +37,7 @@
 								});
 						   </script>
 						</td>
-						<td class="invert-image"><a href="{{$url->getSingle()}}"><img src="images/w4.png" alt=" " class="img-responsive" /></a></td>
+						<td class="invert-image"><a href="#"><img src="images/w4.png" alt=" " class="img-responsive" /></a></td>
 						<td class="invert">
 							 <div class="quantity">
 								<div class="quantity-select">
@@ -64,7 +64,7 @@
 								});
 						   </script>
 						</td>
-						<td class="invert-image"><a href="{{$url->getSingle()}}"><img src="images/ep3.png" alt=" " class="img-responsive" /></a></td>
+						<td class="invert-image"><a href="#"><img src="images/ep3.png" alt=" " class="img-responsive" /></a></td>
 						<td class="invert">
 							 <div class="quantity">
 								<div class="quantity-select">
@@ -92,7 +92,7 @@
 								});
 						   </script>
 						</td>
-						<td class="invert-image"><a href="{{$url->getSingle()}}"><img src="images/w2.png" alt=" " class="img-responsive" /></a></td>
+						<td class="invert-image"><a href="#"><img src="images/w2.png" alt=" " class="img-responsive" /></a></td>
 						<td class="invert">
 							 <div class="quantity">
 								<div class="quantity-select">
@@ -120,7 +120,7 @@
 								});
 						   </script>
 						</td>
-						<td class="invert-image"><a href="{{$url->getSingle()}}"><img src="images/w1.png" alt=" " class="img-responsive" /></a></td>
+						<td class="invert-image"><a href="#"><img src="images/w1.png" alt=" " class="img-responsive" /></a></td>
 						<td class="invert">
 							 <div class="quantity">
 								<div class="quantity-select">
@@ -153,7 +153,7 @@
 		<div class="checkout-left">
 
 				<div class="checkout-right-basket animated wow slideInRight" data-wow-delay=".5s">
-					<a href="{{$url->getMens()}}"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Back To Shopping</a>
+					<a href="#"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Back To Shopping</a>
 				</div>
 				<div class="checkout-left-basket animated wow slideInLeft" data-wow-delay=".5s">
 					<h4>Shopping basket</h4>

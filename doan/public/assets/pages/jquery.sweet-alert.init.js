@@ -33,7 +33,7 @@
             swal(
                 {
                     title: 'Good job!',
-                    text: 'You clicked the button!',
+                    text: 'Added to cart',
                     type: 'success',
                     confirmButtonColor: '#4fa7f3'
                 }
