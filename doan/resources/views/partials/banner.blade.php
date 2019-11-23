@@ -58,7 +58,7 @@
 						<div class="total">
 							<i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
 							<span> 
-								<span id="cart-total">{{Cart::total()}}</span>
+								<span id="cart-total">{{Cart::subtotal()}}</span>
 								VND
 							</span>
 							(
@@ -69,7 +69,7 @@
 				
 					</h3>
 				</a>
-				<p><a  class="simpleCart_empty">. </a></p>
+				<p><a href="/checkout" class="simpleCart_empty">Checkout</a></p>
 
 			</div>
 		</div>

@@ -18,10 +18,11 @@ Route::get('admin/manageProduct', 'AdminPageController@renderProduct')->name('ma
 Route::get('/sendemail', 'SendEmailController@index');
 Route::post('/sendemail/send', 'SendEmailController@send');
 
-// test shopping cart
+/**
+ * shopping cart
+ */
 Route::post('/cart', 'CartController@add');
+Route::get('/increaseCartItem/{id}', 'CartController@increaseCartItem');
+Route::get('/decreaseCartItem/{id}', 'CartController@decreaseCartItem');
 
-Route::get('/cart', 'CartController@cart');
-Route::get('/test',function(){
-    return view('checkout');
-});
+Route::get('/checkout', 'CartController@checkout');

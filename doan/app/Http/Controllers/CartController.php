@@ -7,23 +7,90 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\DB;
 use Request;
 use Response;
+
 class CartController extends Controller
 {
     public function add()
     {
         $product_id = Request::get('product_id');
         $product = DB::table('shoes')->find($product_id);
-        Cart::add(array('id' => $product_id, 'name' => $product->name, 'qty' => 1, 'price' => $product->outPrice));
-        // $cart = Cart::content();
-        $total=Cart::total();
-        $count=Cart::count();
-       
+        Cart::add(array('id' => $product_id, 'name' => $product->name, 'qty' => 1, 'price' => $product->outPrice,'options' => ['image' => $product->image]));
+        $cart = Cart::content();
+        info($cart);
+        $total = Cart::total();
+        $count = Cart::count();
+
         $data = (object) [
             'total' => $total,
-            'count'=>$count
+            'count' => $count,
+            'selectedProductName' => $product->name,
         ];
         return Response::json($data);
-        // return $data;
+    }
+
+    public function increaseCartItem($id)
+    {
+
+        $cartRow = Cart::search(function ($cartItem, $rowId) use ($id) {
+            if ($cartItem->id == $id) {
+                return $cartItem->name;
+            }
+
+        });
+        $cartRow = $cartRow->first();
+        $rowId = $cartRow->rowId;
+
+        $item = Cart::get($rowId);
+
+        Cart::update($rowId, $item->qty + 1);
+
+        $result=[
+            'id'=>$cartRow->id,
+            'name'=>$cartRow->name,
+            'price'=>$cartRow->price,
+            'qty'=>$cartRow->qty,
+            'subtotal'=>$cartRow->subtotal,
+            'totalAll'=>Cart::subtotal(),
+            'countAll'=>Cart::count(),
+            'image'=>$cartRow->options->image
+        ];
+
+        return $result;
+    }
+
+    public function decreaseCartItem($id)
+    {
+
+        $cartRow = Cart::search(function ($cartItem, $rowId) use ($id) {
+            if ($cartItem->id == $id) {
+                return $cartItem->name;
+            }
+
+        });
+        $cartRow = $cartRow->first();
+        $rowId = $cartRow->rowId;
+
+        $item = Cart::get($rowId);
+        
+        Cart::update($rowId, $item->qty - 1);
+        $result=[
+            'id'=>$cartRow->id,
+            'name'=>$cartRow->name,
+            'price'=>$cartRow->price,
+            'qty'=>$cartRow->qty,
+            'subtotal'=>$cartRow->subtotal,
+            'totalAll'=>Cart::subtotal(),
+            'countAll'=>Cart::count(),
+            'image'=>$cartRow->options->image
+        ];
+
+        return $result;
+    }
+
+    public function checkout()
+    {
+        $cart = Cart::content();
+        return view('checkout', array('cart' => $cart, 'title' => 'Welcome', 'description' => '', 'page' => 'home'));
     }
     public function cart()
     {
@@ -31,7 +98,7 @@ class CartController extends Controller
         if (Request::isMethod('post')) {
             $product_id = Request::get('product_id');
             $product = DB::table('shoes')->find($product_id);
-            Cart::add(array('id' => $product_id, 'name' => $product->name, 'qty' => 1, 'price' => $product->outPrice));
+            Cart::add(array('id' => $product_id, 'name' => $product->name, 'qty' => 1, 'price' => $product->outPrice,'image'=>$product->image));
         }
         if (Request::get('product_id') && (Request::get('increment')) == 1) {
             $rowId = Cart::search(array('id' => Request::get('product_id')));

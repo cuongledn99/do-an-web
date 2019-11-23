@@ -5,23 +5,26 @@ $.ajaxSetup({
 });
 
 const addToCart = (id) => {
-    swal(
-        {
-            title: 'Added to cart',
-            type: 'success',
-            confirmButtonColor: '#4fa7f3'
-        }
-    )
+    
     $.post("/cart",
         {
             product_id: id
         },
         function (data, status) {
-            let {total,count}=data
-
+            // extract data from response
+            let {total,count,selectedProductName}=data
+            // format
             total=total.replace('.00','')
-        
+            // display total, count
             $('#cart-total').text(total)
             $('#simpleCart_quantity').text(count)
+            // show added item on alert box
+            swal(
+                {
+                    title: `Added ${selectedProductName} to cart`,
+                    type: 'success',
+                    confirmButtonColor: '#4fa7f3'
+                }
+            )
         });
 }
