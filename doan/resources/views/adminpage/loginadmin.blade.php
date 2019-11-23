@@ -32,14 +32,29 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+				@if(count($errors)>0)
+					<div class="alert alert-danger">
+						@foreach ($errors->all() as $err)
+							{{$err}}<br>
+						@endforeach
+					</div>
+				@endif
+				<div class="flash-message">
+					@if(Session::has('message'))
+						<div class="alert alert-danger">
+						{{Session::get('message')}}
+						</div>
+					@endif
+				</div>
+
 				<form class="login100-form validate-form" method="POST" action="/loginAdmin">
-					@csrf <!-- {{ csrf_field() }} -->
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					<span class="login100-form-title p-b-33">
 						Account Login
 					</span>
 
 					<div class="wrap-input100">
-						<input class="input100" type="text" name="username" placeholder="username">
+						<input class="input100" type="text" name="email" placeholder="username">
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
 					</div>
@@ -51,7 +66,7 @@
 					</div>
 
 					<div class="container-login100-form-btn m-t-20">
-						<button class="login100-form-btn">
+						<button type="submit" class="login100-form-btn">
 							Sign in
 						</button>
 					</div>

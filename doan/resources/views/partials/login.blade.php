@@ -10,21 +10,29 @@
 								<div class="login">
 									<div class="login-bottom">
 										<h3>Sign up for free</h3>
-										<form>
+										<form action="/register" method="POST">
+											{{ csrf_field() }}
+											<input type="hidden" name="redirurl" value="{{ $_SERVER['REQUEST_URI'] }}"> 
 											<div class="sign-up">
-												<h4>Email :</h4>
-												<input type="text" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required="">	
+												<h4>UserName :</h4>
+												<input type="text" name="username" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required="">	
 											</div>
+											<div class="sign-up" >
+													<h4>Full Name :</h4>
+													<input type="text" name="fullname" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required="">
+												</div>
 											<div class="sign-up">
 												<h4>Password :</h4>
-												<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
+												<input type="password" name="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
 												
 											</div>
-											<div class="sign-up">
-												<h4>Re-type Password :</h4>
-												<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
-												
-											</div>
+											
+												<div class="sign-up">
+													<h4>Re-type Password :</h4>
+													<input type="password" name="repassword" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
+	
+												</div>
+											
 											<div class="sign-up">
 												<input type="submit" value="REGISTER NOW" >
 											</div>
@@ -33,14 +41,16 @@
 									</div>
 									<div class="login-right">
 										<h3>Sign in with your account</h3>
-										<form>
+										<form action="/login" method="POST">
+											{{ csrf_field() }} 
+											<input type="hidden" name="redirurl" value="{{ $_SERVER['REQUEST_URI'] }}">
 											<div class="sign-in">
-												<h4>Email :</h4>
-												<input type="text" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required="">	
+												<h4>UserName :</h4>
+												<input type="text" name="username" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required="">	
 											</div>
 											<div class="sign-in">
 												<h4>Password :</h4>
-												<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
+												<input type="password" name="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
 												<a href="#">Forgot password?</a>
 											</div>
 											<div class="single-bottom">
