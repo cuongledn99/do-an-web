@@ -86,7 +86,7 @@
                 <!-- User -->
                 <div class="user-box">
                     @if(Auth::check())
-                <h5><a id="user-name" style="color:white;font-size:25px">{{Auth::user()->fullname}}</a> </h5>
+                    <h5><a id="user-name" style="color:white;font-size:25px">{{Auth::user()->fullname}}</a> </h5>
                     @endif
                     <ul class="list-inline">
                         {{-- <li class="list-inline-item">
@@ -97,7 +97,7 @@
                         <li class="list-inline-item">
                             <a id="btn-logout" class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-log-out"></span> Log out
-                              </a>
+                            </a>
                         </li>
                     </ul>
                 </div>
