@@ -16,6 +16,7 @@ Route::group(['middleware' => ['MyAuth']], function () {
         Route::get('','AdminPageController@renderAdminPage');
         Route::get('manageStaff','AdminPageController@renderStaff');
         Route::get('manageUser','AdminPageController@renderUser');
+        Route::get('category','AdminPageController@renderCategory');
         Route::get('manageProduct','AdminPageController@renderProduct')->name('manageProduct');
     });
  });
