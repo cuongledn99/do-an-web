@@ -42,7 +42,7 @@
 
 					{{-- Invalid username or password --}}
 					@if(!empty($successMsg))
-  						<div class="alert alert-success"> {{ $successMsg }}</div>
+  						<div class="alert alert-danger"> {{ $successMsg }}</div>
 					@endif 
         			
     		
