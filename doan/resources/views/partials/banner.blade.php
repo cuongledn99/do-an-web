@@ -51,7 +51,7 @@
 				</div>
 			</nav>
 		</div>
-		<div class="top_nav_right">
+		<div onclick="location.href='/checkout'" class="top_nav_right">
 			<div class="cart box_1">
 				<a href="#">
 					<h3>
