@@ -76,7 +76,7 @@
                     <div class="info-product-price">
                         <span class="item_price">{{$item->outPrice}}</span>
                     </div>
-                    <a href="#" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                    <a  onclick="addToCart({{$item->id}})" class="item_add single-item hvr-outline-out button2">Add to cart</a>
                 </div>
             </div>
         </div>
