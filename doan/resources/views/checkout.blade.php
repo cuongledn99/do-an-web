@@ -64,6 +64,9 @@
 
 			</table>
 		</div>
+		{{-- button send email --}}
+		<a href="sendemail" class="btn btn-info" role="button" style="text-align:center">Send Email</a>
+
 		<div class="checkout-left">
 
 			<div class="checkout-right-basket animated wow slideInRight" data-wow-delay=".5s">

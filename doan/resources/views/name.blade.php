@@ -1,3 +1,9 @@
 <p>Xin chào {{$data['name']}} !</p>
-<h1>day la message: {{$data['message']}}</h1>
-<h1>Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi</h1>
+<br>
+<div>Chúng tôi gửi Email này để thông báo cho bạn đơn hàng bạn đã mua</div>
+@foreach ($data['product'] as $item)
+    <div>
+   <b> tên sản phẩm:</b><i>{{$item->name}}</i> <b>Giá:</b> - <i>{{$item->subtotal}} VND<i>
+    </div>
+@endforeach
+<p>Cảm ơn bạn đã tin dùng sản phẩm của chúng tôi</p>
