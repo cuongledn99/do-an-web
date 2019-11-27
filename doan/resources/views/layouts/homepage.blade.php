@@ -44,6 +44,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <body>
 
+	<!-- header -->
+	@include('partials.header', [])
+	<!-- //header-bot -->
 	<!-- banner -->
 	@include('partials.banner', [])
 
@@ -58,7 +61,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	@include('partials.footer', [])
 
 	<!-- footer -->
-
+	<!-- login -->
+	@include('partials.login', [])
+	{{--  @include('partials.forgot', [])  --}}
+	<!-- //login -->
 	<!-- load all category to sub menu -->
 	<script>
 		$.get("/api/category", function(data, status){
