@@ -1,59 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
-    <meta name="author" content="Coderthemes">
-<!-- CSRF Token -->
-<meta name="csrf-token" content="{{ csrf_token() }}">
+@extends('layouts.full')
+
+@section('content')
+
+<!-- //banner -->
+<!-- check out -->
+<div class="checkout">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-6">
+                <form action="/sendemail/send" enctype="multipart/form-data" method="POST" id="sendemail">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <label for="name">Your Name:</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Address</label>
+                        <input type="text" class="form-control" id="address" placeholder="Enter your Address"
+                            name="address">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Phone</label>
+                        <input type="text" class="form-control" id="phone" placeholder="Enter your phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                    </div>
+                        <button type="submit" class="btn btn-warning btn-rounded w-md waves-effect waves-light m-b-7">Submit</button>
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <div class="table-responsive checkout-right animated wow slideInUp" class="col" data-wow-delay=".5s">
+                    @if(count($cart))
+                    <table class="timetable_sub">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Product Name</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        @foreach ($cart as $item)
+
+                        <tr class="rem1">
+                            <td class="invert-image">
+                                <a href="#">
+                                    <img @if($item->options && $item->options->image)
+                                    src="{{$item->options->image}}"
+                                    @else
+                                    src='{{('/images/no-image.png')}}'
+                                    @endif
+                                    alt=" " class="img-responsive" />
+                                </a>
+                            </td>
+                            <td class="invert">
+                                <div class="quantity">
+                                    <div class="quantity-select">
+
+                                        <div class="entry value"><span id="amount-{{$item->id}}">{{$item->qty}}</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="invert">{{$item->name}}</td>
+                            <td id="price-{{$item->id}}" class="invert">{{$item->subtotal}} VND</td>
+                        </tr>
+                        @endforeach
+                        <tfoot>
+                            <tr>
+                                <th colspan="3">Total</th>
+                                <th id="bill-total">{{Cart::subtotal()}} VND</th>
+                            </tr>
+                        </tfoot>
+                        @else
+                        <p>You have no items in the shopping cart</p>
+                        @endif
+
+                    </table>
+                </div>
+            </div>
+
+        </div>
 
 
-    <title>Adminto - Responsive Admin Dashboard Template</title>
-
-    <!-- Custom box css -->
 
 
-    <!-- App css -->
-  
-
-
-    <script src="{{asset('assets/js/modernizr.min.js')}}"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-</head>
-<body>
-    <br>
-    <div class="container box">
-        <form method="post" enctype="multipart/form-data" action="/sendemail/send">
-        {{ csrf_field() }}
-           <div>
-                <label for="name">Tên:</label>
-                <input type="text" name="name" id="name" class="form-group">
-           </div>
-           <div>
-               <label for="email">
-                   Nhập vào Email:
-               </label>
-               <input type="text" name="email" id="email" class="form-group">
-           </div>
-           <div>
-               <label for="message">Your Message</label>
-               <input type="text" name="message" id="message">
-           </div>
-           <div >
-               <input type="submit" value="Send" name="send" class="btn btn-info">
-           </div>
-        </form>
     </div>
-
-    
-
-</body>
-
-</html>
+</div>
+<!-- //check out -->
+@endsection
