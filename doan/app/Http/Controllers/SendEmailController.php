@@ -37,6 +37,9 @@ class SendEmailController extends Controller
         
         Mail::to($request->input('email'))->send(new SendMail($data));
         // Mail::to('hau@gmail.com')->send(new SendMail($data));
-        return back()->with('success','thank for contact');
+        // return back()->with('success','thank for contact');
+        // return view('thankyou');
+        return redirect('/thankyou');
+        
     }
 }

@@ -65,7 +65,7 @@
 			</table>
 		</div>
 		{{-- button send email --}}
-		<a href="sendemail" class="btn btn-info" role="button" style="text-align:center">Send Email</a>
+		<a href="sendemail" class="btn btn-info" role="button" style="text-align:center">Continue</a>
 
 		<div class="checkout-left">
 
