@@ -46,3 +46,8 @@ Route::get('/checkout', 'CartController@checkout');
 
 //search
 Route::get('/search','HomeController@getSearch');
+
+//thank you
+Route::get('/thankyou',function(){
+    return view('thankyou');
+});
