@@ -1,41 +1,36 @@
 @extends('layouts.full')
 
 @section('content')
-<!-- banner -->
-<div class="page-head">
-    <div class="container">
-        <h3>Check Out</h3>
-    </div>
-</div>
+
 <!-- //banner -->
 <!-- check out -->
 <div class="checkout">
     <div class="container">
 
         <div class="row">
-				<div class="col-sm-6">
-						<form action="/sendemail/send" enctype="multipart/form-data" method="POST" id="sendemail">
-							{{ csrf_field() }}
-							<div class="form-group">
-								<label for="name">Your Name:</label>
-								<input type="text" class="form-control" id="name" placeholder="Enter your name" name="name">
-							</div>
-							<div class="form-group">
-								<label for="name">Address</label>
-								<input type="text" class="form-control" id="address" placeholder="Enter your Address"
-									name="address">
-							</div>
-							<div class="form-group">
-								<label for="name">Phone</label>
-								<input type="text" class="form-control" id="phone" placeholder="Enter your phone" name="phone">
-							</div>
-							<div class="form-group">
-								<label for="email">Email:</label>
-								<input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-							</div>
-							<button type="submit" class="btn btn-warning">OK</button>
-						</form>
-					</div>
+            <div class="col-sm-6">
+                <form action="/sendemail/send" enctype="multipart/form-data" method="POST" id="sendemail">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <label for="name">Your Name:</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Address</label>
+                        <input type="text" class="form-control" id="address" placeholder="Enter your Address"
+                            name="address">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Phone</label>
+                        <input type="text" class="form-control" id="phone" placeholder="Enter your phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                    </div>
+                        <button type="submit" class="btn btn-warning btn-rounded w-md waves-effect waves-light m-b-7">Submit</button>
+                </form>
+            </div>
             <div class="col-sm-6">
                 <div class="table-responsive checkout-right animated wow slideInUp" class="col" data-wow-delay=".5s">
                     @if(count($cart))
@@ -64,10 +59,10 @@
                             <td class="invert">
                                 <div class="quantity">
                                     <div class="quantity-select">
-                                        
+
                                         <div class="entry value"><span id="amount-{{$item->id}}">{{$item->qty}}</span>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </td>
@@ -88,20 +83,10 @@
                     </table>
                 </div>
             </div>
-            
+
         </div>
 
-        <div class="row">
-            <div class="checkout-left">
 
-                <div class="checkout-right-basket animated wow slideInRight" data-wow-delay=".5s">
-                    <a href="/"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Back To
-                        Shopping</a>
-                </div>
-
-                <div class="clearfix"> </div>
-            </div>
-        </div>
 
 
     </div>
