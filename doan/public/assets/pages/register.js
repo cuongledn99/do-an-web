@@ -1,0 +1,27 @@
+$('#usernameRegister').on('input',function(e){
+    GetUsernameRegister=$('#usernameRegister').val();
+     console.log(GetUsernameRegister,'test');
+     $.get(`/api/validateUserRegister/${GetUsernameRegister}`,(data,status) =>{
+         $result=data;
+         console.log($result,'result')
+                 if($result!=0){
+                     $('#trunguserRegister').show();
+                 }
+                 else{
+                     $('#trunguserRegister').hide();
+                 }
+     });
+ });
+ $('#emailRegister').on('input',function(e){
+    GetEmailRegister=$('#emailRegister').val();
+    $.get(`/api/validateEmailRegister/${GetEmailRegister}`,(data,status)=>{
+        $result=data;
+         console.log($result,'result')
+                 if($result!=0){
+                     $('#trungEmailRegister').show();
+                 }
+                 else{
+                     $('#trungEmailRegister').hide();
+                 }
+    });
+ });

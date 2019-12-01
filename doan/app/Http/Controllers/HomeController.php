@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Http\Requests;
 use DB;
 use App\Models\User;
+use Redirect;
 
 
 class HomeController extends Controller
@@ -39,17 +40,18 @@ class HomeController extends Controller
         //         're_password.same'=>'Mật khẩu không giống nhau',
         //         'password.min'=>'Mật khẩu ít nhất 3 kí tự'
         //     ]);
-        $data = $request->all();
+        // $data = $request->all();
         $users = new User ();
-        $users->username = $request->get ( 'username' );
-        $users->password = bcrypt($request->get('password'));
-        $users->address = $request->get ( 'address' );
-        $users->email = $request->get ( 'email' );
-        $users->role = 0;
-        $users->fullname = $request->get ( 'fullname' );
-        $users->remember_token = $request->get ( '_token' );
+        $users->username = $request->get ( 'usernameRegister' );
+        $users->password = bcrypt($request->get('passwordRegister'));
+        // $users->address = $request->get ( 'address' );
+        $users->email = $request->get ( 'emailRegister' );
+        $users->role ="customer";
+        // $users->fullname = $request->get ( 'fullname' );
+        // $users->remember_token = $request->get ( '_token' );
         $users->save ();
-        return redirect ( '/' );
+        
+        return Redirect::back()->with('error_code', 5);
         // return redirect ( '/' )->with('thanhcong','Tạo tài khoản thành công');;
     }
     use AuthenticatesUsers;

@@ -58,7 +58,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- footer -->
 	@include('partials.footer', [])
 	@include('partials.login', [])
-		@include('partials.forgot', [])
+	@include('partials.forgot', [])
 	<!-- footer -->
 
 	<!-- load all category to sub menu -->

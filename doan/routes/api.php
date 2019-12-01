@@ -361,7 +361,17 @@ Route::get('/validateUser/{inputUsername}', function ($inputUsername) {
     return $data;
 });
 
-
+//validate username Register
+Route::get('/validateUserRegister/{GetUsernameRegister}',function($GetUsernameRegister){
+    $data=DB::table('users') ->where('username',$GetUsernameRegister)
+    ->count();
+    return $data;
+});
+Route::get('/validateEmailRegister/{GetEmailRegister}',function($GetEmailRegister){
+    $data=DB::table('users') ->where('email',$GetEmailRegister)
+    ->count();
+    return $data;
+});
 // get all category name
 Route::get('/category','ProductController@getAllCategory');
 

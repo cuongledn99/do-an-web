@@ -15,21 +15,23 @@
 											<input type="hidden" name="redirurl" value="{{ $_SERVER['REQUEST_URI'] }}"> 
 											<div class="sign-up">
 												<h4>UserName :</h4>
-												<input type="text" name="username" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required="">	
+												<input type="text" id="usernameRegister" name="usernameRegister" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required="">	
+												<div id="trunguserRegister" style="color:red; display:none; margin: 0px;">Username này đã được dùng</div>
 											</div>
 											<div class="sign-up" >
-													<h4>Full Name :</h4>
-													<input type="text" name="fullname" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required="">
+													<h4>Email :</h4>
+													<input type="text" id="emailRegister" name="emailRegister" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required="">
+													<div id="trungEmailRegister" style="color:red; display:none; margin: 0px;">Email này đã được dùng</div>
 												</div>
 											<div class="sign-up">
 												<h4>Password :</h4>
-												<input type="password" name="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
+												<input type="password" id="passwordRegister" name="passwordRegister" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
 												
 											</div>
 											
 												<div class="sign-up">
 													<h4>Re-type Password :</h4>
-													<input type="password" name="repassword" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
+													<input type="password" name="repasswordRegister" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
 	
 												</div>
 											
@@ -71,3 +73,14 @@
 				</div>
 			</div>
 <!-- //login -->
+
+<!-- Modal -->
+<div id="myModal5" class="modal-demo">
+		<button type="button" class="close" onclick="Custombox.close();">
+			<span>&times;</span><span class="sr-only">Close</span>
+		</button>
+		<h4 class="custom-modal-title">Modal title</h4>
+		<div class="custom-modal-text">
+			Dang Ky Thanh Cong
+		</div>
+</div>
