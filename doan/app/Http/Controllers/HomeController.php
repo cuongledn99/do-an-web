@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+// use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Http\Controllers\Hash;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Requests;
 use DB;
-use App\Models\User;
+// use App\Models\User;
+use App\User;
 use Redirect;
+
+use Validator;
 
 
 class HomeController extends Controller
@@ -24,36 +27,33 @@ class HomeController extends Controller
     public function getLogin(){
         return view('partials.login');
     }
-    public function postRegister(Request $request) {
+    public function RegisterLogin(Request $request){
+        $validator=Validator::make($request->all(),
+        [
+            'username'=>'required|unique:users,username',
+            'email'=>'required|email|unique:users,email',
+            'password'=>'required|min:3|max:10',
+            'repassword'=>'required|same:password'
+        ]);
+
+        if($validator->passes()){
+            $users = new User ();
+            $users->username = $request->username;
+            $users->password = bcrypt($request->password);
+       
+            $users->email = $request->email;
+            $users->role ="customer";
         
-        // $this->validate($request,
-        //     [
-        //         'username'=>'required|username|unique:users,username',
-        //         'password'=>'required|min:3|max:20',
-        //         'Fullname'=>'required',
-        //         're_password'=>'required|same:password'
-        //     ],
-        //     [
-        //         'username.required'=>'Vui lòng nhập username',
-        //         'username.unique'=>'Username đã có người sữ dụng',
-        //         'password.required'=>'Vui lòng nhập mật khẩu',
-        //         're_password.same'=>'Mật khẩu không giống nhau',
-        //         'password.min'=>'Mật khẩu ít nhất 3 kí tự'
-        //     ]);
-        // $data = $request->all();
-        $users = new User ();
-        $users->username = $request->get ( 'usernameRegister' );
-        $users->password = bcrypt($request->get('passwordRegister'));
-        // $users->address = $request->get ( 'address' );
-        $users->email = $request->get ( 'emailRegister' );
-        $users->role ="customer";
-        // $users->fullname = $request->get ( 'fullname' );
-        // $users->remember_token = $request->get ( '_token' );
-        $users->save ();
-        
-        return Redirect::back()->with('error_code', 5);
-        // return redirect ( '/' )->with('thanhcong','Tạo tài khoản thành công');;
+            $users->save ();
+            return 1;
+            // return response()->json(['success'=>'Added new records.']);
+        }
+
+      
+        return 0;
+        // return response()->json(['error'=>$validator->errors()->all()]);
     }
+
     use AuthenticatesUsers;
 
     public function postLogin(Request $request) {

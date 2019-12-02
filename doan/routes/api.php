@@ -363,7 +363,7 @@ Route::get('/validateUser/{inputUsername}', function ($inputUsername) {
 
 //validate username Register
 Route::get('/validateUserRegister/{GetUsernameRegister}',function($GetUsernameRegister){
-    $data=DB::table('users') ->where('username',$GetUsernameRegister)
+    $data=DB::table('users')->where('username','=',$GetUsernameRegister)
     ->count();
     return $data;
 });
@@ -372,6 +372,7 @@ Route::get('/validateEmailRegister/{GetEmailRegister}',function($GetEmailRegiste
     ->count();
     return $data;
 });
+Route::post('registerAjax','HomeController@RegisterLogin');
 // get all category name
 Route::get('/category','ProductController@getAllCategory');
 
