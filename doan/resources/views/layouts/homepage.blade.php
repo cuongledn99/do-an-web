@@ -40,6 +40,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic'
 		rel='stylesheet' type='text/css'>
 	<script src="{{asset('js/jquery.easing.min.js')}}"></script>
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body>
@@ -59,7 +60,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	<!-- footer -->
 	@include('partials.footer', [])
-
+	@include('partials.login', [])
+	@include('partials.forgot', [])
 	<!-- footer -->
 	<!-- login -->
 	@include('partials.login', [])
@@ -79,6 +81,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	<script src="{{asset('/assets/pages/homepage.js')}}"></script>
 	
+	<script src="{{asset('assets/pages/register.js')}}"></script>	
 </body>
 
 </html>

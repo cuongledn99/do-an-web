@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@renderProduct');
+Route::post('/loginHome','HomeController@getLogin');
+Route::post('/login','HomeController@postLogin');
+Route::post('/register','HomeController@postRegister');
+
 Route::get('/category/{categoryID}','HomeController@renderProductByCategory');
 /**
  * middleware auth for admin routes

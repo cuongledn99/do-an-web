@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 // use Redirect;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\User;
+
 
 class AuthController extends Controller
 {
@@ -12,6 +16,7 @@ class AuthController extends Controller
         Auth::logout();
         return redirect('/admin');
     }
+    use AuthenticatesUsers;
 
     public  function login(Request $request)
     {

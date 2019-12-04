@@ -52,7 +52,7 @@
 					</span>
 
 					<div class="wrap-input100">
-						<input class="input100" type="text" name="username" placeholder="username">
+						<input class="input100" type="text" name="email" placeholder="username">
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
 					</div>
@@ -64,7 +64,7 @@
 					</div>
 
 					<div class="container-login100-form-btn m-t-20">
-						<button class="login100-form-btn">
+						<button type="submit" class="login100-form-btn">
 							Sign in
 						</button>
 					</div>
