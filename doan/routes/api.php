@@ -372,6 +372,8 @@ Route::get('/validateEmailRegister/{GetEmailRegister}',function($GetEmailRegiste
     ->count();
     return $data;
 });
+
+Route::post('loginhomepage','HomeController@postLogin');
 Route::post('registerAjax','HomeController@RegisterLogin');
 // get all category name
 Route::get('/category','ProductController@getAllCategory');

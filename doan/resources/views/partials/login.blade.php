@@ -10,39 +10,37 @@
                 <div class="login-grids">
                     <div class="login">
                         <div class="login-bottom">
-							<h3>Sign up for free</h3>
+                            <h3>Sign up for free</h3>
                             @if(Session('success'))
                             <div class="alert alert-success">
-								{{ Session('success') }}
-								{{-- <script>
+                                {{ Session('success') }}
+                                {{-- <script>
 									$('#success').modal('show');
 								</script> --}}
                                 @php
                                 Session::forget('success');
                                 @endphp
-							</div>
-							@endif
+                            </div>
+                            @endif
                             <form action="" method="">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="redirurl" value="{{ $_SERVER['REQUEST_URI'] }}">
                                 <div class="sign-up">
                                     <h4>UserName :</h4>
-                                    <input type="text" id="username" name="username" value=""
-                                        onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"
-										required="">
+                                    <input type="text" id="username" name="username" value="" onfocus="this.value = '';"
+                                        onblur="if (this.value == '') {this.value = '';}" required="">
 
-										@if($errors->has('usernameRegister'))
-                    						<span class="text-danger">{{ $errors->first('usernameRegister') }}</span>
-										@endif
-										
+                                    @if($errors->has('usernameRegister'))
+                                    <span class="text-danger">{{ $errors->first('usernameRegister') }}</span>
+                                    @endif
+
                                     <div id="trunguserRegister" style="color:red; display:none; margin: 0px;">Username
                                         này đã được dùng</div>
                                 </div>
                                 <div class="sign-up">
                                     <h4>Email :</h4>
-                                    <input type="text" id="email" name="email" value=""
-                                        onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"
-                                        required="">
+                                    <input type="text" id="email" name="email" value="" onfocus="this.value = '';"
+                                        onblur="if (this.value == '') {this.value = '';}" required="">
                                     <div id="trungEmailRegister" style="color:red; display:none; margin: 0px;">Email này
                                         đã được dùng</div>
                                 </div>
@@ -56,8 +54,9 @@
 
                                 <div class="sign-up">
                                     <h4>Re-type Password :</h4>
-                                    <input type="password" name="repassword" id="repassword" value="" onfocus="this.value = '';"
-                                        onblur="if (this.value == '') {this.value = '';}" required="">
+                                    <input type="password" name="repassword" id="repassword" value=""
+                                        onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"
+                                        required="">
 
                                 </div>
 
@@ -69,17 +68,17 @@
                         </div>
                         <div class="login-right">
                             <h3>Sign in with your account</h3>
-                            <form action="/login" method="POST">
+                            <form>
                                 {{ csrf_field() }}
                                 <input type="hidden" name="redirurl" value="{{ $_SERVER['REQUEST_URI'] }}">
                                 <div class="sign-in">
                                     <h4>UserName :</h4>
-                                    <input type="text" name="username1" value="" onfocus="this.value = '';"
+                                    <input type="text" id="username1" name="username1" value="" onfocus="this.value = '';"
                                         onblur="if (this.value == '') {this.value = '';}" required="">
                                 </div>
                                 <div class="sign-in">
                                     <h4>Password :</h4>
-                                    <input type="password" name="password1" value="" onfocus="this.value = '';"
+                                    <input type="password" id="password1" name="password1" value="" onfocus="this.value = '';"
                                         onblur="if (this.value == '') {this.value = '';}" required="">
                                     <a href="#">Forgot password?</a>
                                 </div>
@@ -88,7 +87,7 @@
                                     <label for="brand"><span></span>Remember Me.</label>
                                 </div>
                                 <div class="sign-in">
-                                    <input type="submit" value="SIGNIN">
+                                    <input  id="btnLogin" type="submit" value="SIGNIN">
                                 </div>
                             </form>
                         </div>
@@ -104,46 +103,92 @@
 <!-- //login -->
 
 <!-- Modal -->
-<!-- Button trigger modal -->	  
-	  <!-- Modal -->
-	  <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-		  <div class="modal-content">
+<!-- Button trigger modal -->
+<!-- Modal -->
+
+{{--Modal Register success --}}
+<div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title alert alert-success" id="exampleModalLabel">Register Success</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" onclick="window.location='{{ url("/") }}'" class="btn btn-primary">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{-- Modal register fail --}}
+<div class="modal fade" id="danger" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content panel-warning">
+            <div class="modal-header panel-heading">
+                <h5 class="modal-title alert alert-danger" id="exampleModalLabel">Register Fails</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Try Again</button>
+                {{-- <button type="button" class="btn btn-primary">Try Again</button> --}}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{{-- Modal login fail --}}
+<div class="modal fade" id="login_fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content panel-warning">
+          <div class="modal-header panel-heading">
+              <h5 class="modal-title alert alert-danger" id="exampleModalLabel">Invalid Username or Password</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              ...
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Try Again</button>
+              {{-- <button type="button" class="btn btn-primary">Try Again</button> --}}
+          </div>
+      </div>
+  </div>
+</div>
+
+{{-- Modal login Success --}}
+<div id="login_success" class="modal fade">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
 			<div class="modal-header">
-			  <h5 class="modal-title alert alert-success" id="exampleModalLabel">Register Success</h5>
-			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-			  </button>
+				<div class="icon-box">
+					<i class="material-icons">&#xE876;</i>
+				</div>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 			</div>
-			<div class="modal-body">
-			  ...
+			<div class="modal-body text-center">
+            <h4>@if(Auth::check())
+                Welcome {{Auth::user()->username}}
+            @endif
+            </h4>	
+                <br>
+				<h4>login successfully.</h4>
+				<button class="btn btn-success" data-dismiss="modal"><span>OK !</span> <i class="material-icons">&#xE5C8;</i></button>
 			</div>
-			<div class="modal-footer">
-			  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			  <button type="button" onclick="window.location='{{ url("/") }}'" class="btn btn-primary">OK</button>
-			</div>
-		  </div>
 		</div>
-	  </div>
-
-	  <div class="modal fade" id="danger" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-			  <div class="modal-content panel-warning">
-				<div class="modal-header panel-heading">
-				  <h5 class="modal-title alert alert-danger" id="exampleModalLabel">Register Fails</h5>
-				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				  </button>
-				</div>
-				<div class="modal-body">
-				  ...
-				</div>
-				<div class="modal-footer">
-				  <button type="button" class="btn btn-secondary" data-dismiss="modal">Try Again</button>
-				  {{-- <button type="button" class="btn btn-primary">Try Again</button> --}}
-				</div>
-			  </div>
-			</div>
-		  </div>
-	
-
+	</div>
+</div>     
