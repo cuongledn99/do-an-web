@@ -34,3 +34,13 @@ $('#btnLogin').on('click',function(e){
                 }
             });
     })
+  $('#logout-user').on('click',function(){
+			$.ajax({
+            url:`/api/logout2`,
+            type:'POST',
+            success: function(result){
+            location.reload();
+                }
+            });
+		})
+   

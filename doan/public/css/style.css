@@ -109,6 +109,14 @@ label{
     transform: inherit;
 }
 
+.header-right ul .dropdown li{
+	display:block;
+}
+
+.header-right ul .dropdown li a:hover{
+	transform:none;
+}
+
 .header-right ul li a.fb{
 	background:url(../images/img-sp.png) no-repeat 0px 0px;
 }

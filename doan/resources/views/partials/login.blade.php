@@ -181,13 +181,15 @@
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 			</div>
 			<div class="modal-body text-center">
-            <h4>@if(Auth::check())
-                Welcome {{Auth::user()->username}}
-            @endif
+            <h4>
+                @if(Auth::check())
+                    Welcome {{Auth::user()->username}}
+                @endif
+                Great !
             </h4>	
                 <br>
 				<h4>login successfully.</h4>
-				<button class="btn btn-success" data-dismiss="modal"><span>OK !</span> <i class="material-icons">&#xE5C8;</i></button>
+				<button class="btn btn-success" onclick="window.location='{{ url("/") }}'" data-dismiss="modal"><span>OK !</span> <i class="material-icons">&#xE5C8;</i></button>
 			</div>
 		</div>
 	</div>
