@@ -9,7 +9,7 @@
     <div class="" aria-labelledby="">
         <div class="beta-products-list">
             <h4>Tìm Kiếm</h4>
-            <p class="pull-left">Tìm thấy {{count($shoes)}} sản phẩm</p>
+            <p class="pull-left">Tìm thấy {{count($shoes)}} sản phẩm</p><br><br>
             <div class="clearfix8"></div>
         </div>
             @foreach($shoes as $item)
@@ -21,15 +21,15 @@
                     </div>
                     <div class="item-info-product ">
                         <h4><a href="#">{{$item->name}}</a></h4>
-                        <div class="info-product-price">
-                            <span class="item_price">{{$item->outPrice}}</span>
+                        <div class="info-product-price"
+                            <span class="item_price">{{number_format($item->outPrice)}}</span>
                         </div>
-                        <a  onclick="addToCart({{$item->id}})" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                        <a onclick="addToCart({{$item->id}})" class="item_add single-item hvr-outline-out button2">Add to cart</a>
                     </div>
                 </div>
             </div>
             @endforeach
-
+            <center><div style="center">{{$shoes->links()}}</div></center>
         <div class="clearfix"></div>
     </div>
     <!-- end product -->

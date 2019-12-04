@@ -21,14 +21,6 @@
 				<div class="search">
 					<input type="search" name="search" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}" required="">
 				</div>
-				<div class="section_room">
-					<select id="country" onchange="change_country(this.value)" class="frm-field required">
-						<option value="null">Boot</option>
-						<option value="null">Sneaker</option>
-						<option value="AX">DepLao</option>
-						<option value="AX">Giày nam</option>
-					</select>
-				</div>
 				<div class="sear-sub">
 					<input type="submit" value=" ">
 				</div>
