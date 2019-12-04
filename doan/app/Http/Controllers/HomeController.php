@@ -111,7 +111,7 @@ class HomeController extends Controller
     {
         $shoes = Shoes::where('name','like','%'.$request->search.'%')
                         ->orWhere('outPrice',$request->search)
-                        ->get();
+                        ->paginate(12);
                       
                         
         return view('partials.search',compact('shoes'));

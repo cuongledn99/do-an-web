@@ -128,7 +128,7 @@ label{
     padding: 14px 10px;
     color: #848484;
     font-size: 16px;
-    border-right: 1px solid #eee;
+    /* border-right: 1px solid #eee; */
 }
 .section_room select {
     padding: 13px 10px;
