@@ -12,6 +12,7 @@ use App\Http\Controllers\Hash;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Requests;
 use App\User;
+use App\Detailproduct_model;
 use Redirect;
 use Validator;
 class HomeController extends Controller
@@ -149,5 +150,13 @@ class HomeController extends Controller
         // return view('homepage.index', compact('data'));
         return view('homepage.index', ['data'=>$data]);
 
+    }
+    public function detail_product(Request $req,Detailproduct_model $model){
+        $data = $model->detail_product(array('id'=>$req->id));
+        // echo "<pre>";
+        // print_r ($data);
+        // echo "</pre>";
+        // die;
+        return view('homepage.detail_product',['product'=>$data[0]]);
     }
 }

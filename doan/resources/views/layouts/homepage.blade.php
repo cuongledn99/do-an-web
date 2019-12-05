@@ -82,6 +82,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="{{asset('/assets/pages/homepage.js')}}"></script>
 	
 	<script src="{{asset('assets/pages/register.js')}}"></script>	
+
+	<script src="{{asset('js/imagezoom.js')}}"></script>
+<script src="{{asset('js/jquery.flexslider.js')}}"></script>
 </body>
 
 </html>
