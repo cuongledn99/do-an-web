@@ -111,6 +111,18 @@ label{
 
 .header-right ul .dropdown li{
 	display:block;
+	cursor: pointer;
+
+}
+
+.header-right ul .dropdown li a:hover{
+	background-color: orange;
+	color: white;
+	
+}
+
+.header-right ul .dropdown li a {
+	width: 100% !important;
 }
 
 .header-right ul .dropdown li a:hover{
