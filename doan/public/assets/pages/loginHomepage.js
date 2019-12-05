@@ -34,7 +34,7 @@ $('#btnLogin').on('click',function(e){
                 }
             });
     })
-  $('#logout-user').on('click',function(){
+$('#logout-user').on('click',function(){
 			$.ajax({
             url:`/api/logout2`,
             type:'POST',
@@ -43,4 +43,27 @@ $('#btnLogin').on('click',function(e){
                 }
             });
 		})
-   
+
+        //change password homepage
+        $("#changepass").on('click',function(e){
+            var currentPassword=$('#currentPassword').val();
+            var newPassword=$('#newPassword').val();
+            e.preventDefault();
+            $.ajax({
+                url:`/api/changePassword`,
+                type:'POST',
+                data:{currentPassword:currentPassword,newPassword:newPassword},
+                success: function(result){
+                    if(result==1){
+                        console.log('succes change')
+                        $("#change_success").modal('show');
+
+                        }
+                    else if(result==0){
+
+                        console.log('fails')
+
+                        }
+                }
+            });
+        })

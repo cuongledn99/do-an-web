@@ -43,7 +43,7 @@
 							<a class="dropdown-toggle use1" type="button" data-toggle="dropdown"></a>
 							<ul class="dropdown-menu">
 								{{-- <li><a href="#">{{Auth::user()->username}}</a></li> --}}
-								<li><a href="#">Change Password</a></li>
+								<li><a data-toggle="modal" data-target="#orangeModalSubscription">Change Password</a></li>
 								<li><a id="logout-user">Log Out</a></li>
 							</ul>
 						</div>
@@ -67,6 +67,47 @@
 
 
 
-{{-- modal infor user --}}
+{{-- modal change Password --}}
+<div class="modal fade" id="orangeModalSubscription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-warning" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header text-center changeuser">
+	  <h4 class="modal-title white-text w-100 font-weight-bold py-2">xxxx<strong>@if(Auth::check()) {{Auth::user()->fullname}} @endif</strong></h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <div class="md-form mb-5">
+		  <i class="fas fa-user prefix grey-text"></i>
+		  <label data-error="wrong" data-success="right" for="form3">Current Password</label>
+          <input type="password" name="currentPassword" id="currentPassword" class="form-control validate">
+        </div>
+
+        <div class="md-form">
+		  <i class="fas fa-envelope prefix grey-text"></i>
+		  <label data-error="wrong" data-success="right" for="form2">New Password</label>
+          <input type="password" id="newPassword" id="newPassword" class="form-control validate">
+        </div>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+        <a type="button" id="changepass" class="btn btn-warning waves-effect">Change <i class="fas fa-paper-plane-o ml-1"></i></a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+
+{{-- <div class="text-center">
+  <a href="" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#orangeModalSubscription">Launch
+    modal Subscription</a>
+</div> --}}
 
 	  

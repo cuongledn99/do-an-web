@@ -22,6 +22,9 @@ Route::get('/product/{ProductID}','ProductController@getProductInfo');
 Route::post('/product/{ProductID}','ProductController@updateProduct');
 // Route::get('user/allRoles','UserController@getRoles');
 
+//change password homepage
+Route::post('/changePassword','UserController@changePassword');
+
 //delete staff
 Route::delete('admin/staff/{id}', 'UserController@deleteUser');
 //delete user
