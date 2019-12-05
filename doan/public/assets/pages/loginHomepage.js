@@ -72,8 +72,6 @@ $('#logout-user').on('click',function(){
                 success: function(result){
                     if(result==1){
                         $("#change_success").modal('show');
-
-
                         }
                     else if(result==0){
 

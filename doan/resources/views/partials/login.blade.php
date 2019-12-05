@@ -192,10 +192,11 @@
                     <div class="icon-box">
                         <i class="material-icons">&#xE876;</i>
                     </div>				
-                    <h4 class="modal-title">Awesome!</h4>	
+                    <h4 class="modal-title">
+                            Password has changed</h4>	
                 </div>
                 <div class="modal-body">
-                    <p class="text-center">Your booking has been confirmed. Check your email for detials.</p>
+                    <p class="text-center">Please back to log in to continue</p>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-success btn-block" id="logout-user1" data-dismiss="modal">OK</button>
