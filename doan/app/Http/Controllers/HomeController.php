@@ -66,13 +66,18 @@ class HomeController extends Controller
         //         'password.max'=>'Mật khẩu không quá 20 kí tự'
         //     ]
         // );
-        $credentials = $request->only('username', 'password');
-
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended('/');
+        // $credentials = $request->only('username1', 'password1');
+        $username=$request->username;
+        $password=$request->password;
+        
+        // info($request->username);
+      
+        
+        if (Auth::attempt(['username'=>$username,'password'=>$password])) {
+            return 1;
         }else
         {
-            return redirect()->intended('/login');
+            return 0;
         }
         
         // $credentials = array('username' =>$request->username ,'password' =>$request->password );

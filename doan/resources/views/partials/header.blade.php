@@ -29,16 +29,36 @@
 		</div>
 		<div class="col-md-3 header-right footer-bottom">
 			<ul>
-				<li><a href="#" class="use1" data-toggle="modal" data-target="#myModal4"><span>Login</span></a>
-					
-				</li>
+				@if(Auth::check())
+					<li>
+						<div class="dropdown">
+							<a class="dropdown-toggle use1" type="button" data-toggle="dropdown"></a>
+							<ul class="dropdown-menu">
+								{{-- <li><a href="#">{{Auth::user()->username}}</a></li> --}}
+								<li><a href="#">Change Password</a></li>
+								<li><a id="logout-user">Log Out</a></li>
+							</ul>
+						</div>
+					<li>
+				@else
+					<li><a href="#" class="use1" data-toggle="modal" data-target="#myModal4"><span>Login</span></a></li>
+				@endif
 				<li><a class="fb" href="#"></a></li>
 				<li><a class="twi" href="#"></a></li>
 				<li><a class="insta" href="#"></a></li>
 				<li><a class="you" href="#"></a></li>
 			</ul>
 		</div>
+		
 		<div class="clearfix"></div>
+		
 	</div>
 </div>
 
+
+
+
+
+{{-- modal infor user --}}
+
+	  

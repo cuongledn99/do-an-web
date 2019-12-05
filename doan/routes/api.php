@@ -11,6 +11,7 @@ use Symfony\Component\Console\Input\Input;
  * adminpage api
  */
 Route::post('/logout','AuthController@logout');
+Route::post('/logout2','AuthController@logout2');
 Route::get('user/allRoles', 'UserController@getRoles');
 Route::get('/user/{id}', 'UserController@getUserInfo');
 Route::post('/user/{id}', 'UserController@updateUser');
@@ -372,6 +373,8 @@ Route::get('/validateEmailRegister/{GetEmailRegister}',function($GetEmailRegiste
     ->count();
     return $data;
 });
+
+Route::post('loginhomepage','HomeController@postLogin');
 Route::post('registerAjax','HomeController@RegisterLogin');
 // get all category name
 Route::get('/category','ProductController@getAllCategory');

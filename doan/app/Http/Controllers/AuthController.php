@@ -13,8 +13,15 @@ class AuthController extends Controller
 {
     public function logout()
     {
+        // dd("sxxx");
         Auth::logout();
         return redirect('/admin');
+    }
+    public function logout2()
+    {
+        // dd("sxxx");
+        Auth::logout();
+        return redirect('/');
     }
     use AuthenticatesUsers;
 
