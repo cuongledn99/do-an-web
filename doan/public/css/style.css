@@ -5102,3 +5102,18 @@ td.invert-image a img {
 }
 }
 /*-- //responsive media queries --*/
+
+.modal-login-fail {
+	margin-bottom: 0 !important;
+}
+
+.btn-login-fail {
+    margin-top: -18px !important;
+}
+
+.ban-top.fixed {
+	position: fixed;
+	z-index: 1000;
+	width: 100%;
+	top: 0;
+}

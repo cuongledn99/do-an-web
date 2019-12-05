@@ -22,9 +22,9 @@
                                 @endphp
                             </div>
                             @endif
-                            <form action="" method="">
-                                {{ csrf_field() }}
-                                <input type="hidden" name="redirurl" value="{{ $_SERVER['REQUEST_URI'] }}">
+                            <form>
+                                {!! csrf_field() !!}
+                                {{-- <input type="hidden" name="redirurl" value="{{ $_SERVER['REQUEST_URI'] }}"> --}}
                                 <div class="sign-up">
                                     <h4>UserName :</h4>
                                     <input type="text" id="username" name="username" value="" onfocus="this.value = '';"
@@ -69,8 +69,8 @@
                         <div class="login-right">
                             <h3>Sign in with your account</h3>
                             <form>
-                                {{ csrf_field() }}
-                                <input type="hidden" name="redirurl" value="{{ $_SERVER['REQUEST_URI'] }}">
+                                {!! csrf_field() !!}
+                                {{-- <input type="hidden" name="redirurl" value="{{ $_SERVER['REQUEST_URI'] }}"> --}}
                                 <div class="sign-in">
                                     <h4>UserName :</h4>
                                     <input type="text" id="username1" name="username1" value="" onfocus="this.value = '';"
@@ -150,25 +150,18 @@
 
 
 {{-- Modal login fail --}}
-<div class="modal fade" id="login_fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-      <div class="modal-content panel-warning">
-          <div class="modal-header panel-heading">
-              <h5 class="modal-title alert alert-danger" id="exampleModalLabel">Invalid Username or Password</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
+<div class="modal" tabindex="-1" role="dialog" id="login_fail">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content modal-login">
+            <div class="modal-header alert alert-danger modal-login-fail">
+              <h5 class="modal-title">Invalid username or password</h5>
+              <button type="button" class="close btn-login-fail" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
               </button>
+            </div>
           </div>
-          <div class="modal-body">
-              ...
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Try Again</button>
-              {{-- <button type="button" class="btn btn-primary">Try Again</button> --}}
-          </div>
+        </div>
       </div>
-  </div>
-</div>
 
 {{-- Modal login Success --}}
 <div id="login_success" class="modal fade">
@@ -181,15 +174,10 @@
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 			</div>
 			<div class="modal-body text-center">
-            <h4>
-                @if(Auth::check())
-                    Welcome {{Auth::user()->username}}
-                @endif
-                Great !
-            </h4>	
+            <h4 id="welcome"></h4>	
                 <br>
 				<h4>login successfully.</h4>
-				<button class="btn btn-success" onclick="window.location='{{ url("/") }}'" data-dismiss="modal"><span>OK !</span> <i class="material-icons">&#xE5C8;</i></button>
+				<button class="btn btn-success" onClick="window.location.reload();" data-dismiss="modal"><span>OK !</span> <i class="material-icons">&#xE5C8;</i></button>
 			</div>
 		</div>
 	</div>
@@ -210,7 +198,7 @@
                     <p class="text-center">Your booking has been confirmed. Check your email for detials.</p>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
+                    <button class="btn btn-success btn-block" id="logout-user1" data-dismiss="modal">OK</button>
                 </div>
             </div>
         </div>

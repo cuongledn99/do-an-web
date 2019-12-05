@@ -38,11 +38,17 @@ class UserController extends Controller
         $newPassword=$request->newPassword;
         if(Auth::check())
         {
-            $id=Auth::user()->id;
-            $user=User::find($id);
+            // $id=Auth::user()->id;
+            $user=Auth::user();
+            $username=Auth::user()->username;
+            // $user=User::find($id);
             $pass=$user->password;
-            if($pass==$currentPassword)
+            info($pass);
+            info($currentPassword);
+            if(Auth::attempt(['username'=>$username,'password'=>$currentPassword]))
             {
+                // info(bcrypt($newPassword))
+                info("hello");
                 $user->password=bcrypt($newPassword);
                 $user->save();
                 return 1;

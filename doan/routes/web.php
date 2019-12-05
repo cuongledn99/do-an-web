@@ -7,9 +7,10 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', 'HomeController@renderProduct');
+Route::get('/',['as'=>'/','uses'=>'HomeController@renderProduct']);
 Route::post('/loginHome','HomeController@getLogin');
-Route::post('/login','HomeController@postLogin');
+Route::post('/login',['as'=>'login','uses'=>'HomeController@postLogin']);
+Route::get('/login','HomeController@getLogin2');
 Route::post('/register','HomeController@postRegister');
 
 Route::get('/category/{categoryID}','HomeController@renderProductByCategory');

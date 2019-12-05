@@ -75,7 +75,7 @@
     <div class="modal-content">
       <!--Header-->
       <div class="modal-header text-center changeuser">
-	  <h4 class="modal-title white-text w-100 font-weight-bold py-2">xxxx<strong>@if(Auth::check()) {{Auth::user()->fullname}} @endif</strong></h4>
+	  <h4 class="modal-title white-text w-100 font-weight-bold py-2"><strong>@if(Auth::check()) {{Auth::user()->fullname}} @endif</strong></h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true" class="white-text">&times;</span>
         </button>

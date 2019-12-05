@@ -12,6 +12,7 @@ use App\Http\Controllers\Hash;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Requests;
 use App\User;
+use Illuminate\Support\Facades\Redirect as FacadesRedirect;
 use Redirect;
 use Validator;
 class HomeController extends Controller
@@ -52,7 +53,9 @@ class HomeController extends Controller
     }
 
     use AuthenticatesUsers;
-
+    public function getLogin2(){
+        return redirect('/');
+    }
     public function postLogin(Request $request) {
         // $this->validate($request,
         //     [
@@ -72,28 +75,16 @@ class HomeController extends Controller
         
         // info($request->username);
       
-        
-        if (Auth::attempt(['username'=>$username,'password'=>$password])) {
-            return 1;
+        if(Auth::check()){
+            info('vao trong auth check login');
+        }
+        elseif(Auth::attempt(['username'=>$username,'password'=>$password])) {
+            
+            return Auth::user()->username;
         }else
         {
             return 0;
         }
-        
-        // $credentials = array('username' =>$request->username ,'password' =>$request->password );
-        // // echo $req->email ;
-        // // echo $req->password ;
-        // if(Auth::attempt(['username' => $request->username, 'password' => $request->password])){
-        //     // echo 'ok';
-        //     $user = Auth::user();
-
-        //     $name = $user->full_name; //or Auth::user()->id;
-        //     // $user_email = $user->email; // or Auth::user()->email;
-        //     dd($name);
-
-        //     // return redirect()->intended('home');
-        //     // return redirect()->back()->with(['flag'=>'success','message'=>'Đăng nhập thành công']);
-        // }
     }
 
     public function __construct()
