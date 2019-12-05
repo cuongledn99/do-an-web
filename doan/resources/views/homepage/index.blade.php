@@ -67,12 +67,14 @@
         @foreach($data as $item)
         <div class="col-md-3 product-men">
             <div class="men-pro-item simpleCart_shelfItem">
+                <a href="/product/{{$item->id}}">
                 <div class="men-thumb-item">
                     <img src="{{$item->image}}" alt="" class="pro-image-front">
                     <img src="{{$item->image}}" alt="" class="pro-image-back">
                 </div>
+                </a>
                 <div class="item-info-product ">
-                    <h4><a href="#">{{$item->name}}</a></h4>
+                <h4><a href="/product/{{$item->id}}">{{$item->name}}</a></h4>
                     <div class="info-product-price">
                         <span class="item_price">{{$item->outPrice}}</span>
                     </div>
