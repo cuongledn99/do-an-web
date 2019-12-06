@@ -57,13 +57,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	@yield('content')
 
-	<div class="row">
+	<div class="row" >
 		<div class="col-sm-4"> </div>
 		<div class="col-sm-4"> </div>
 
-		<div class="col-sm-4">
+		<div class="col-sm-4" >
 
-			<div class="fb-page" data-href="https://www.facebook.com/Sample-chat-bot-111148513559842/"
+			<div style=' z-index:999;position: fixed; width: 100%; bottom:1%; left:1% '	class="fb-page" data-href="https://www.facebook.com/Sample-chat-bot-111148513559842/"
 				data-tabs="timeline" data-width="" data-height="" data-small-header="false"
 				data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
 				<blockquote cite="https://www.facebook.com/Sample-chat-bot-111148513559842/"
