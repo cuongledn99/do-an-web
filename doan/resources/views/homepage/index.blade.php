@@ -15,15 +15,18 @@
             <div class="script-wrap">
                 <ul class="script-group">
                     <li>
-                        <div class="inner-script"><img class="img-responsive" src="{{asset('/images/baa1.jpg')}}" alt="Dummy Image" />
+                        <div class="inner-script"><img class="img-responsive" src="{{asset('/images/baa1.jpg')}}"
+                                alt="Dummy Image" />
                         </div>
                     </li>
                     <li>
-                        <div class="inner-script"><img class="img-responsive" src="{{asset('/images/baa2.jpg')}}" alt="Dummy Image" />
+                        <div class="inner-script"><img class="img-responsive" src="{{asset('/images/baa2.jpg')}}"
+                                alt="Dummy Image" />
                         </div>
                     </li>
                     <li>
-                        <div class="inner-script"><img class="img-responsive" src="{{asset('/images/baa3.jpg')}}" alt="Dummy Image" />
+                        <div class="inner-script"><img class="img-responsive" src="{{asset('/images/baa3.jpg')}}"
+                                alt="Dummy Image" />
                         </div>
                     </li>
                 </ul>
@@ -61,7 +64,7 @@
 <!-- product-nav -->
 
 <div class="product-easy container">
-        
+
     <!-- product -->
     <div class="" aria-labelledby="">
         @foreach($data as $item)
@@ -78,7 +81,8 @@
                     <div class="info-product-price">
                         <span class="item_price">{{$item->outPrice}}</span>
                     </div>
-                    <a  onclick="addToCart({{$item->id}})" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                    <a onclick="addToCart({{$item->id}})" class="item_add single-item hvr-outline-out button2">Add to
+                        cart</a>
                 </div>
             </div>
         </div>
@@ -89,63 +93,68 @@
     <!-- bottom pagination -->
     <div class="row">
         <div class="col-xs-12 center-block text-center">
-                <nav>
-                        <ul class="pagination pagination-split">
-                            <li class="page-item">
-                                <a class="page-link" href="{{$data->previousPageUrl()}}" aria-label="Previous">
-                                    <span aria-hidden="true">«</span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                            </li>
-                            <li class="page-item 
+            <nav>
+                <ul class="pagination pagination-split">
+                    <li class="page-item">
+                        <a class="page-link" href="{{$data->previousPageUrl()}}" aria-label="Previous">
+                            <span aria-hidden="true">«</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    <li class="page-item 
                                 @if($data->currentPage()===1) 
                                 active 
                                 @endif">
-                                <a class="page-link" href="{{$data->url(1)}}">1</a>
-                            </li>
-                            <li class="page-item 
+                        <a class="page-link" href="{{$data->url(1)}}">1</a>
+                    </li>
+                    <li class="page-item 
                                 @if($data->currentPage()===2) 
                                 active 
                                 @endif">
-                                <a class="page-link" href="{{$data->url(2)}}">2</a>
-                            </li>
-                            <li class="page-item 
+                        <a class="page-link" href="{{$data->url(2)}}">2</a>
+                    </li>
+                    <li class="page-item 
                                 @if($data->currentPage()===3) 
                                 active 
                                 @endif">
-                                <a class="page-link" href="{{$data->url(3)}}">3</a>
-                            </li>
-                            <li class="page-item 
+                        <a class="page-link" href="{{$data->url(3)}}">3</a>
+                    </li>
+                    <li class="page-item 
                                 @if($data->currentPage()===4) 
                                 active 
                                 @endif">
-                                <a class="page-link" href="{{$data->url(4)}}">4</a>
-                            </li>
-                            <li class="page-item 
+                        <a class="page-link" href="{{$data->url(4)}}">4</a>
+                    </li>
+                    <li class="page-item 
                                 @if($data->currentPage()===5) 
                                 active 
                                 @endif">
-                                <a class="page-link" href="{{$data->url(5)}}">5</a>
-                            </li>
-                            <li class="page-item 
+                        <a class="page-link" href="{{$data->url(5)}}">5</a>
+                    </li>
+                    <li class="page-item 
                                 @if($data->currentPage()===6) 
                                 active 
                                 @endif">
-                                <a class="page-link" href="{{$data->url(6)}}">6</a>
-                            </li>
-                            
-                            <li class="page-item">
-                                <a class="page-link" href="{{$data->nextPageUrl()}}" aria-label="Next">
-                                    <span aria-hidden="true">»</span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
+                        <a class="page-link" href="{{$data->url(6)}}">6</a>
+                    </li>
+
+                    <li class="page-item">
+                        <a class="page-link" href="{{$data->nextPageUrl()}}" aria-label="Next">
+                            <span aria-hidden="true">»</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </div>
     <!-- end bottom pagination -->
 </div>
-    
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v5.0&appId=588809281565439&autoLogAppEvents=1">
+</script>
+
+
 
 @endsection
