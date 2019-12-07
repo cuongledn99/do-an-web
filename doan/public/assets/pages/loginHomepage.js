@@ -74,7 +74,7 @@ $('#logout-user').on('click',function(){
                         $("#change_success").modal('show');
                         }
                     else if(result==0){
-
+                            $("#change_fail").modal('show');
 
                         }
                 }

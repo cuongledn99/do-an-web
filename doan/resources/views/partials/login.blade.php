@@ -203,4 +203,20 @@
                 </div>
             </div>
         </div>
-</div>     
+</div>    
+
+{{-- Modal change password fail --}}
+<div class="modal" tabindex="-1" role="dialog" id="change_fail">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content modal-login">
+        <div class="modal-header alert alert-danger modal-login-fail">
+          <h5 class="modal-title">
+            Please check your current password
+            </h5>
+          <button type="button" class="close btn-login-fail" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

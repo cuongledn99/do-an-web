@@ -53,6 +53,7 @@ class UserController extends Controller
                 $user->save();
                 return 1;
             }
+            else
             return 0;
 
         }
