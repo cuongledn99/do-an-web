@@ -62,37 +62,32 @@
                     <div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="profile"
                         aria-labelledby="profile-tab">
                         <div class="bootstrap-tab-text-grids">
+                            @foreach ($content as $item)
                             <div class="bootstrap-tab-text-grid">
                                 <div class="bootstrap-tab-text-grid-left">
                                     <img src="{{asset('images/men3.jpg')}}" alt=" " class="img-responsive">
                                 </div>
                                 <div class="bootstrap-tab-text-grid-right">
                                     <ul>
-                                        <li><a href="#">Admin</a></li>
-                                        <li><a href="#"><span class="glyphicon glyphicon-share"
-                                                    aria-hidden="true"></span>Reply</a></li>
+                                        <li><a href="#">{{$item->name}}</a></li>
                                     </ul>
-                                    <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-                                        suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem
-                                        vel eum iure reprehenderit.</p>
+                                    <p>{{$item->comment}}</p>
                                 </div>
                                 <div class="clearfix"> </div>
                             </div>
-
+                            @endforeach
+                            @if (isset(Auth::user()->id))
                             <div class="add-review">
                                 <h4>add a review</h4>
-                                <form>
-                                    <input type="text" value="Name" onfocus="this.value = '';"
-                                        onblur="if (this.value == '') {this.value = 'Name';}" required="">
-                                    <input type="email" value="Email" onfocus="this.value = '';"
-                                        onblur="if (this.value == '') {this.value = 'Email';}" required="">
-
-                                    <textarea type="text" onfocus="this.value = '';"
-                                        onblur="if (this.value == '') {this.value = 'Message...';}"
-                                        required="">Message...</textarea>
+                                <form action="/comment" method="POST">
+                                    @csrf
+                                    <input type="text" name="product_id" value="{{$product->id}}" hidden>
+                                    <textarea type="text" name="content"
+                                        required="" placeholder="Message..."></textarea>
                                     <input type="submit" value="SEND">
                                 </form>
                             </div>
+                            @endif
                         </div>
                     </div>
                 </div>

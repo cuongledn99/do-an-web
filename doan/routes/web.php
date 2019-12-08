@@ -13,6 +13,7 @@ Route::post('/login',['as'=>'login','uses'=>'HomeController@postLogin']);
 Route::get('/login','HomeController@getLogin2');
 Route::post('/register','HomeController@postRegister');
 Route::get('product/{id}', 'HomeController@detail_product');
+Route::post('comment','HomeController@comment');
 Route::get('/category/{categoryID}','HomeController@renderProductByCategory');
 /**
  * middleware auth for admin routes

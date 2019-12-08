@@ -12,6 +12,7 @@ use App\Http\Controllers\Hash;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Requests;
 use App\User;
+use App\Feedback_model;
 use App\Detailproduct_model;
 use Illuminate\Support\Facades\Redirect as FacadesRedirect;
 use Redirect;
@@ -147,12 +148,17 @@ class HomeController extends Controller
         return view('homepage.index', ['data'=>$data]);
 
     }
-    public function detail_product(Request $req,Detailproduct_model $model){
+    public function detail_product(Request $req,Detailproduct_model $model, Feedback_model $comment){
         $data = $model->detail_product(array('id'=>$req->id));
-        // echo "<pre>";
-        // print_r ($data);
-        // echo "</pre>";
-        // die;
-        return view('homepage.detail_product',['product'=>$data[0]]);
+        $content = $comment->getcomment(array('product_id'=>$req->id));
+        return view('homepage.detail_product',['product'=>$data[0],'content' => $content]);
+    }
+    public function comment(Request $req, Feedback_model $model){
+        $model->comment = $req->content;
+        $model->name = Auth::user()->username;
+        $model->product_id = $req->product_id;
+        if($model->save()){
+            return redirect($_SERVER['HTTP_REFERER']);
+        }
     }
 }
