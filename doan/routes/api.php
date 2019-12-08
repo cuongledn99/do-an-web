@@ -22,6 +22,9 @@ Route::get('/product/{ProductID}','ProductController@getProductInfo');
 Route::post('/product/{ProductID}','ProductController@updateProduct');
 // Route::get('user/allRoles','UserController@getRoles');
 
+//change password homepage
+Route::post('/changePassword','UserController@changePassword');
+
 //delete staff
 Route::delete('admin/staff/{id}', 'UserController@deleteUser');
 //delete user
@@ -373,8 +376,8 @@ Route::get('/validateEmailRegister/{GetEmailRegister}',function($GetEmailRegiste
     ->count();
     return $data;
 });
-
-Route::post('loginhomepage','HomeController@postLogin');
+// Route::post('login','HomeController@getLogin2');
+Route::post('loginhomepage',['as'=>'login','uses'=>'HomeController@postLogin']);
 Route::post('registerAjax','HomeController@RegisterLogin');
 // get all category name
 Route::get('/category','ProductController@getAllCategory');

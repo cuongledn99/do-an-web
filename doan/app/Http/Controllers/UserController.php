@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\Controller;
 use App\Utils\UploadFile;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\User;
 class UserController extends Controller
 {
     public function getRoles()
@@ -31,6 +33,32 @@ class UserController extends Controller
             ->get();
         return $user;
     }
+    public function changePassword(Request $request){
+        $currentPassword=$request->currentPassword;
+        $newPassword=$request->newPassword;
+        if(Auth::check())
+        {
+            // $id=Auth::user()->id;
+            $user=Auth::user();
+            $username=Auth::user()->username;
+            // $user=User::find($id);
+            $pass=$user->password;
+            info($pass);
+            info($currentPassword);
+            if(Auth::attempt(['username'=>$username,'password'=>$currentPassword]))
+            {
+                // info(bcrypt($newPassword))
+                info("hello");
+                $user->password=bcrypt($newPassword);
+                $user->save();
+                return 1;
+            }
+            else
+            return 0;
+
+        }
+    
+}
 
     public function updateUser(Request $req, $id)
     {

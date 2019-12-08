@@ -111,6 +111,18 @@ label{
 
 .header-right ul .dropdown li{
 	display:block;
+	cursor: pointer;
+
+}
+
+.header-right ul .dropdown li a:hover{
+	background-color: orange;
+	color: white;
+	
+}
+
+.header-right ul .dropdown li a {
+	width: 100% !important;
 }
 
 .header-right ul .dropdown li a:hover{
@@ -5102,3 +5114,18 @@ td.invert-image a img {
 }
 }
 /*-- //responsive media queries --*/
+
+.modal-login-fail {
+	margin-bottom: 0 !important;
+}
+
+.btn-login-fail {
+    margin-top: -18px !important;
+}
+
+.ban-top.fixed {
+	position: fixed;
+	z-index: 1000;
+	width: 100%;
+	top: 0;
+}
