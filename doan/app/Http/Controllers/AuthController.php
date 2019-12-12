@@ -27,7 +27,7 @@ class AuthController extends Controller
 
     public  function login(Request $request)
     {
-        $data = $request->all;
+
         $credentials = $request->only('username', 'password');
         if (Auth::attempt($credentials) && Auth::check()) {
 
