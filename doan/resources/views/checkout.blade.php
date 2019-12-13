@@ -46,7 +46,7 @@
 						</div>
 					</td>
 					<td class="invert">{{$item->name}}</td>
-					<td id="price-{{$item->id}}" class="invert">{{$item->subtotal}} VND</td>
+					<td id="price-{{$item->id}}" class="invert">{{$item->subtotal()}} đ</td>
 				</tr>
 				@endforeach
 				<tfoot>

@@ -59,7 +59,7 @@
 							<i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
 							<span> 
 								<span id="cart-total">{{Cart::subtotal()}}</span>
-								VND
+								đ
 							</span>
 							(
 							<span id="simpleCart_quantity">

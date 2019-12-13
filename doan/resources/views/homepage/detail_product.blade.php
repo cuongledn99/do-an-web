@@ -36,7 +36,7 @@
         <div class="col-md-6 single-right-left simpleCart_shelfItem animated wow slideInRight animated" style="margin-top: 10%;"
             data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInRight;">
             <h3>{{$product->name}}</h3>
-            <p><span class="item_price">{{number_format($product->inPrice)}} đ</span> <del>{{number_format($product->outPrice)}}đ</del></p>
+            <p><span class="item_price">{{number_format($product->outPrice)}} đ</span> </p>
             <div class="occasion-cart">
                 <a href="#" class="item_add hvr-outline-out button2" onclick="addToCart({{$product->id}})">Add to cart</a>
             </div>

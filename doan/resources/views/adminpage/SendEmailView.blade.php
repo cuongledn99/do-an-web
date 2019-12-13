@@ -67,13 +67,13 @@
                                 </div>
                             </td>
                             <td class="invert">{{$item->name}}</td>
-                            <td id="price-{{$item->id}}" class="invert">{{$item->subtotal}} VND</td>
+                            <td id="price-{{$item->id}}" class="invert">{{$item->subtotal()}} đ</td>
                         </tr>
                         @endforeach
                         <tfoot>
                             <tr>
                                 <th colspan="3">Total</th>
-                                <th id="bill-total">{{Cart::subtotal()}} VND</th>
+                                <th id="bill-total">{{Cart::subtotal()}} đ</th>
                             </tr>
                         </tfoot>
                         @else
