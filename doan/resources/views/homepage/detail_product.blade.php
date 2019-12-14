@@ -51,7 +51,14 @@
                     <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab"
                             aria-controls="home" aria-expanded="true">Description</a></li>
                     <li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab"
-                            aria-controls="profile">Reviews(1)</a></li>
+                            aria-controls="profile">
+                            {{-- @foreach ($content as $item) --}}
+                            Reviews(
+                                {{$countComment}}
+                            )
+                            {{-- @endforeach --}}
+                            
+                    </a></li>
                 </ul>
                 <div id="myTabContent" class="tab-content">
                     <div role="tabpanel" class="tab-pane fade in active bootstrap-tab-text" id="home"
