@@ -83,6 +83,7 @@
                                 <div class="clearfix"> </div>
                             </div>
                             @endforeach
+                            @if(Auth::check())
                             @if (isset(Auth::user()->id))
                             <div class="add-review">
                                 <h4>add a review</h4>
@@ -94,6 +95,11 @@
                                     <input type="submit" value="SEND">
                                 </form>
                             </div>
+                            @endif
+                            @else
+                            <div class="alert alert-secondary" role="alert">
+                                Bạn Cần Phải Đăng Nhập Để Comment <a href="#" class="alert-link">Đăng Nhập</a>
+                              </div>
                             @endif
                         </div>
                     </div>
