@@ -98,7 +98,8 @@
                             @endif
                             @else
                             <div class="alert alert-secondary" role="alert">
-                                Bạn Cần Phải Đăng Nhập Để Comment <a href="#" class="alert-link">Đăng Nhập</a>
+                                
+                                You need to login to comment <a href="#" data-toggle="modal" data-target="#myModal4" class="alert-link">Login</a>
                               </div>
                             @endif
                         </div>
