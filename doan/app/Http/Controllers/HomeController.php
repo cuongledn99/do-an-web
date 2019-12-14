@@ -151,7 +151,8 @@ class HomeController extends Controller
     public function detail_product(Request $req,Detailproduct_model $model, Feedback_model $comment){
         $data = $model->detail_product(array('id'=>$req->id));
         $content = $comment->getcomment(array('product_id'=>$req->id));
-        return view('homepage.detail_product',['product'=>$data[0],'content' => $content]);
+       $countComment=count(json_decode($content,true));
+        return view('homepage.detail_product',['product'=>$data[0],'content' => $content,'countComment'=>$countComment]);
     }
     public function comment(Request $req, Feedback_model $model){
         $model->comment = $req->content;
