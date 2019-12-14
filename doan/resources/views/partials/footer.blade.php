@@ -1,43 +1,33 @@
 <!-- footer -->
 <div class="footer">
 	<div class="container">
-		<div class="col-md-3 footer-left">
+		<div class="col-md-2 footer-left">
 			<h2><a href="#"><img src="{{asset('images/logo3.jpg')}}" alt=" " /></a></h2>
-			<p>Neque porro quisquam est, qui dolorem ipsum quia dolor
-			sit amet, consectetur, adipisci velit, sed quia non
-			numquam eius modi tempora incidunt ut labore
-			et dolore magnam aliquam quaerat voluptatem.</p>
+			<p>Terms and conditions</p>
+			<p>Privacy & cookies</p>
+			<p>BRC</p>
+			<p>Accessibility</p>
 		</div>
 		<div class="col-md-9 footer-right">
-			<div class="col-sm-6 newsleft">
-				<h3>SIGN UP FOR NEWSLETTER !</h3>
-			</div>
-			<div class="col-sm-6 newsright">
-				<form>
-					<input type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-					<input type="submit" value="Submit">
-				</form>
-			</div>
+			
+			
 			<div class="clearfix"></div>
 			<div class="sign-grds">
-				<div class="col-md-4 sign-gd">
-					<h4>Information</h4>
+				<div class="col-md-2 sign-gd">
+					<h4></h4>
 					<ul>
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Men's Wear</a></li>
-						<li><a href="#">Women's Wear</a></li>
-						<li><a href="#">Electronics</a></li>
-						<li><a href="#">Short Codes</a></li>
-						<li><a href="#">Contact</a></li>
+						<li></li>
+						<li></li>
+						<li></li>
 					</ul>
 				</div>
 
 				<div class="col-md-4 sign-gd-two">
 					<h4>Store Information</h4>
 					<ul>
-						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Address : 1234k Avenue, 4th block, <span>Newyork City.</span></li>
-						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email : <a href="mailto:info@example.com">info@example.com</a></li>
-						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>Phone : +1234 567 567</li>
+						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Address : 1268-270 Pasteur, Q.3, TP.HCM</li>
+						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email : info@smartshop.com</a></li>
+						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>Phone : + (028) 38.20.20.21</li>
 					</ul>
 				</div>
 				<div class="col-md-4 sign-gd flickr-post">
@@ -58,7 +48,7 @@
 			</div>
 		</div>
 		<div class="clearfix"></div>
-		<p class="copy-right">&copy 2016 Smart Shop. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+		<p class="copy-right">&copy 2019 Smart Shop. All rights reserved | Design by C-H-D</a></p>
 	</div>
 </div>
 <!-- //footer -->

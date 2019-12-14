@@ -103,7 +103,10 @@ class HomeController extends Controller
     {
         return view('homepage.index');
     }
-
+    public function renderContact()
+    {
+        return view('contact');
+    }
     //search
     public function getSearch(Request $request)
     {
