@@ -13,7 +13,7 @@ class CategoryTableSeeder extends Seeder
     {
         DB::table('category')->insert([
             'id'=>1,
-            'categoryName'=>'Boot',
+            'categoryName'=>'Sandal',
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
@@ -25,7 +25,7 @@ class CategoryTableSeeder extends Seeder
         ]);
         DB::table('category')->insert([
             'id'=>3,
-            'categoryName'=>'DepLao',
+            'categoryName'=>'Giày Lười',
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
