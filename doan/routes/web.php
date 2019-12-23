@@ -59,3 +59,6 @@ Route::get('/search','HomeController@getSearch');
 Route::get('/thankyou',function(){
     return view('thankyou');
 });
+
+//QR code
+Route::get('/qrcode','SendEmailController@qrcode');

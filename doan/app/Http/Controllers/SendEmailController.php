@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\DB;
@@ -15,8 +15,14 @@ class SendEmailController extends Controller
     public function index()
     {
         $cart = Cart::content();
-        return view('adminpage.SendEmailView', array('cart' => $cart, 'title' => 'Welcome', 'description' => '', 'page' => 'home'));
+        $qrCode = QrCode::size(200)->generate('thanh toan');
+        return view('adminpage.SendEmailView', array('cart' => $cart, 'title' => 'Welcome', 'description' => '', 'page' => 'home'),compact('qrCode'));
         // return view('adminpage.SendEmailView');
+    }
+    public function qrcode(){
+        $qrCode = QrCode::size(50)->generate('test qr code');
+        // info($qrCode);
+        return view('adminpage.testQRCode',compact('qrCode'));
     }
     function send(Request $request)
     {

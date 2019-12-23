@@ -6,7 +6,6 @@
 <!-- check out -->
 <div class="checkout">
     <div class="container">
-
         <div class="row">
             <div class="col-sm-6">
                 <form action="/sendemail/send" enctype="multipart/form-data" method="POST" id="sendemail">
@@ -31,6 +30,7 @@
                         <button type="submit" class="btn btn-warning btn-rounded w-md waves-effect waves-light m-b-7">Submit</button>
                 </form>
             </div>
+            
             <div class="col-sm-6">
                 <div class="table-responsive checkout-right animated wow slideInUp" class="col" data-wow-delay=".5s">
                     @if(count($cart))
@@ -81,7 +81,14 @@
                         @endif
 
                     </table>
+                    
+                
                 </div>
+            </div>
+            <div class=" text-center">
+                {{-- {!! QrCode::size(250)->email('sapnesh@kerneldev.com', 'Thank you for the QR code tutorial.', 'This was awesome!.');!!} --}}
+                {!!QrCode::size(250)->phoneNumber('0941010197');!!}
+                {{-- {!! QrCode::size(250)->generate('google.com'); !!} --}}
             </div>
 
         </div>
@@ -93,3 +100,19 @@
 </div>
 <!-- //check out -->
 @endsection
+{{-- 
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+<div class="visible-print text-center">
+    <h1>Laravel 5.7 - QR Code Generator Example</h1>
+
+    {!! $qrCode !!}
+</div>
+
+</body>
+</html> --}}

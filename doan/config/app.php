@@ -1,5 +1,5 @@
 <?php
-
+use BaconQrCode\Encoder\QrCode;
 return [
 
     /*
@@ -175,7 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
-
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class
     ],
 
     /*
@@ -190,7 +190,7 @@ return [
     */
 
     'aliases' => [
-
+        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Arr' => Illuminate\Support\Arr::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
