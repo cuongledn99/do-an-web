@@ -81,8 +81,7 @@
                     <div class="info-product-price">
                         <span class="item_price">{{number_format(floatval($item->outPrice))}} đ</span>
                     </div>
-                    <a onclick="addToCart({{$item->id}})" class="item_add single-item hvr-outline-out button2">Add to
-                        cart</a>
+                    <a onclick="addToCart({{$item->id}})" class="item_add single-item hvr-outline-out button2">Add to cart</a>
                 </div>
             </div>
         </div>
