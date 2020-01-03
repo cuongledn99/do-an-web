@@ -155,10 +155,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="row" >
 		<div class="col-sm-4"> </div>
 		<div class="col-sm-4"> </div>
-
-		<div class="col-sm-4" >
-
-			<div style=' z-index:999;position: fixed; width: 100%; bottom:1%; left:1% '	class="fb-page" data-href="https://www.facebook.com/Sample-chat-bot-111148513559842/"
+		<div class="col-sm-4"> <button class="btn btn-primary" style=' z-index:1000;position:fixed; width:300px;bottom:1%; left:1% ' id="lienhe">Liên hệ với chúng tôi</button></div>
+		<div class="col-sm-4" id="chatbot" >
+			<div style=' z-index:999;position:fixed; width:300px;bottom:40px; left:1% '	class="fb-page" data-href="https://www.facebook.com/Sample-chat-bot-111148513559842/"
 				data-tabs="timeline" data-width="" data-height="" data-small-header="false"
 				data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
 				<blockquote cite="https://www.facebook.com/Sample-chat-bot-111148513559842/"
@@ -202,7 +201,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="{{asset('assets/pages/checkout.js')}}"></script>
 	
 	<script src="{{asset('js/imagezoom.js')}}"></script>
-<script src="{{asset('js/jquery.flexslider.js')}}"></script>
+	<script src="{{asset('js/jquery.flexslider.js')}}"></script>
+	<script>
+		$(document).ready(function(){
+			$("#chatbot").hide();
+		  $("#lienhe").click(function(){
+			$("#chatbot").toggle();
+		  });
+		});
+	</script>
+
+
 </body>
 
 </html>
