@@ -155,7 +155,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="row" >
 		<div class="col-sm-4"> </div>
 		<div class="col-sm-4"> </div>
-		<div class="col-sm-4"> <button class="btn btn-primary" style=' z-index:1000;position:fixed; width:300px;bottom:1%; left:1% ' id="lienhe">Liên hệ với chúng tôi</button></div>
+		<div class="col-sm-4"> <button class="btn btn-primary" style=' z-index:1000;position:fixed; width:300px;bottom:0; left:1% ' id="lienhe">Liên hệ với chúng tôi</button></div>
 		<div class="col-sm-4" id="chatbot" >
 			<div style=' z-index:999;position:fixed; width:300px;bottom:40px; left:1% '	class="fb-page" data-href="https://www.facebook.com/Sample-chat-bot-111148513559842/"
 				data-tabs="timeline" data-width="" data-height="" data-small-header="false"
