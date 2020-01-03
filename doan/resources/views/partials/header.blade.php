@@ -33,14 +33,15 @@
 						<div class="dropdown">
 							<a class="dropdown-toggle use1" type="button" data-toggle="dropdown"></a>
 							<ul class="dropdown-menu">
-								{{-- <li><a href="#">{{Auth::user()->username}}</a></li> --}}
+								<li><a href="#">{{Auth::user()->username}}</a></li>
 								<li><a data-toggle="modal" data-target="#orangeModalSubscription">Change Password</a></li>
 								<li><a id="logout-user">Log Out</a></li>
 							</ul>
 						</div>
 					<li>
+						{{Auth::user()->username}}
 				@else
-					<li><a href="#" class="use1" data-toggle="modal" data-target="#myModal4"><span>Login</span></a></li>
+					<li><a href="#" class="use1" data-toggle="modal" data-target="#myModal4"><span></span></a></li>
 				@endif
 			</ul>
 		</div>
