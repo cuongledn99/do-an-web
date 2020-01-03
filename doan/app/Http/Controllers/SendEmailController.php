@@ -16,28 +16,57 @@ class SendEmailController extends Controller
     {
         $cart = Cart::content();
         return view('adminpage.SendEmailView', array('cart' => $cart, 'title' => 'Welcome', 'description' => '', 'page' => 'home'));
-        // return view('adminpage.SendEmailView');
     }
-    function send(Request $request)
+    public function send(Request $request)
     {
-        $nn=[];
-                $this->validate(
+        $nn = [];
+        $this->validate(
             $request,
             [
-                'name'      => 'required',
-                'email'     => 'required|email',
-                // 'message'   => 'required'
+                'name' => 'required',
+                'email' => 'required|email',
             ]);
-            $data=array(
-                    'name' => $request->input('name'),
-                    // 'message' =>$request->input('message'),
-                    'email'=>$request->input('email'),
-                    'product'=>Cart::content(),
-            );
-        
+        $data = array(
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'product' => Cart::content(),
+        );
+        // logic save bill
+        $email = $request->input('email');
+        $phone = $request->input('phone');
+        $address = $request->input('address');
+        // calculate total
+        $total = strval(Cart::subtotal());
+
+        // save bill
+        $newBillID = DB::table('bill')->insertGetId(
+            [
+                'customerEmail' => $email,
+                'customerPhone' => $phone,
+                'customerAddress' => $address,
+                'totalValue' => $total,
+            ]
+        );
+
+        // save bill detail
+        if (is_numeric($newBillID)) {
+            foreach (Cart::content() as $value) {
+                $order_detail = [
+                    'billID' => $newBillID,
+                    'shoesID' =>  $value->id,
+                    'amount' => $value->qty, 
+                    'money' => $value->price,
+                ];
+                DB::table('bill_detail')->insertGetId(
+                    $order_detail
+                );
+            }
+        }
+
+        // send email
         Mail::to($request->input('email'))->send(new SendMail($data));
-        
+
         return redirect('/thankyou');
-        
+
     }
 }

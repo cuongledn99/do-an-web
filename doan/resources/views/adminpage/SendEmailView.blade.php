@@ -9,27 +9,53 @@
 
         <div class="row">
             <div class="col-sm-6">
+                {{-- user login --}}
+                @if(Auth::check())
                 <form action="/sendemail/send" enctype="multipart/form-data" method="POST" id="sendemail">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="name">Your Name:</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter your name" name="name">
+                        <input type="text" required class="form-control" id="name" value="{{Auth::user()->fullname}}" placeholder="Enter your name" name="name">
                     </div>
                     <div class="form-group">
                         <label for="name">Address</label>
-                        <input type="text" class="form-control" id="address" placeholder="Enter your Address"
+                        <input type="text" required class="form-control" id="address" value="{{Auth::user()->address}}" placeholder="Enter your Address"
                             name="address">
                     </div>
                     <div class="form-group">
                         <label for="name">Phone</label>
-                        <input type="text" class="form-control" id="phone" placeholder="Enter your phone" name="phone">
+                        <input type="text" required class="form-control" id="phone"  placeholder="Enter your phone" name="phone">
                     </div>
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                        <input type="email" required class="form-control" id="email" value="{{Auth::user()->email}}" placeholder="Enter email" name="email">
                     </div>
                         <button type="submit" class="btn btn-warning btn-rounded w-md waves-effect waves-light m-b-7">Submit</button>
                 </form>
+                @else
+                {{-- user not login --}}
+                <form action="/sendemail/send" enctype="multipart/form-data" method="POST" id="sendemail">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <label for="name">Your Name:</label>
+                        <input type="text" required class="form-control" id="name" placeholder="Enter your name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Address</label>
+                        <input type="text" required class="form-control" id="address" placeholder="Enter your Address"
+                            name="address">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Phone</label>
+                        <input type="text" required class="form-control" id="phone" placeholder="Enter your phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" required class="form-control" id="email" placeholder="Enter email" name="email">
+                    </div>
+                        <button type="submit" class="btn btn-warning btn-rounded w-md waves-effect waves-light m-b-7">Submit</button>
+                </form>
+                @endif
             </div>
             <div class="col-sm-6">
                 <div class="table-responsive checkout-right animated wow slideInUp" class="col" data-wow-delay=".5s">

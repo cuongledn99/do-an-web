@@ -15,12 +15,16 @@ class CreateBillTable extends Migration
     {
         Schema::create('bill', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('createdBy');
-            $table->foreign('createdBy')->references('id')->on('users');
-            $table->unsignedBigInteger('updatedBy');
-            $table->foreign('updatedBy')->references('id')->on('users');
-            $table->unsignedBigInteger('customerID');
-            $table->foreign('customerID')->references('id')->on('users');
+            $table->string('customerEmail');
+            $table->string('customerPhone');
+            $table->string('customerAddress');
+            $table->string('totalValue');
+            // $table->unsignedBigInteger('createdBy');
+            // $table->foreign('createdBy')->references('id')->on('users');
+            // $table->unsignedBigInteger('updatedBy');
+            // $table->foreign('updatedBy')->references('id')->on('users');
+            // $table->unsignedBigInteger('customerID');
+            // $table->foreign('customerID')->references('id')->on('users');
             $table->timestamps();
         });
     }

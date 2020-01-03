@@ -20,6 +20,7 @@ class CreateBillDetailTable extends Migration
             $table->unsignedBigInteger('shoesID');
             $table->foreign('shoesID')->references('id')->on('shoes');
             $table->integer('amount');
+            $table->string('money');
             $table->timestamps();
         });
     }

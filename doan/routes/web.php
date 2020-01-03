@@ -36,13 +36,12 @@ Route::group(['middleware' => ['MyAuth']], function () {
 Route::get('admin/login', "AdminPageController@loginPage");
 Route::post('/loginAdmin','AuthController@login');
 
-//test send email
+/**
+ * send email page
+ */
 Route::get('/sendemail', 'SendEmailController@index');
 Route::post('/sendemail/send', 'SendEmailController@send');
 
-//test send email
-Route::get('/sendemail','SendEmailController@index');
-Route::post('/sendemail/send','SendEmailController@send');
 /**
  * shopping cart
  */
