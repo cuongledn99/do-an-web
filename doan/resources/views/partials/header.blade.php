@@ -38,9 +38,17 @@
 								<li><a id="logout-user">Log Out</a></li>
 							</ul>
 						</div>
-					<li>
+					</li>
+					<li><a class="fb" href="https://www.facebook.com/Sample-chat-bot-111148513559842/"></a></li>
+					<li><a class="twi" href=""></a></li>
+					<li><a class="insta" href="#"></a></li>
+					<li><a class="you" href="#"></a></li>
 				@else
 					<li><a href="#" class="use1" data-toggle="modal" data-target="#myModal4"><span>Login</span></a></li>
+					<li><a class="fb" href="https://www.facebook.com/Sample-chat-bot-111148513559842/"></a></li>
+					<li><a class="twi" href="#"></a></li>
+					<li><a class="insta" href="#"></a></li>
+					<li><a class="you" href="#"></a></li>
 				@endif
 			</ul>
 		</div>
