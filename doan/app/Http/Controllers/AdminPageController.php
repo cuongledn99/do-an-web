@@ -45,6 +45,28 @@ class AdminPageController extends Controller
                                 ->get();
         return view('adminpage.ProductManagement',['shoes'=>$shoes],['category'=>$category]);
     }
+    public function renderBill(){
+        $bills=DB::table('bill')
+                                //  ->join('category', 'shoes.categoryID', '=', 'category.id')
+                                //  ->select('shoes.id','shoes.name','category.categoryName','shoes.inStock')
+                                 ->get();
+        // $category=DB::table('category')
+        //                         ->get();
+        return view('adminpage.bill',['bills'=>$bills]);
+    }
+    public function getProductInfoByID($productID){
+        $result=$bills=DB::table('bill')
+        ->get();
+        return $result;
+    }
+    public function getBillDetail($billID){
+        $result=DB::table('bill_detail')
+        // ->join('shoes', 'shoes.id', '=', 'bill_detail.shoesID')
+        // ->select('bill_detail.id','shoes.name','bill_detail.customerEmail','bill_detail.customerPhone','bill_detail.customerAddress','bill_detail.totalValue')
+        ->where('billID',$billID )
+        ->get();
+        return $result;
+    }
     public function deleteProduct($id){
         DB::table('shoes')
             ->where('id', '=', $id)

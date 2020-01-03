@@ -20,6 +20,7 @@ Route::get('/user1/{userid}','UserController@getUserInfo1');
 Route::get('/cate/{cateid}','CategoryController@getCateInfor');
 Route::get('/product/{ProductID}','ProductController@getProductInfo');
 Route::post('/product/{ProductID}','ProductController@updateProduct');
+Route::get('/bill/{billID}','AdminpageController@getBillDetail');
 // Route::get('user/allRoles','UserController@getRoles');
 
 //change password homepage

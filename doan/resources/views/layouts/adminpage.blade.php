@@ -146,6 +146,12 @@
                                     category Management </span> </a>
                         </li>
 
+                        <!--quản lý bill -->
+                        <li>
+                            <a href="/admin/bill" class="waves-effect"><i class="mdi mdi-format-font"></i> <span>
+                                    Bill Management </span> </a>
+                        </li>
+
                     </ul>
                     <div class="clearfix"></div>
                 </div>
@@ -232,6 +238,7 @@
     <script src="{{asset('assets/pages/categoryManagement.js')}}"></script>
     <script src="{{asset('assets/pages/productManagement.js')}}"></script>
     <script src="{{asset('assets/pages/userManagement.js')}}"></script>
+    <script src="{{asset('assets/pages/bill.js')}}"></script>
 
     <script>
         $('#btn-logout').click(() => {
